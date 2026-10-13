@@ -1,0 +1,32 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "tc5061_proyecto_equipo17"
+version = "0.0.1"
+description = "Sistema de Machine Learning para predecir la demanda, estimar riesgos operativos y agrupar estaciones del sistema MiBici de Guadalajara."
+authors = [
+  { name = "Equipo 17 MLOps" },
+]
+
+readme = "README.md"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    
+]
+requires-python = "~=3.10.0"
+
+
+[tool.ruff]
+line-length = 99
+src = ["tc5061_proyecto_equipo17"]
+include = ["pyproject.toml", "tc5061_proyecto_equipo17/**/*.py"]
+
+[tool.ruff.lint]
+extend-select = ["I"]  # Add import sorting
+
+[tool.ruff.lint.isort]
+known-first-party = ["tc5061_proyecto_equipo17"]
+force-sort-within-sections = true
+
