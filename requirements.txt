@@ -13,3 +13,4 @@ scikit-learn
 tqdm
 typer
 -e .
+mlflow==3.17.0
