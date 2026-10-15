@@ -5,14 +5,25 @@ import re
 import unicodedata
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.error import HTTPError, URLError
+from urllib.request import Request, urlopen
 
 import pandas as pd
 import typer
 from loguru import logger
 
-from tc5061_proyecto_equipo17.config import PROCESSED_DATA_DIR, RAW_DATA_DIR
+from tc5061_proyecto_equipo17.config import (
+    PROCESSED_DATA_DIR,
+    RAW_DATA_DIR,
+)
 
 app = typer.Typer(help="Pipeline de datos MiBici - Equipo 17")
+
+URL_MIBICI = (
+    "https://www.mibici.net/site/assets/files/97653/"
+    "datos_abiertos_2025_01.csv"
+)
+NOMBRE_CSV = "datos_abiertos_2025_01.csv"
 
 COLUMNAS_REQUERIDAS = {
     "viaje_id",
@@ -41,7 +52,9 @@ def calcular_sha256(ruta: Path) -> str:
     sha = hashlib.sha256()
 
     with ruta.open("rb") as archivo:
-        for bloque in iter(lambda: archivo.read(1024 * 1024), b""):
+        for bloque in iter(
+            lambda: archivo.read(1024 * 1024), b""
+        ):
             sha.update(bloque)
 
     return sha.hexdigest()
@@ -51,18 +64,95 @@ def normalizar_columna(nombre: str) -> str:
     """Convierte nombres de columnas a snake_case sin acentos."""
     nombre = unicodedata.normalize("NFKD", str(nombre))
     nombre = "".join(
-        caracter for caracter in nombre
+        caracter
+        for caracter in nombre
         if not unicodedata.combining(caracter)
     )
     nombre = nombre.strip().lower()
     nombre = re.sub(r"[^a-z0-9]+", "_", nombre)
-
     return nombre.strip("_")
+
+
+def descargar_datos(
+    destino: Path,
+    url: str = URL_MIBICI,
+) -> Path:
+    """
+    Descarga el CSV oficial de MiBici si no existe.
+
+    Usa un archivo temporal para evitar conservar
+    descargas incompletas.
+    """
+    destino.parent.mkdir(parents=True, exist_ok=True)
+
+    if destino.is_file():
+        if destino.stat().st_size == 0:
+            raise ValueError(
+                f"El archivo existente está vacío: {destino}"
+            )
+
+        logger.info(
+            f"El CSV ya existe. Se omite descarga: {destino.name}"
+        )
+        return destino
+
+    temporal = destino.with_name(destino.name + ".part")
+
+    logger.info(f"Descargando datos desde: {url}")
+
+    solicitud = Request(
+        url,
+        headers={"User-Agent": "MiBici-Equipo17/1.0"},
+    )
+
+    try:
+        with urlopen(solicitud, timeout=60) as respuesta:
+            with temporal.open("wb") as archivo:
+                while True:
+                    bloque = respuesta.read(1024 * 1024)
+                    if not bloque:
+                        break
+                    archivo.write(bloque)
+
+        if temporal.stat().st_size == 0:
+            raise ValueError("La descarga produjo un archivo vacío.")
+
+        # Verificación básica del encabezado.
+        with temporal.open("r", encoding="cp1252") as archivo:
+            encabezado = archivo.readline().strip()
+
+        columnas = {
+            normalizar_columna(columna.strip('"'))
+            for columna in encabezado.split(",")
+        }
+
+        faltantes = COLUMNAS_REQUERIDAS - columnas
+
+        if faltantes:
+            raise ValueError(
+                "El archivo descargado no tiene el formato "
+                f"esperado. Faltan: {sorted(faltantes)}"
+            )
+
+        temporal.replace(destino)
+
+    except (HTTPError, URLError, OSError, ValueError) as error:
+        logger.error(f"Error al descargar MiBici: {error}")
+        raise
+    finally:
+        if temporal.exists():
+            temporal.unlink()
+
+    logger.success(
+        f"Descarga completada: {destino.name} "
+        f"({destino.stat().st_size:,} bytes)"
+    )
+
+    return destino
 
 
 def procesar_archivo(ruta_csv: Path) -> dict:
     """Procesa un CSV de MiBici y genera un archivo Parquet."""
-
     logger.info(f"Leyendo archivo: {ruta_csv.name}")
 
     df = pd.read_csv(
@@ -79,7 +169,10 @@ def procesar_archivo(ruta_csv: Path) -> dict:
 
     registros_originales = len(df)
 
-    df.columns = [normalizar_columna(c) for c in df.columns]
+    df.columns = [
+        normalizar_columna(columna)
+        for columna in df.columns
+    ]
 
     faltantes = COLUMNAS_REQUERIDAS - set(df.columns)
 
@@ -123,13 +216,17 @@ def procesar_archivo(ruta_csv: Path) -> dict:
     df["mes"] = df["inicio_del_viaje"].dt.month
 
     # Excluimos Usuario_Id, genero y año de nacimiento.
-    # Conservamos el ID del viaje solo para trazabilidad interna.
+    # Conservamos el ID del viaje para trazabilidad interna.
     df = df[COLUMNAS_SALIDA].copy()
 
-    PROCESSED_DATA_DIR.mkdir(parents=True, exist_ok=True)
+    PROCESSED_DATA_DIR.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
 
     ruta_parquet = (
-        PROCESSED_DATA_DIR / f"{ruta_csv.stem}_procesado.parquet"
+        PROCESSED_DATA_DIR
+        / f"{ruta_csv.stem}_procesado.parquet"
     )
 
     df.to_parquet(
@@ -146,9 +243,14 @@ def procesar_archivo(ruta_csv: Path) -> dict:
         "sha256_procesado": calcular_sha256(ruta_parquet),
         "registros_originales": registros_originales,
         "registros_procesados": len(df),
-        "registros_descartados": registros_originales - len(df),
+        "registros_descartados": (
+            registros_originales - len(df)
+        ),
         "columnas_procesadas": COLUMNAS_SALIDA,
     }
+
+    if ruta_csv.name == NOMBRE_CSV:
+        resultado["url_origen"] = URL_MIBICI
 
     logger.success(
         f"{ruta_csv.name}: {len(df):,} registros procesados"
@@ -163,13 +265,23 @@ def main(
     output_manifest: Path = (
         PROCESSED_DATA_DIR / "manifest.json"
     ),
+    descargar: bool = True,
 ):
-    """Procesa todos los archivos CSV disponibles en data/raw."""
+    """
+    Descarga el CSV de enero de 2025 si falta
+    y procesa todos los CSV disponibles.
+    """
+    input_dir.mkdir(parents=True, exist_ok=True)
+
+    if descargar:
+        descargar_datos(input_dir / NOMBRE_CSV)
 
     archivos = sorted(input_dir.glob("*.csv"))
 
     if not archivos:
-        logger.error(f"No se encontraron CSV en {input_dir}")
+        logger.error(
+            f"No se encontraron archivos CSV en {input_dir}"
+        )
         raise typer.Exit(code=1)
 
     resultados = []
@@ -180,6 +292,7 @@ def main(
     manifiesto = {
         "proyecto": "TC5061-Proyecto-Equipo17",
         "dataset": "MiBici Guadalajara",
+        "fuente": "https://www.mibici.net/es/datos-abiertos/",
         "fecha_procesamiento_utc": datetime.now(
             timezone.utc
         ).isoformat(),
