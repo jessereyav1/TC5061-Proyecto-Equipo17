@@ -1,5 +1,4 @@
-# Data
-/data/
+
 
 # Mac OS-specific storage files
 .DS_Store
@@ -193,8 +192,7 @@ cython_debug/
 # Proyecto MiBici - Equipo 17 MLOps
 # ========================================
 
-# Datos descargados y procesados
-data/
+
 
 # Experimentos de MLflow
 mlruns/
@@ -219,3 +217,6 @@ mlflow.db
 venv/
 env/
 
+
+# Windows metadata
+*:Zone.Identifier
