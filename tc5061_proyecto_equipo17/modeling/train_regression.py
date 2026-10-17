@@ -123,36 +123,37 @@ class RegressionModelTrainer:
 
     def entrenar_y_registrar(
         self,
-        n_estimators: int = 100,
-        max_depth: int = 15,
+        n_estimators: int = 150,
+        max_depth: int = 20,
+        min_samples_split: int = 5,
+        min_samples_leaf: int = 2,
+        max_features: str = "sqrt",
         random_state: int = 42,
         test_ratio: float = 0.2,
-        run_name: str = "RandomForest_Baseline",
+        run_name: str = "RandomForest_Tuned",
         data_filename: str = "features_regresion_escalados.parquet",
     ):
         """
-        Ejecuta el pipeline completo de entrenamiento, loguea parámetros de reproducibilidad,
+        Ejecuta el pipeline completo de entrenamiento, logueando hiperparámetros avanzados,
         métricas, artefactos y tags de control en MLflow.
         """
-        # 1. Cargar datos
         df = self.cargar_datos(input_filename=data_filename)
 
-        # 2. Extraer metadatos de los datos y entorno para reproducibilidad
         fecha_min = str(df["fecha_hora_inicio"].min())
         fecha_max = str(df["fecha_hora_inicio"].max())
         git_commit = obtener_git_commit()
 
-        # 3. División temporal
         X_train, X_test, y_train, y_test, feature_cols = self.split_temporal(df, test_ratio=test_ratio)
 
-        # 4. Iniciar run en MLflow
         with mlflow.start_run(run_name=run_name):
-            logger.info(f"Entrenando modelo {run_name} con {n_estimators} árboles...")
+            logger.info(f"Entrenando modelo {run_name} con hiperparámetros ajustados...")
 
-            # Hiperparámetros y metadatos de reproducibilidad
             params = {
                 "n_estimators": n_estimators,
                 "max_depth": max_depth,
+                "min_samples_split": min_samples_split,
+                "min_samples_leaf": min_samples_leaf,
+                "max_features": max_features,
                 "random_state": random_state,
                 "test_ratio": test_ratio,
                 "data_version_file": data_filename,
@@ -161,58 +162,61 @@ class RegressionModelTrainer:
                 "n_features": len(feature_cols),
             }
 
-            # Configurar etiquetas obligatorias (Tags)
             mlflow.set_tag("team", "equipo-17")
             mlflow.set_tag("question", "P1")
             mlflow.set_tag("git_commit", git_commit)
 
-            # 5. Entrenar modelo
             model = RandomForestRegressor(
                 n_estimators=n_estimators,
                 max_depth=max_depth,
+                min_samples_split=min_samples_split,
+                min_samples_leaf=min_samples_leaf,
+                max_features=max_features,
                 random_state=random_state,
                 n_jobs=-1,
             )
             model.fit(X_train, y_train)
 
-            # 6. Predicciones y métricas
             y_pred = model.predict(X_test)
             metricas = self.calcular_metricas(y_test, y_pred)
 
-            logger.info(f"Métricas alcanzadas en Test -> RMSE: {metricas['rmse']:.4f} | MAE: {metricas['mae']:.4f} | R2: {metricas['r2']:.4f}")
+            logger.info(f"Métricas en Test -> RMSE: {metricas['rmse']:.4f} | MAE: {metricas['mae']:.4f} | R2: {metricas['r2']:.4f}")
 
-            # 7. Registrar parámetros y métricas
             mlflow.log_params(params)
             mlflow.log_metrics(metricas)
 
-            # 8. Registrar artefacto de importancia de características
             fig_path = self.generar_grafico_importancia(model, feature_cols)
             mlflow.log_artifact(fig_path)
 
-            # 9. Registrar modelo serializado con skops_trusted_types
             mlflow.sklearn.log_model(
                 model,
                 artifact_path="model",
                 skops_trusted_types=["sklearn.tree._tree.Tree"],
             )
 
-            logger.success(f"Experimento registrado con éxito en '{self.experiment_name}' (Commit: {git_commit[:7]})")
+            logger.success(f"Experimento sintonizado registrado con éxito en '{self.experiment_name}'")
 
 
 @app.command()
 def main(
-    n_estimators: int = 100,
-    max_depth: int = 15,
-    run_name: str = "RandomForest_Baseline",
+    n_estimators: int = 150,
+    max_depth: int = 20,
+    min_samples_split: int = 5,
+    min_samples_leaf: int = 2,
+    max_features: str = "sqrt",
+    run_name: str = "RandomForest_Tuned",
 ):
     """
-    Ejecuta el entrenamiento del modelo de regresión bajo los estándares MLOps solicitados.
+    Ejecuta el entrenamiento del modelo de regresión con hiperparámetros avanzados.
     """
-    logger.info("Iniciando ejecución de entrenamiento del modelo de regresión...")
+    logger.info("Iniciando ejecución de entrenamiento con hiperparámetros sintonizados...")
     trainer = RegressionModelTrainer()
     trainer.entrenar_y_registrar(
         n_estimators=n_estimators,
         max_depth=max_depth,
+        min_samples_split=min_samples_split,
+        min_samples_leaf=min_samples_leaf,
+        max_features=max_features,
         run_name=run_name,
     )
 
