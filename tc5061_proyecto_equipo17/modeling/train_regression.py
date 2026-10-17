@@ -16,7 +16,7 @@ from tc5061_proyecto_equipo17.config import PROCESSED_DATA_DIR, MODELS_DIR
 
 
 app = typer.Typer(
-    help="Módulo de Entrenamiento e Integración MLOps con MLflow para el Modelo de Regresión - MiBici Equipo 17"
+    help="Módulo de Entrenamiento e Integración MLOps con división temporal por fechas y MLflow - MiBici Equipo 17"
 )
 
 
@@ -32,8 +32,9 @@ def obtener_git_commit() -> str:
 
 class RegressionModelTrainer:
     """
-    Clase orientada a objetos responsable de gestionar la división temporal de datos,
-    el entrenamiento del modelo de regresión y el registro de parámetros, métricas, artefactos y tags en MLflow.
+    Clase orientada a objetos responsable de gestionar la división temporal por fechas 
+    (Train <= Jul 2026, Val = Ago 2026, Test = Sep 2026), el entrenamiento del modelo 
+    y el registro de parámetros, métricas, artefactos y tags en MLflow.
     """
 
     def __init__(
@@ -58,30 +59,36 @@ class RegressionModelTrainer:
         df = pd.read_parquet(ruta_features)
         return df.sort_values(by="fecha_hora_inicio").reset_index(drop=True)
 
-    def split_temporal(
-        self, df: pd.DataFrame, target_col: str = "demanda_viajes", test_ratio: float = 0.2
-    ) -> Tuple[pd.DataFrame, pd.DataFrame, pd.Series, pd.Series, List[str]]:
+    def split_temporal_por_fechas(
+        self, df: pd.DataFrame, target_col: str = "demanda_viajes"
+    ) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.Series, pd.Series, pd.Series, List[str]]:
         """
-        Realiza una división basada en el tiempo (Time Series Split) para evitar data leakage.
+        Realiza una división temporal estricta por calendario para evitar data leakage:
+        - Entrenamiento: Octubre 2024 hasta Julio 2026
+        - Validación: Agosto 2026
+        - Prueba (Test): Septiembre 2026
         """
         exclude_cols = ["origen_id", "fecha_hora_inicio", target_col]
         feature_cols = [col for col in df.columns if col not in exclude_cols]
 
-        n_samples = len(df)
-        split_idx = int(n_samples * (1 - test_ratio))
-
-        train_df = df.iloc[:split_idx]
-        test_df = df.iloc[split_idx:]
+        # Filtros de fecha estrictos
+        train_df = df[df["fecha_hora_inicio"] < pd.to_datetime("2026-08-01")]
+        val_df = df[(df["fecha_hora_inicio"] >= pd.to_datetime("2026-08-01")) & (df["fecha_hora_inicio"] < pd.to_datetime("2026-09-01"))]
+        test_df = df[df["fecha_hora_inicio"] >= pd.to_datetime("2026-09-01")]
 
         X_train, y_train = train_df[feature_cols], train_df[target_col]
+        X_val, y_val = val_df[feature_cols], val_df[target_col]
         X_test, y_test = test_df[feature_cols], test_df[target_col]
 
         logger.info(
-            f"División temporal realizada - Entrenar: {len(X_train):,} filas | Evaluar: {len(X_test):,} filas"
+            f"División temporal por fechas completada:\n"
+            f"  - Entrenamiento (Oct 2024 - Jul 2026): {len(X_train):,} filas\n"
+            f"  - Validación (Ago 2026): {len(X_val):,} filas\n"
+            f"  - Prueba / Test (Sep 2026): {len(X_test):,} filas"
         )
-        return X_train, X_test, y_train, y_test, feature_cols
+        return X_train, X_val, X_test, y_train, y_val, y_test, feature_cols
 
-    def calcular_metricas(self, y_true: np.ndarray, y_pred: np.ndarray) -> Dict[str, float]:
+    def calcular_metricas(self, y_true: np.ndarray, y_pred: np.ndarray, prefijo: str = "") -> Dict[str, float]:
         """Calcula métricas clave de evaluación de regresión (RMSE, MAE, R2, MAPE)."""
         rmse = np.sqrt(mean_squared_error(y_true, y_pred))
         mae = mean_absolute_error(y_true, y_pred)
@@ -90,11 +97,12 @@ class RegressionModelTrainer:
         mask = y_true != 0
         mape = np.mean(np.abs((y_true[mask] - y_pred[mask]) / y_true[mask])) * 100 if np.any(mask) else np.nan
 
+        p = f"{prefijo}_" if prefijo else ""
         return {
-            "rmse": float(rmse),
-            "mae": float(mae),
-            "r2": float(r2),
-            "mape": float(mape),
+            f"{p}rmse": float(rmse),
+            f"{p}mae": float(mae),
+            f"{p}r2": float(r2),
+            f"{p}mape": float(mape),
         }
 
     def generar_grafico_importancia(
@@ -129,13 +137,12 @@ class RegressionModelTrainer:
         min_samples_leaf: int = 2,
         max_features: str = "sqrt",
         random_state: int = 42,
-        test_ratio: float = 0.2,
-        run_name: str = "RandomForest_Tuned",
+        run_name: str = "RandomForest_TemporalSplit",
         data_filename: str = "features_regresion_escalados.parquet",
     ):
         """
-        Ejecuta el pipeline completo de entrenamiento, logueando hiperparámetros avanzados,
-        métricas, artefactos y tags de control en MLflow.
+        Ejecuta el pipeline completo de entrenamiento con división por fechas,
+        registrando hiperparámetros, métricas de validación y test, artefactos y tags en MLflow.
         """
         df = self.cargar_datos(input_filename=data_filename)
 
@@ -143,10 +150,10 @@ class RegressionModelTrainer:
         fecha_max = str(df["fecha_hora_inicio"].max())
         git_commit = obtener_git_commit()
 
-        X_train, X_test, y_train, y_test, feature_cols = self.split_temporal(df, test_ratio=test_ratio)
+        X_train, X_val, X_test, y_train, y_val, y_test, feature_cols = self.split_temporal_por_fechas(df)
 
         with mlflow.start_run(run_name=run_name):
-            logger.info(f"Entrenando modelo {run_name} con hiperparámetros ajustados...")
+            logger.info(f"Entrenando modelo {run_name} con división temporal estricta...")
 
             params = {
                 "n_estimators": n_estimators,
@@ -155,7 +162,10 @@ class RegressionModelTrainer:
                 "min_samples_leaf": min_samples_leaf,
                 "max_features": max_features,
                 "random_state": random_state,
-                "test_ratio": test_ratio,
+                "split_strategy": "date_calendar_split",
+                "train_period": "Oct 2024 - Jul 2026",
+                "val_period": "Aug 2026",
+                "test_period": "Sep 2026",
                 "data_version_file": data_filename,
                 "fecha_min_datos": fecha_min,
                 "fecha_max_datos": fecha_max,
@@ -177,13 +187,26 @@ class RegressionModelTrainer:
             )
             model.fit(X_train, y_train)
 
-            y_pred = model.predict(X_test)
-            metricas = self.calcular_metricas(y_test, y_pred)
+            # Evaluación en Validación (Agosto 2026)
+            y_pred_val = model.predict(X_val)
+            metricas_val = self.calcular_metricas(y_val, y_pred_val, prefijo="val")
 
-            logger.info(f"Métricas en Test -> RMSE: {metricas['rmse']:.4f} | MAE: {metricas['mae']:.4f} | R2: {metricas['r2']:.4f}")
+            # Evaluación en Test (Septiembre 2026)
+            y_pred_test = model.predict(X_test)
+            metricas_test = self.calcular_metricas(y_test, y_pred_test, prefijo="test")
+
+            # Consolidar todas las métricas
+            metricas_totales = {**metricas_val, **metricas_test}
+
+            logger.info(
+                f"Métricas Validación (Ago 2026) -> RMSE: {metricas_val['val_rmse']:.4f} | R2: {metricas_val['val_r2']:.4f}"
+            )
+            logger.info(
+                f"Métricas Prueba (Sep 2026)     -> RMSE: {metricas_test['test_rmse']:.4f} | R2: {metricas_test['test_r2']:.4f}"
+            )
 
             mlflow.log_params(params)
-            mlflow.log_metrics(metricas)
+            mlflow.log_metrics(metricas_totales)
 
             fig_path = self.generar_grafico_importancia(model, feature_cols)
             mlflow.log_artifact(fig_path)
@@ -194,7 +217,7 @@ class RegressionModelTrainer:
                 skops_trusted_types=["sklearn.tree._tree.Tree"],
             )
 
-            logger.success(f"Experimento sintonizado registrado con éxito en '{self.experiment_name}'")
+            logger.success(f"Entrenamiento y registro completados con éxito en MLflow ('{self.experiment_name}')")
 
 
 @app.command()
@@ -204,12 +227,12 @@ def main(
     min_samples_split: int = 5,
     min_samples_leaf: int = 2,
     max_features: str = "sqrt",
-    run_name: str = "RandomForest_Tuned",
+    run_name: str = "RandomForest_TemporalSplit",
 ):
     """
-    Ejecuta el entrenamiento del modelo de regresión con hiperparámetros avanzados.
+    Ejecuta el entrenamiento del modelo de regresión con división temporal basada en fechas específicas.
     """
-    logger.info("Iniciando ejecución de entrenamiento con hiperparámetros sintonizados...")
+    logger.info("Iniciando pipeline de entrenamiento con división por fechas (Jul/Ago/Sep 2026)...")
     trainer = RegressionModelTrainer()
     trainer.entrenar_y_registrar(
         n_estimators=n_estimators,
