@@ -73,6 +73,96 @@ def p2_flujo_horario(
     return flujo
 
 
+def p2_ocupacion_estimada(
+    flujo: pd.DataFrame, estaciones: pd.DataFrame, frac_inicial: float = 0.5
+) -> pd.DataFrame:
+    """Estima la ocupación de cada estación por hora con un proxy (P2).
+
+    Como MiBici no publica el inventario de bicicletas, la ocupación se
+    aproxima así: cada día inicia con ``frac_inicial`` de la capacidad y se le
+    suma el flujo neto acumulado del día (llegadas − salidas). El acumulado se
+    reinicia a las 00:00, lo que coincide con la ventana de baja operación
+    nocturna en la que el sistema se rebalancea.
+
+    Se excluyen, con aviso en el log, las estaciones sin capacidad válida
+    (faltante o igual a 0) para evitar divisiones entre cero.
+
+    Pertinencia para P2: el porcentaje de ocupación es la variable con la que
+    se define el riesgo de quedarse sin bicicletas o sin anclajes.
+
+    Limitaciones: la ocupación estimada puede ser negativa o superar la
+    capacidad; se interpreta como que la estación ya se habría vaciado o
+    llenado. La capacidad proviene de la nomenclatura de 2026-09 y se asume
+    constante en el periodo analizado.
+
+    Fuga temporal: el acumulado en la hora ``t`` solo suma horas del mismo día
+    hasta ``t`` inclusive.
+
+    Args:
+        flujo: Salida de ``p2_flujo_horario``.
+        estaciones: Nomenclatura con columnas ``id`` y ``dpcapacity``.
+        frac_inicial: Fracción de la capacidad con la que inicia cada día.
+
+    Returns:
+        ``flujo`` con las columnas ``capacidad``, ``neto_acum_dia``,
+        ``ocupacion`` y ``pct_ocupacion``.
+    """
+    capacidad = estaciones.set_index("id")["dpcapacity"]
+    flujo = flujo.copy()
+    flujo["capacidad"] = flujo.index.get_level_values(
+        "estacion_id").map(capacidad)
+
+    invalida = flujo["capacidad"].isna() | (flujo["capacidad"] <= 0)
+    if invalida.any():
+        n = flujo[invalida].index.get_level_values("estacion_id").nunique()
+        logger.warning(f"Se excluyen {n} estaciones sin capacidad válida.")
+        flujo = flujo[~invalida].copy()
+
+    est = flujo.index.get_level_values("estacion_id")
+    dia = flujo.index.get_level_values("hora_ts").normalize()
+    flujo["neto_acum_dia"] = flujo.groupby([est, dia])["neto"].cumsum()
+    flujo["ocupacion"] = frac_inicial * \
+        flujo["capacidad"] + flujo["neto_acum_dia"]
+    flujo["pct_ocupacion"] = flujo["ocupacion"] / flujo["capacidad"]
+    return flujo
+
+
+def p2_etiqueta_riesgo(
+    flujo: pd.DataFrame, umbral_bajo: float = 0.10, umbral_alto: float = 0.90
+) -> pd.DataFrame:
+    """Construye la etiqueta de riesgo de la siguiente hora (P2).
+
+    Una estación está en riesgo en la hora ``t`` si su ocupación estimada es
+    menor que ``umbral_bajo`` (riesgo de quedarse sin bicicletas) o mayor que
+    ``umbral_alto`` (riesgo de quedarse sin anclajes).
+
+    - ``riesgo_ahora``: riesgo al cierre de la hora ``t``. Es conocido en el
+      momento de la predicción y puede usarse como feature.
+    - ``riesgo_siguiente_hora``: riesgo en ``t + 1``. Es la **variable
+      objetivo**; por definición mira al futuro y nunca debe usarse como
+      feature. La última hora de cada estación queda en ``NaN``.
+
+    Pertinencia para P2: permite al equipo de rebalanceo anticipar con una
+    hora de margen qué estaciones necesitan atención.
+
+    Args:
+        flujo: Salida de ``p2_ocupacion_estimada``.
+        umbral_bajo: Fracción de ocupación por debajo de la cual hay riesgo.
+        umbral_alto: Fracción de ocupación por encima de la cual hay riesgo.
+
+    Returns:
+        ``flujo`` con las columnas ``riesgo_ahora`` y ``riesgo_siguiente_hora``.
+    """
+    flujo = flujo.copy()
+    pct = flujo["pct_ocupacion"]
+    flujo["riesgo_ahora"] = ((pct < umbral_bajo) |
+                             (pct > umbral_alto)).astype(int)
+    flujo["riesgo_siguiente_hora"] = (
+        flujo.groupby(level="estacion_id")["riesgo_ahora"].shift(-1)
+    )
+    return flujo
+
+
 @app.command()
 def main(
     # ---- REPLACE DEFAULT PATHS AS APPROPRIATE ----
