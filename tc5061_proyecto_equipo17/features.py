@@ -7,8 +7,19 @@ import typer
 
 from tc5061_proyecto_equipo17.config import PROCESSED_DATA_DIR
 
-
 app = typer.Typer()
+
+P2_FEATURES = [
+    "hora_dia",
+    "dia_semana",
+    "fin_de_semana",
+    "capacidad",
+    "pct_ocupacion",
+    "riesgo_ahora",
+    "neto",
+    "neto_ult_3h",
+]
+P2_OBJETIVO = "riesgo_siguiente_hora"
 
 
 def p2_flujo_horario(
@@ -160,6 +171,71 @@ def p2_etiqueta_riesgo(
     flujo["riesgo_siguiente_hora"] = (
         flujo.groupby(level="estacion_id")["riesgo_ahora"].shift(-1)
     )
+    return flujo
+
+
+def p2_features(flujo: pd.DataFrame) -> pd.DataFrame:
+    """Agrega las variables predictoras de P2.
+
+    - ``hora_dia``, ``dia_semana``, ``fin_de_semana``: capturan los picos de
+      uso(8: 00 y 18: 00) y la diferencia entre días laborales y fin de semana.
+    - ``neto_ult_3h``: suma del flujo neto de la hora actual y las dos
+      anteriores en la misma estación; indica si la estación viene vaciándose
+      o llenándose.
+
+    Junto con ``capacidad``, ``pct_ocupacion``, ``riesgo_ahora`` y ``neto``
+    forman ``P2_FEATURES``.
+
+    Fuga temporal: todas las variables se conocen al cierre de la hora ``t``.
+    La ventana de ``neto_ult_3h`` solo mira hacia atrás y se calcula por
+    estación para no mezclar series.
+
+    Args:
+        flujo: Salida de ``p2_etiqueta_riesgo``.
+
+    Returns:
+        ``flujo`` con las columnas ``hora_dia``, ``dia_semana``,
+        ``fin_de_semana`` y ``neto_ult_3h``.
+    """
+    flujo = flujo.copy()
+    hora = flujo.index.get_level_values("hora_ts")
+    flujo["hora_dia"] = hora.hour
+    flujo["dia_semana"] = hora.dayofweek
+    flujo["fin_de_semana"] = (flujo["dia_semana"] >= 5).astype(int)
+    flujo["neto_ult_3h"] = flujo.groupby(level="estacion_id")["neto"].transform(
+        lambda s: s.rolling(3, min_periods=1).sum()
+    )
+    return flujo
+
+
+def p2_construir_dataset(
+    viajes: pd.DataFrame,
+    estaciones: pd.DataFrame,
+    fecha_inicio: str,
+    fecha_fin: str,
+) -> pd.DataFrame:
+    """Construye el dataset completo de P2: features y etiqueta.
+
+    Encadena ``p2_flujo_horario`` → ``p2_ocupacion_estimada`` →
+    ``p2_etiqueta_riesgo`` → ``p2_features`` y descarta las filas sin
+    etiqueta(la última hora de cada estación).
+
+    Args:
+        viajes: Viajes procesados.
+        estaciones: Nomenclatura con ``id`` y ``dpcapacity``.
+        fecha_inicio: Primer día del periodo(``"AAAA-MM-DD"``).
+        fecha_fin: Último día del periodo, inclusive(``"AAAA-MM-DD"``).
+
+    Returns:
+        DataFrame con índice(``estacion_id``, ``hora_ts``), las columnas de
+        ``P2_FEATURES`` y ``P2_OBJETIVO`` como entero.
+    """
+    flujo = p2_flujo_horario(viajes, fecha_inicio, fecha_fin)
+    flujo = p2_ocupacion_estimada(flujo, estaciones)
+    flujo = p2_etiqueta_riesgo(flujo)
+    flujo = p2_features(flujo)
+    flujo = flujo.dropna(subset=[P2_OBJETIVO])
+    flujo[P2_OBJETIVO] = flujo[P2_OBJETIVO].astype(int)
     return flujo
 
 
