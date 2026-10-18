@@ -21,6 +21,17 @@ MODELS_DIR = PROJ_ROOT / "models"
 REPORTS_DIR = PROJ_ROOT / "reports"
 FIGURES_DIR = REPORTS_DIR / "figures"
 
+# Periodo de datos y partición temporal (train: enero, test: febrero)
+FECHA_INICIO = "2025-01-01"
+FECHA_FIN = "2025-02-28"
+FECHA_CORTE_TEST = "2025-02-01"
+
+# Reproducibilidad
+SEED = 42
+
+# MLflow: un solo experimento para todo el proyecto
+MLFLOW_EXPERIMENT = "mibici-equipo17"
+
 # If tqdm is installed, configure loguru with tqdm.write
 # https://github.com/Delgan/loguru/issues/135
 try:
