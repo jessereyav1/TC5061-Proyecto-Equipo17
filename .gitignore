@@ -219,5 +219,11 @@ venv/
 env/
 
 
+# MiBici datasets - generated locally
+/data/raw/
+/data/processed/
+/data/interim/
+/data/external/
+
 # Windows metadata
 *:Zone.Identifier

@@ -1,4 +1,5 @@
 
+import csv
 import hashlib
 import json
 import re
@@ -13,6 +14,7 @@ import typer
 from loguru import logger
 
 from tc5061_proyecto_equipo17.config import (
+    EXTERNAL_DATA_DIR,
     PROCESSED_DATA_DIR,
     RAW_DATA_DIR,
 )
@@ -26,7 +28,6 @@ app = typer.Typer(
     help="Pipeline de datos MiBici Guadalajara - Equipo 17"
 )
 
-# URLs oficiales verificadas de enero y febrero de 2025.
 URLS_MIBICI = {
     "datos_abiertos_2025_01.csv": (
         "https://www.mibici.net/site/assets/files/97653/"
@@ -38,7 +39,14 @@ URLS_MIBICI = {
     ),
 }
 
-# Se mantienen por compatibilidad con el codigo anterior.
+NOMBRE_NOMENCLATURA = "nomenclatura_2026_09.csv"
+
+URL_NOMENCLATURA = (
+    "https://www.mibici.net/site/assets/files/1118/"
+    "nomenclatura_2026_09.csv"
+)
+
+# Compatibilidad con el codigo anterior.
 NOMBRE_CSV = "datos_abiertos_2025_01.csv"
 URL_MIBICI = URLS_MIBICI[NOMBRE_CSV]
 
@@ -62,6 +70,26 @@ COLUMNAS_SALIDA = [
     "dia_semana",
     "mes",
 ]
+
+COLUMNAS_ID_ESTACION = {
+    "id",
+    "id_estacion",
+    "estacion_id",
+    "station_id",
+    "codigo",
+    "codigo_estacion",
+}
+
+COLUMNAS_CAPACIDAD = {
+    "capacidad",
+    "capacidad_estacion",
+    "capacidad_total",
+    "capacity",
+    "dpcapacity",
+    "total_anclajes",
+    "anclajes",
+    "dock_count",
+}
 
 
 # ============================================================
@@ -100,22 +128,89 @@ def normalizar_columna(nombre: str) -> str:
     return nombre.strip("_")
 
 
+def detectar_formato_csv(ruta: Path):
+    """
+    Detecta la codificacion y el separador del CSV.
+
+    Retorna:
+        encoding, separador, columnas_normalizadas
+    """
+
+    with ruta.open("rb") as archivo:
+        contenido = archivo.read(65536)
+
+    if not contenido:
+        raise ValueError(
+            f"Archivo CSV vacio: {ruta}"
+        )
+
+    texto = None
+    encoding_usado = None
+
+    for encoding in ("utf-8-sig", "cp1252"):
+        try:
+            texto = contenido.decode(encoding)
+            encoding_usado = encoding
+            break
+        except UnicodeDecodeError:
+            continue
+
+    if texto is None:
+        raise ValueError(
+            f"No se pudo identificar la codificacion: {ruta.name}"
+        )
+
+    encabezado = texto.splitlines()[0]
+
+    if encabezado.lstrip().lower().startswith(
+        ("<html", "<!doctype")
+    ):
+        raise ValueError(
+            f"El archivo parece HTML, no CSV: {ruta.name}"
+        )
+
+    separador = max(
+        (",", ";", "\t"),
+        key=lambda sep: encabezado.count(sep),
+    )
+
+    columnas = next(
+        csv.reader(
+            [encabezado],
+            delimiter=separador,
+        )
+    )
+
+    columnas_normalizadas = [
+        normalizar_columna(columna)
+        for columna in columnas
+    ]
+
+    if len(columnas_normalizadas) < 2:
+        raise ValueError(
+            f"Encabezado CSV invalido: {ruta.name}"
+        )
+
+    return (
+        encoding_usado,
+        separador,
+        columnas_normalizadas,
+    )
+
+
 # ============================================================
-# DESCARGA AUTOMATICA
+# DESCARGA DE ARCHIVOS
 # ============================================================
 
-def descargar_datos(
+def descargar_archivo(
     destino: Path,
-    url: str = URL_MIBICI,
+    url: str,
 ) -> Path:
     """
-    Descarga un CSV oficial de MiBici si no existe.
+    Descarga un archivo oficial de MiBici.
 
-    Utiliza un archivo temporal para evitar conservar
-    descargas incompletas.
-
-    Verifica que el archivo tenga contenido y que incluya
-    las columnas obligatorias.
+    Evita descargas repetidas y utiliza un archivo temporal
+    para no conservar descargas incompletas.
     """
 
     destino.parent.mkdir(
@@ -123,16 +218,14 @@ def descargar_datos(
         exist_ok=True,
     )
 
-    # Evitar descargas repetidas.
     if destino.is_file():
-
         if destino.stat().st_size == 0:
             raise ValueError(
                 f"El archivo existente esta vacio: {destino}"
             )
 
         logger.info(
-            f"El CSV ya existe. Se omite descarga: {destino.name}"
+            f"Archivo existente, se omite descarga: {destino.name}"
         )
 
         return destino
@@ -142,7 +235,7 @@ def descargar_datos(
     )
 
     logger.info(
-        f"Descargando datos desde: {url}"
+        f"Descargando: {url}"
     )
 
     solicitud = Request(
@@ -153,16 +246,13 @@ def descargar_datos(
     )
 
     try:
-
         with urlopen(
             solicitud,
             timeout=60,
         ) as respuesta:
 
             with temporal.open("wb") as archivo:
-
                 while True:
-
                     bloque = respuesta.read(
                         1024 * 1024
                     )
@@ -174,35 +264,9 @@ def descargar_datos(
 
         if temporal.stat().st_size == 0:
             raise ValueError(
-                "La descarga produjo un archivo vacio."
+                f"La descarga esta vacia: {destino.name}"
             )
 
-        # Verificacion basica del encabezado.
-        with temporal.open(
-            "r",
-            encoding="cp1252",
-        ) as archivo:
-
-            encabezado = archivo.readline().strip()
-
-        columnas = {
-            normalizar_columna(
-                columna.strip('"')
-            )
-            for columna in encabezado.split(",")
-        }
-
-        faltantes = COLUMNAS_REQUERIDAS - columnas
-
-        if faltantes:
-            raise ValueError(
-                "El archivo descargado no tiene el "
-                "formato esperado. "
-                f"Faltan: {sorted(faltantes)}"
-            )
-
-        # Solo reemplazar el destino cuando la
-        # descarga haya terminado correctamente.
         temporal.replace(destino)
 
     except (
@@ -213,32 +277,62 @@ def descargar_datos(
     ) as error:
 
         logger.error(
-            f"Error al descargar MiBici: {error}"
+            f"Error descargando {destino.name}: {error}"
         )
-
         raise
 
     finally:
-
         if temporal.exists():
             temporal.unlink()
 
     logger.success(
-        f"Descarga completada: {destino.name} "
-        f"({destino.stat().st_size:,} bytes)"
+        f"Descarga completada: {destino.name}"
     )
 
     return destino
+
+
+def descargar_datos(
+    destino: Path,
+    url: str = URL_MIBICI,
+) -> Path:
+    """
+    Descarga y valida un archivo CSV de viajes.
+    """
+
+    existia = destino.is_file()
+
+    ruta = descargar_archivo(
+        destino=destino,
+        url=url,
+    )
+
+    try:
+        _, _, columnas = detectar_formato_csv(ruta)
+
+        faltantes = (
+            COLUMNAS_REQUERIDAS - set(columnas)
+        )
+
+        if faltantes:
+            raise ValueError(
+                f"Columnas faltantes en {ruta.name}: "
+                f"{sorted(faltantes)}"
+            )
+
+    except Exception:
+        if not existia and ruta.exists():
+            ruta.unlink()
+        raise
+
+    return ruta
 
 
 def descargar_archivos_mibici(
     input_dir: Path,
 ) -> list[Path]:
     """
-    Descarga automaticamente los archivos oficiales
-    de enero y febrero de 2025.
-
-    Si ya existen, evita descargarlos nuevamente.
+    Descarga los CSV oficiales de enero y febrero de 2025.
     """
 
     input_dir.mkdir(
@@ -248,46 +342,194 @@ def descargar_archivos_mibici(
 
     archivos = []
 
-    logger.info(
-        "Verificando archivos oficiales de MiBici..."
-    )
-
     for nombre_archivo, url in URLS_MIBICI.items():
 
         destino = input_dir / nombre_archivo
 
-        archivo = descargar_datos(
+        ruta = descargar_datos(
             destino=destino,
             url=url,
         )
 
-        archivos.append(archivo)
+        archivos.append(ruta)
 
     logger.success(
-        "Verificacion de descargas completada."
+        "Archivos de viajes verificados correctamente."
     )
 
     return archivos
 
 
 # ============================================================
-# LIMPIEZA Y TRANSFORMACION
+# NOMENCLATURA DE ESTACIONES
 # ============================================================
 
-def procesar_archivo(ruta_csv: Path) -> dict:
+def validar_nomenclatura(
+    ruta: Path,
+) -> dict:
     """
-    Procesa un CSV de MiBici y genera un archivo Parquet.
+    Valida la nomenclatura oficial de MiBici.
 
-    Aplica limpieza, validaciones y transformaciones.
+    Comprueba que existan identificadores de estacion
+    y una columna de capacidad.
+
+    El archivo oficial de septiembre de 2026 utiliza:
+        id, name, latitude, longitude, dpcapacity
+    """
+
+    encoding, separador, columnas = (
+        detectar_formato_csv(ruta)
+    )
+
+    tiene_id = bool(
+        set(columnas) & COLUMNAS_ID_ESTACION
+    )
+
+    tiene_capacidad = bool(
+        set(columnas) & COLUMNAS_CAPACIDAD
+    )
+
+    if not tiene_id or not tiene_capacidad:
+        raise ValueError(
+            "La nomenclatura no contiene columnas "
+            "reconocidas de identificador y capacidad. "
+            f"Columnas encontradas: {columnas}"
+        )
+
+    df = pd.read_csv(
+        ruta,
+        encoding=encoding,
+        sep=separador,
+        low_memory=False,
+    )
+
+    if df.empty:
+        raise ValueError(
+            "La nomenclatura no contiene estaciones."
+        )
+
+    df.columns = [
+        normalizar_columna(columna)
+        for columna in df.columns
+    ]
+
+    columna_id = next(
+        columna
+        for columna in df.columns
+        if columna in COLUMNAS_ID_ESTACION
+    )
+
+    columna_capacidad = next(
+        columna
+        for columna in df.columns
+        if columna in COLUMNAS_CAPACIDAD
+    )
+
+    ids = pd.to_numeric(
+        df[columna_id],
+        errors="coerce",
+    )
+
+    capacidades = pd.to_numeric(
+        df[columna_capacidad],
+        errors="coerce",
+    )
+
+    if ids.isna().all():
+        raise ValueError(
+            "No se encontraron identificadores validos."
+        )
+
+    if capacidades.isna().all():
+        raise ValueError(
+            "No se encontraron capacidades validas."
+        )
+
+    logger.success(
+        f"Nomenclatura validada: {len(df):,} estaciones"
+    )
+
+    return {
+        "archivo_origen": ruta.name,
+        "url_origen": URL_NOMENCLATURA,
+        "sha256_origen": calcular_sha256(ruta),
+        "registros": len(df),
+        "columna_id": columna_id,
+        "columna_capacidad": columna_capacidad,
+        "columnas": list(df.columns),
+        "codificacion": encoding,
+        "separador": separador,
+    }
+
+
+def descargar_nomenclatura() -> Path:
+    """
+    Descarga automaticamente la nomenclatura de estaciones.
+
+    Guarda el archivo en:
+        data/external/nomenclatura_2026_09.csv
+    """
+
+    EXTERNAL_DATA_DIR.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    destino = (
+        EXTERNAL_DATA_DIR
+        / NOMBRE_NOMENCLATURA
+    )
+
+    existia = destino.is_file()
+
+    ruta = descargar_archivo(
+        destino=destino,
+        url=URL_NOMENCLATURA,
+    )
+
+    try:
+        validar_nomenclatura(ruta)
+
+    except Exception:
+        if not existia and ruta.exists():
+            ruta.unlink()
+        raise
+
+    return ruta
+
+
+# ============================================================
+# LIMPIEZA Y TRANSFORMACION DE VIAJES
+# ============================================================
+
+def procesar_archivo(
+    ruta_csv: Path,
+) -> dict:
+    """
+    Procesa un CSV de viajes y genera un archivo Parquet.
+
+    Realiza:
+    - Normalizacion de columnas.
+    - Eliminacion de duplicados.
+    - Conversion de fechas e identificadores.
+    - Limpieza de registros invalidos.
+    - Generacion de variables temporales.
+    - Exportacion a Parquet.
+    - Registro de hashes SHA-256.
     """
 
     logger.info(
         f"Leyendo archivo: {ruta_csv.name}"
     )
 
+    encoding, separador, _ = (
+        detectar_formato_csv(ruta_csv)
+    )
+
     df = pd.read_csv(
         ruta_csv,
-        encoding="cp1252",
+        encoding=encoding,
+        sep=separador,
         low_memory=False,
         dtype={
             "Viaje_Id": "string",
@@ -299,13 +541,14 @@ def procesar_archivo(ruta_csv: Path) -> dict:
 
     registros_originales = len(df)
 
-    # Normalizar nombres de columnas.
     df.columns = [
         normalizar_columna(columna)
         for columna in df.columns
     ]
 
-    faltantes = COLUMNAS_REQUERIDAS - set(df.columns)
+    faltantes = (
+        COLUMNAS_REQUERIDAS - set(df.columns)
+    )
 
     if faltantes:
         raise ValueError(
@@ -313,16 +556,16 @@ def procesar_archivo(ruta_csv: Path) -> dict:
             f"{sorted(faltantes)}"
         )
 
-    # Eliminar viajes duplicados.
+    # Eliminar duplicados.
     df = df.drop_duplicates(
         subset=["viaje_id"]
     )
 
     # Convertir fechas.
-    for columna in [
+    for columna in (
         "inicio_del_viaje",
         "fin_del_viaje",
-    ]:
+    ):
 
         df[columna] = pd.to_datetime(
             df[columna],
@@ -330,17 +573,17 @@ def procesar_archivo(ruta_csv: Path) -> dict:
         )
 
     # Convertir identificadores de estaciones.
-    for columna in [
+    for columna in (
         "origen_id",
         "destino_id",
-    ]:
+    ):
 
         df[columna] = pd.to_numeric(
             df[columna],
             errors="coerce",
         ).astype("Int64")
 
-    # Eliminar registros con datos esenciales faltantes.
+    # Eliminar registros incompletos.
     df = df.dropna(
         subset=[
             "inicio_del_viaje",
@@ -350,13 +593,13 @@ def procesar_archivo(ruta_csv: Path) -> dict:
         ]
     ).copy()
 
-    # Calcular duracion del viaje en minutos.
+    # Calcular duracion del viaje.
     df["duracion_minutos"] = (
         df["fin_del_viaje"]
         - df["inicio_del_viaje"]
     ).dt.total_seconds() / 60
 
-    # Excluir duraciones invalidas.
+    # Eliminar duraciones invalidas.
     df = df[
         df["duracion_minutos"] > 0
     ].copy()
@@ -378,12 +621,10 @@ def procesar_archivo(ruta_csv: Path) -> dict:
         df["inicio_del_viaje"].dt.month
     )
 
-    # Excluir identificador de usuario y
-    # variables demograficas.
-    # Se conserva viaje_id para trazabilidad.
+    # Excluir identificadores personales
+    # y variables demograficas.
     df = df[COLUMNAS_SALIDA].copy()
 
-    # Crear directorio de salida.
     PROCESSED_DATA_DIR.mkdir(
         parents=True,
         exist_ok=True,
@@ -394,7 +635,6 @@ def procesar_archivo(ruta_csv: Path) -> dict:
         / f"{ruta_csv.stem}_procesado.parquet"
     )
 
-    # Exportar a Parquet comprimido.
     df.to_parquet(
         ruta_parquet,
         engine="pyarrow",
@@ -402,7 +642,6 @@ def procesar_archivo(ruta_csv: Path) -> dict:
         compression="snappy",
     )
 
-    # Construir registro de trazabilidad.
     resultado = {
         "archivo_origen": ruta_csv.name,
         "sha256_origen": calcular_sha256(
@@ -420,9 +659,7 @@ def procesar_archivo(ruta_csv: Path) -> dict:
         "columnas_procesadas": COLUMNAS_SALIDA,
     }
 
-    # Registrar la URL oficial de ambos meses.
     if ruta_csv.name in URLS_MIBICI:
-
         resultado["url_origen"] = (
             URLS_MIBICI[ruta_csv.name]
         )
@@ -448,13 +685,15 @@ def main(
     descargar: bool = True,
 ):
     """
-    Pipeline MiBici Guadalajara.
+    Pipeline de datos MiBici - Equipo 17.
 
-    1. Descarga enero y febrero de 2025 si faltan.
-    2. Procesa los CSV disponibles.
-    3. Genera archivos Parquet.
-    4. Calcula hashes SHA-256.
-    5. Genera un manifiesto JSON.
+    1. Descarga enero y febrero de 2025.
+    2. Descarga la nomenclatura de estaciones.
+    3. Valida los archivos CSV.
+    4. Limpia y transforma los viajes.
+    5. Genera archivos Parquet.
+    6. Calcula hashes SHA-256.
+    7. Genera manifest.json.
     """
 
     logger.info(
@@ -466,34 +705,60 @@ def main(
         exist_ok=True,
     )
 
-    # Descargar automaticamente ambos meses.
+    # Descargar archivos oficiales.
     if descargar:
 
         descargar_archivos_mibici(
             input_dir=input_dir
         )
 
-    # Detectar archivos CSV disponibles.
-    archivos = sorted(
-        input_dir.glob("*.csv")
+        ruta_nomenclatura = (
+            descargar_nomenclatura()
+        )
+
+    else:
+
+        ruta_nomenclatura = (
+            EXTERNAL_DATA_DIR
+            / NOMBRE_NOMENCLATURA
+        )
+
+        if not ruta_nomenclatura.is_file():
+            raise FileNotFoundError(
+                "No se encontro la nomenclatura "
+                "y la descarga esta deshabilitada."
+            )
+
+    # Validar nomenclatura.
+    info_nomenclatura = (
+        validar_nomenclatura(
+            ruta_nomenclatura
+        )
     )
 
-    if not archivos:
+    # Procesar exclusivamente los meses seleccionados.
+    archivos = sorted(
+        input_dir / nombre
+        for nombre in URLS_MIBICI
+        if (input_dir / nombre).is_file()
+    )
+
+    if len(archivos) != len(URLS_MIBICI):
+
+        faltantes = [
+            nombre
+            for nombre in URLS_MIBICI
+            if not (input_dir / nombre).is_file()
+        ]
 
         logger.error(
-            "No se encontraron archivos CSV "
-            f"en {input_dir}"
+            f"Archivos de viajes faltantes: {faltantes}"
         )
 
         raise typer.Exit(code=1)
 
-    logger.info(
-        f"Archivos CSV encontrados: {len(archivos)}"
-    )
-
     resultados = []
 
-    # Procesar cada archivo.
     for archivo in archivos:
 
         resultado = procesar_archivo(
@@ -502,7 +767,7 @@ def main(
 
         resultados.append(resultado)
 
-    # Crear manifiesto de trazabilidad.
+    # Generar manifiesto de versionado.
     manifiesto = {
         "proyecto": "TC5061-Proyecto-Equipo17",
         "dataset": "MiBici Guadalajara",
@@ -510,9 +775,7 @@ def main(
             "https://www.mibici.net/es/datos-abiertos/"
         ),
         "fecha_procesamiento_utc": (
-            datetime.now(
-                timezone.utc
-            ).isoformat()
+            datetime.now(timezone.utc).isoformat()
         ),
         "total_archivos": len(resultados),
         "total_registros": sum(
@@ -520,6 +783,7 @@ def main(
             for item in resultados
         ),
         "archivos": resultados,
+        "nomenclatura": info_nomenclatura,
     }
 
     output_manifest.parent.mkdir(
@@ -552,13 +816,17 @@ def main(
 
         logger.info(
             f"  {resultado['archivo_origen']}: "
-            f"{resultado['registros_procesados']:,} "
-            "viajes"
+            f"{resultado['registros_procesados']:,} viajes"
         )
 
     logger.info(
         "Total de viajes procesados: "
         f"{manifiesto['total_registros']:,}"
+    )
+
+    logger.info(
+        "Registros en nomenclatura: "
+        f"{info_nomenclatura['registros']:,}"
     )
 
 
