@@ -39,7 +39,7 @@ class RegressionModelTrainer:
 
     def __init__(
         self,
-        experiment_name: str = "mibici-equipo17-regresion",
+        experiment_name: str = "mibici-equipo17",
         processed_dir: Path = PROCESSED_DATA_DIR,
         models_dir: Path = MODELS_DIR,
     ):
@@ -48,8 +48,8 @@ class RegressionModelTrainer:
         self.models_dir = models_dir
         mlflow.set_experiment(self.experiment_name)
 
-    def cargar_datos(self, input_filename: str = "features_regresion_escalados.parquet") -> pd.DataFrame:
-        """Carga el dataset enriquecido con lags, rolling stats y variables escaladas."""
+    def cargar_datos(self, input_filename: str = "features_regresion.parquet") -> pd.DataFrame:
+        """Carga el dataset enriquecido con lags, rolling stats y variables sin escalado."""
         ruta_features = self.processed_dir / input_filename
         if not ruta_features.is_file():
             logger.error(f"El archivo {ruta_features} no existe. Ejecute primero features_regression.py.")
@@ -138,7 +138,7 @@ class RegressionModelTrainer:
         max_features: str = "sqrt",
         random_state: int = 42,
         run_name: str = "RandomForest_TemporalSplit",
-        data_filename: str = "features_regresion_escalados.parquet",
+        data_filename: str = "features_regresion.parquet",
     ):
         """
         Ejecuta el pipeline completo de entrenamiento con división por fechas,
@@ -202,7 +202,7 @@ class RegressionModelTrainer:
                 f"Métricas Validación (Ago 2026) -> RMSE: {metricas_val['val_rmse']:.4f} | R2: {metricas_val['val_r2']:.4f}"
             )
             logger.info(
-                f"Métricas Prueba (Sep 2026)     -> RMSE: {metricas_test['test_rmse']:.4f} | R2: {metricas_test['test_r2']:.4f}"
+                f"Métricas Prueba (Sep 2026)    -> RMSE: {metricas_test['test_rmse']:.4f} | R2: {metricas_test['test_r2']:.4f}"
             )
 
             mlflow.log_params(params)
