@@ -141,126 +141,121 @@ El proyecto aborda tres problemas:
 - **P2 - Clasificación:** Estimación de riesgos operativos.
 - **P3 - Clustering:** Agrupamiento de estaciones según patrones de uso.
 
-## 1. Fuente de datos
+---
 
-Los datos provienen del portal oficial de MiBici:
+## 11. MLflow Projects e infraestructura reproducible
 
-https://www.mibici.net/es/datos-abiertos/
+El Equipo 17 utiliza MLflow Projects para ejecutar los pipelines de datos y entrenamiento desde una interfaz común.
 
-El pipeline utiliza registros de viajes de enero y febrero de 2025, además de información de nomenclatura y capacidad de estaciones.
+### 11.1. Entorno de ejecución
 
-Los archivos originales se descargan automáticamente y se procesan localmente.
+El archivo `MLproject` contiene dos puntos de entrada:
 
-## 2. Requisitos
+- `ingest`: descarga, valida y procesa los datos de MiBici.
+- `train`: selecciona P1, P2 o P3 y ejecuta el entrenamiento correspondiente.
 
-- Python y pip.
-- Git.
-- Entorno virtual de Python.
-- Dependencias indicadas en `requirements.txt`.
+El entorno se declara en `python_env.yaml` y utiliza `requirements-mlproject.txt` con versiones fijas de las dependencias.
 
-## 3. Instalación
+Versiones utilizadas:
+- Python 3.10.22
+- MLflow 3.17.0
 
-Clonar el repositorio:
+Para utilizar `--env-manager=virtualenv`, es necesario tener disponibles pyenv y virtualenv.
 
-```bash
-git clone https://github.com/jessereyav1/TC5061-Proyecto-Equipo17.git
-cd TC5061-Proyecto-Equipo17
-```
+### 11.2. Servidor MLflow con SQLite
 
-Crear y activar el entorno virtual en Ubuntu:
+Desde la raíz del repositorio, iniciar el servidor:
 
 ```bash
-python3 -m venv .venv
-source .venv/bin/activate
+mlflow server \
+  --backend-store-uri sqlite:///mlflow.db \
+  --host 127.0.0.1 \
+  --port 5000
 ```
 
-Instalar dependencias:
+En otra terminal, configurar la conexión:
 
 ```bash
-python -m pip install -r requirements.txt
+export MLFLOW_TRACKING_URI=http://127.0.0.1:5000
 ```
 
-## 4. Ejecución del pipeline de datos
+La interfaz estará disponible en http://127.0.0.1:5000.
 
-Desde la raíz del repositorio, con el entorno virtual activado:
+La base de datos `mlflow.db` se encuentra excluida de Git.
+
+### 11.3. Ejecutar la ingesta
 
 ```bash
-python -m tc5061_proyecto_equipo17.dataset
+mlflow run . \
+  -e ingest \
+  --experiment-name mibici-equipo17 \
+  --env-manager=virtualenv
 ```
 
-Este proceso:
+La ingesta descarga los registros de enero y febrero de 2025, genera archivos Parquet y produce `manifest.json` para documentar el origen e integridad de los datos.
 
-1. Descarga los archivos oficiales de MiBici cuando no están disponibles localmente.
-2. Valida las columnas y los registros.
-3. Normaliza los nombres de variables.
-4. Elimina duplicados y registros inválidos.
-5. Calcula la duración de los viajes y genera variables temporales.
-6. Almacena los resultados procesados en formato Parquet.
-7. Genera un manifiesto JSON con metadatos y hashes SHA-256.
-
-En la ejecución verificada se procesaron **752,314 viajes** correspondientes a enero y febrero de 2025. La nomenclatura consultada contiene **484 estaciones**.
-
-## 5. Estructura del repositorio
-
-```text
-TC5061-Proyecto-Equipo17/
-├── data/                         # Datos locales no versionados
-├── docs/                         # Documentación técnica
-├── notebooks/                    # Análisis exploratorios
-├── references/                   # Material de referencia
-├── reports/                      # Resultados y figuras
-├── tc5061_proyecto_equipo17/
-│   ├── dataset.py                # Pipeline de datos
-│   ├── features.py               # Ingeniería de características
-│   └── modeling/                 # Código de modelos
-├── tests/                        # Pruebas automatizadas
-├── requirements.txt
-├── requirements-lock.txt
-├── pyproject.toml
-└── README.md
-```
-
-## 6. Pruebas automatizadas
-
-Ejecutar desde la raíz del proyecto:
+### 11.4. Entrenamiento P1: regresión de demanda
 
 ```bash
-python -m pytest tests/test_data.py -v
+mlflow run . \
+  -e train \
+  -P question=p1 \
+  -P model=rf \
+  -P n_estimators=150 \
+  -P max_depth=20 \
+  --experiment-name mibici-equipo17 \
+  --env-manager=virtualenv
 ```
 
-Se verificaron cinco pruebas relacionadas con la normalización de datos, el cálculo de hashes SHA-256 y la transformación de CSV a Parquet.
+El punto de entrada prepara automáticamente el dataset de regresión y sus características cuando faltan los archivos correspondientes.
 
-## 7. Seguimiento de experimentos
+**Pendiente:** el entrenamiento P1 todavía utiliza fechas de validación y prueba de 2026, incompatibles con el periodo de datos actual. El responsable de P1 debe corregir esta partición conservando la comparabilidad de sus experimentos.
 
-El proyecto utiliza MLflow para registrar experimentos de aprendizaje automático y facilitar la comparación de ejecuciones, parámetros y métricas.
+### 11.5. Entrenamiento P2: clasificación de riesgo
 
-La implementación de cada problema se documenta en sus respectivos módulos y notebooks.
+```bash
+mlflow run . \
+  -e train \
+  -P question=p2 \
+  -P model=rf \
+  -P n_estimators=100 \
+  -P max_depth=12 \
+  --experiment-name mibici-equipo17 \
+  --env-manager=virtualenv
+```
 
-## 8. Reproducibilidad y privacidad
+### 11.6. Entrenamiento P3: clustering de estaciones
 
-Las dependencias se documentan mediante `requirements.txt` y `requirements-lock.txt`.
+```bash
+mlflow run . \
+  -e train \
+  -P question=p3 \
+  -P model=kmeans \
+  -P k=4 \
+  --experiment-name mibici-equipo17 \
+  --env-manager=virtualenv
+```
 
-Los archivos de datos originales y procesados se mantienen fuera del control de versiones mediante `.gitignore`.
+### 11.7. Model Registry
 
-El pipeline excluye del dataset procesado las columnas de identificador de usuario, género y año de nacimiento. La exclusión de estas columnas no garantiza por sí sola el anonimato de los registros.
+Los modelos registrados utilizarán los siguientes nombres:
 
-La documentación detallada del procesamiento se encuentra en:
+- `mibici-equipo17-p1-demanda`
+- `mibici-equipo17-p2-riesgo`
+- `mibici-equipo17-p3-grupos`
 
-`docs/mibici_data_documentation.md`
+Cada responsable seleccionará la versión de su modelo y le asignará el alias `champion`.
 
-## 9. Equipo de trabajo
+El alias permite actualizar la versión seleccionada sin cambiar la referencia utilizada para consumir el modelo.
 
-**Equipo 17 — TC5061**
+El registro de modelos y la asignación de aliases corresponden a los responsables de P1, P2 y P3.
 
-- Rol 1: Datos e infraestructura.
-- Rol 2: Regresión.
-- Rol 3: Clasificación.
-- Rol 4: Clustering.
+### 11.8. Reproducibilidad y archivos excluidos
 
-Cada integrante es responsable de documentar, validar e integrar sus componentes al repositorio colaborativo.
+Los datos, modelos serializados, bases de datos locales, artefactos y credenciales no deben versionarse en Git.
 
-## 10. Referencias
+Se comprobó la ejecución de la ingesta mediante MLflow Projects utilizando tanto el entorno local como un entorno virtual independiente.
 
-MiBici Guadalajara. (s. f.). *Datos abiertos*. https://www.mibici.net/es/datos-abiertos/
+Los entrenamientos P2 y P3 se ejecutaron correctamente mediante MLflow Projects con el entorno local.
 
-DrivenData. (s. f.). *Cookiecutter Data Science*. https://cookiecutter-data-science.drivendata.org/
+Continúa pendiente la prueba integral desde un clon limpio y la corrección del entrenamiento P1.
