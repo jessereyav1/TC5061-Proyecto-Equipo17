@@ -1,6 +1,4 @@
-
 # TC5061 - Proyecto Equipo 17
-
 ## Sistema de Machine Learning para MiBici Guadalajara
 
 Proyecto académico desarrollado para analizar datos abiertos del sistema de bicicletas compartidas MiBici, en el Área Metropolitana de Guadalajara, mediante técnicas de aprendizaje automático y prácticas de MLOps.
@@ -17,7 +15,7 @@ Los datos provienen del portal oficial de MiBici:
 
 https://www.mibici.net/es/datos-abiertos/
 
-El pipeline utiliza registros de viajes de enero y febrero de 2025, además de información de nomenclatura y capacidad de estaciones.
+La ingesta general utiliza registros de viajes de enero y febrero de 2025, además de información de nomenclatura y capacidad de estaciones. Para P1 se emplean 24 archivos mensuales, desde octubre de 2024 hasta septiembre de 2026.
 
 Los archivos originales se descargan automáticamente y se procesan localmente.
 
@@ -70,6 +68,8 @@ Este proceso:
 
 En la ejecución verificada se procesaron **752,314 viajes** correspondientes a enero y febrero de 2025. La nomenclatura consultada contiene **484 estaciones**.
 
+La preparación específica de P1 se documenta en la sección 11.4.
+
 ## 5. Estructura del repositorio
 
 ```text
@@ -80,10 +80,17 @@ TC5061-Proyecto-Equipo17/
 ├── references/                   # Material de referencia
 ├── reports/                      # Resultados y figuras
 ├── tc5061_proyecto_equipo17/
-│   ├── dataset.py                # Pipeline de datos
+│   ├── dataset.py                # Ingesta general
+│   ├── ingest_p1.py              # Descarga de los 24 CSV para P1
+│   ├── urls_p1.json              # Catálogo de URL oficiales para P1
+│   ├── dataset_regression.py     # Consolidación horaria de P1
+│   ├── features_regression.py    # Características de regresión
 │   ├── features.py               # Ingeniería de características
-│   └── modeling/                 # Código de modelos
+│   └── modeling/                 # Código de modelos y entrada común
 ├── tests/                        # Pruebas automatizadas
+├── MLproject                     # Entradas de MLflow Projects
+├── python_env.yaml               # Entorno reproducible
+├── requirements-mlproject.txt    # Dependencias de MLflow Projects
 ├── requirements.txt
 ├── requirements-lock.txt
 ├── pyproject.toml
@@ -110,12 +117,11 @@ La implementación de cada problema se documenta en sus respectivos módulos y n
 
 Las dependencias se documentan mediante `requirements.txt` y `requirements-lock.txt`.
 
-Los archivos de datos originales y procesados se mantienen fuera del control de versiones mediante `.gitignore`.
+Los archivos de datos originales y procesados se mantienen fuera del control de versiones en el estado actual mediante `.gitignore`. Sin embargo, existen archivos de datos en commits históricos, cuya limpieza requiere coordinación con el equipo.
 
-El pipeline excluye del dataset procesado las columnas de identificador de usuario, género y año de nacimiento. La exclusión de estas columnas no garantiza por sí sola el anonimato de los registros.
+El pipeline general excluye del dataset procesado las columnas de identificador de usuario, género y año de nacimiento. La exclusión de estas columnas no garantiza por sí sola el anonimato de los registros.
 
 La documentación detallada del procesamiento se encuentra en:
-
 `docs/mibici_data_documentation.md`
 
 ## 9. Equipo de trabajo
@@ -135,12 +141,6 @@ MiBici Guadalajara. (s. f.). *Datos abiertos*. https://www.mibici.net/es/datos-a
 
 DrivenData. (s. f.). *Cookiecutter Data Science*. https://cookiecutter-data-science.drivendata.org/
 
-El proyecto aborda tres problemas:
-
-- **P1 - Regresión:** Predicción de demanda.
-- **P2 - Clasificación:** Estimación de riesgos operativos.
-- **P3 - Clustering:** Agrupamiento de estaciones según patrones de uso.
-
 ---
 
 ## 11. MLflow Projects e infraestructura reproducible
@@ -151,16 +151,17 @@ El Equipo 17 utiliza MLflow Projects para ejecutar los pipelines de datos y entr
 
 El archivo `MLproject` contiene dos puntos de entrada:
 
-- `ingest`: descarga, valida y procesa los datos de MiBici.
-- `train`: selecciona P1, P2 o P3 y ejecuta el entrenamiento correspondiente.
+- `ingest`: descarga, valida y procesa los datos generales de MiBici (enero y febrero de 2025).
+- `train`: selecciona P1, P2 o P3 y ejecuta el entrenamiento correspondiente. Cuando se selecciona P1, prepara primero sus 24 meses de datos.
 
-El entorno se declara en `python_env.yaml` y utiliza `requirements-mlproject.txt` con versiones fijas de las dependencias.
+El entorno se declara en `python_env.yaml` y utiliza `requirements-mlproject.txt` con versiones fijadas de las dependencias.
 
-Versiones utilizadas:
-- Python 3.10.22
-- MLflow 3.17.0
+Versiones utilizadas en las pruebas:
 
-Para utilizar `--env-manager=virtualenv`, es necesario tener disponibles pyenv y virtualenv.
+- Python 3.10.22.
+- MLflow 3.17.0.
+
+Para utilizar `--env-manager=virtualenv`, es necesario disponer de `pyenv` y `virtualenv` de acuerdo con la configuración del proyecto.
 
 ### 11.2. Servidor MLflow con SQLite
 
@@ -183,7 +184,7 @@ La interfaz estará disponible en http://127.0.0.1:5000.
 
 La base de datos `mlflow.db` se encuentra excluida de Git.
 
-### 11.3. Ejecutar la ingesta
+### 11.3. Ejecutar la ingesta general
 
 ```bash
 mlflow run . \
@@ -192,24 +193,50 @@ mlflow run . \
   --env-manager=virtualenv
 ```
 
-La ingesta descarga los registros de enero y febrero de 2025, genera archivos Parquet y produce `manifest.json` para documentar el origen e integridad de los datos.
+Esta ingesta descarga los registros de enero y febrero de 2025, genera archivos Parquet y produce `manifest.json` para documentar el origen e integridad de los datos. Es diferente de la ingesta específica de P1.
 
 ### 11.4. Entrenamiento P1: regresión de demanda
+
+P1 utiliza **24 meses de datos de MiBici**, desde octubre de 2024 hasta septiembre de 2026. Su preparación se activa automáticamente al ejecutar `train` con `question=p1`:
+
+1. `ingest_p1.py` lee `urls_p1.json`, descarga los 24 CSV requeridos y comprueba que existan y no estén vacíos.
+2. `dataset_regression.py` consolida la demanda por estación y hora en `data/processed/dataset_regresion_horario.parquet`.
+3. `features_regression.py` genera rezagos, estadísticas móviles y otras características en `data/processed/features_regresion.parquet`.
+4. `train_regression.py` entrena el modelo y registra resultados en MLflow.
+
+El punto de entrada evita regenerar archivos Parquet que ya tengan cobertura de los 24 meses. **Esta comprobación de cobertura no garantiza que los archivos sean íntegros o estén actualizados** con respecto a sus fuentes; se requiere una validación adicional para detectar esos casos.
+
+Ejemplo reproducido en las pruebas de infraestructura (20 árboles, profundidad máxima 12):
 
 ```bash
 mlflow run . \
   -e train \
   -P question=p1 \
   -P model=rf \
-  -P n_estimators=150 \
-  -P max_depth=20 \
+  -P n_estimators=20 \
+  -P max_depth=12 \
   --experiment-name mibici-equipo17 \
   --env-manager=virtualenv
 ```
 
-El punto de entrada prepara automáticamente el dataset de regresión y sus características cuando faltan los archivos correspondientes.
+La división temporal es estricta:
 
-**Pendiente:** el entrenamiento P1 todavía utiliza fechas de validación y prueba de 2026, incompatibles con el periodo de datos actual. El responsable de P1 debe corregir esta partición conservando la comparabilidad de sus experimentos.
+| Partición | Periodo | Registros después de características |
+|---|---|---:|
+| Entrenamiento | Octubre de 2024 a julio de 2026 | 2,705,545 |
+| Validación | Agosto de 2026 | 138,930 |
+| Prueba | Septiembre de 2026 | 154,793 |
+
+Resultados de la **prueba de infraestructura**, no necesariamente del modelo definitivo del responsable de P1:
+
+| Métrica | Validación | Prueba |
+|---|---:|---:|
+| RMSE | 1.9985 | 2.2563 |
+| R² | 0.5380 | 0.5653 |
+
+En una ejecución verificada se consolidaron **3,078,203 registros estación-hora**, de los cuales **2,999,268** permanecieron después de la ingeniería de características. No hubo meses faltantes, valores nulos ni duplicados estación-hora en la validación estructural del dataset consolidado.
+
+Se completó con éxito una ejecución integral de P1 desde un clon limpio del repositorio local: descarga, consolidación, características, entrenamiento y registro en MLflow. En esa prueba se reutilizó un entorno virtual que MLflow había creado anteriormente.
 
 ### 11.5. Entrenamiento P2: clasificación de riesgo
 
@@ -248,14 +275,14 @@ Cada responsable seleccionará la versión de su modelo y le asignará el alias 
 
 El alias permite actualizar la versión seleccionada sin cambiar la referencia utilizada para consumir el modelo.
 
-El registro de modelos y la asignación de aliases corresponden a los responsables de P1, P2 y P3.
+El registro de modelos y la asignación de alias corresponden a los responsables de P1, P2 y P3.
 
 ### 11.8. Reproducibilidad y archivos excluidos
 
 Los datos, modelos serializados, bases de datos locales, artefactos y credenciales no deben versionarse en Git.
 
-Se comprobó la ejecución de la ingesta mediante MLflow Projects utilizando tanto el entorno local como un entorno virtual independiente.
+Se comprobó la ejecución de la ingesta general mediante MLflow Projects utilizando el entorno local y un entorno virtual independiente. P2 y P3 se ejecutaron correctamente mediante MLflow Projects con el entorno local.
 
-Los entrenamientos P2 y P3 se ejecutaron correctamente mediante MLflow Projects con el entorno local.
+Para P1 se comprobó desde un clon limpio del repositorio local la descarga de sus 24 CSV, la reconstrucción de sus Parquet y el entrenamiento con registro en MLflow. Las métricas coincidieron con las de la ejecución realizada previamente con los mismos hiperparámetros.
 
-Continúa pendiente la prueba integral desde un clon limpio y la corrección del entrenamiento P1.
+Queda pendiente validar todos los entrenamientos desde un clon limpio y con una instalación del entorno totalmente nueva, así como mejorar la detección de archivos de datos desactualizados. También se requiere coordinar la limpieza de datasets versionados en commits antiguos de Git, sin alterar unilateralmente el historial compartido.
