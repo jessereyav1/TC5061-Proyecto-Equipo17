@@ -39,35 +39,75 @@ def ejecutar_modulo(modulo, argumentos=None):
     subprocess.run(comando, check=True)
 
 
+
 def preparar_p1():
-    """Genera los archivos necesarios para entrenar P1."""
+    """Descarga y prepara los 24 meses necesarios para P1."""
+    import pandas as pd
 
     dataset = PROCESSED_DATA_DIR / "dataset_regresion_horario.parquet"
     features = PROCESSED_DATA_DIR / "features_regresion.parquet"
 
     print("\nPreparando datos de P1...", flush=True)
 
-    if not dataset.is_file():
+    # Verificar y descargar los 24 CSV.
+    ejecutar_modulo("tc5061_proyecto_equipo17.ingest_p1")
+
+    def cobertura_completa(ruta):
+        if not ruta.is_file():
+            return False
+
+        try:
+            fechas = pd.read_parquet(
+                ruta,
+                columns=["fecha_hora_inicio"],
+            )["fecha_hora_inicio"]
+
+            fechas = pd.to_datetime(fechas)
+
+            meses = set(fechas.dt.to_period("M").astype(str))
+
+            esperados = {
+                str(periodo)
+                for periodo in pd.period_range(
+                    "2024-10", "2026-09", freq="M"
+                )
+            }
+
+            return esperados.issubset(meses)
+
+        except (OSError, ValueError, KeyError, TypeError):
+            return False
+
+    # Regenerar dataset cuando esté incompleto.
+    if not cobertura_completa(dataset):
+        print("Generando dataset completo de P1...", flush=True)
         ejecutar_modulo(
             "tc5061_proyecto_equipo17.dataset_regression"
         )
-    else:
-        print("Dataset de regresión existente.", flush=True)
 
-    if not features.is_file():
+        if not cobertura_completa(dataset):
+            raise RuntimeError(
+                "El dataset de P1 no contiene los 24 meses requeridos."
+            )
+        # Si cambia el dataset, hay que actualizar las features.
+        if features.exists():
+            features.unlink()
+    else:
+        print("Dataset de P1 con cobertura completa.", flush=True)
+
+    # Regenerar características si faltan meses.
+    if not cobertura_completa(features):
+        print("Generando características de P1...", flush=True)
         ejecutar_modulo(
             "tc5061_proyecto_equipo17.features_regression"
         )
-    else:
-        print("Características de regresión existentes.", flush=True)
 
-    if not features.is_file():
-        raise FileNotFoundError(
-            f"No se generó el archivo requerido: {features}"
+    if not cobertura_completa(features):
+        raise RuntimeError(
+            "Las características de P1 no contienen los 24 meses."
         )
 
     print("Preparación de P1 completada.", flush=True)
-
 
 def main():
     parser = argparse.ArgumentParser(
