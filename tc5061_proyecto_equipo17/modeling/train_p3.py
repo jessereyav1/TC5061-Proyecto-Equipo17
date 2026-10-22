@@ -83,6 +83,7 @@ def main(
     archivo: str = "datos_abiertos_2025_01_procesado.parquet",
     archivo_test: str = "datos_abiertos_2025_02_procesado.parquet",
     algoritmo: str = "kmeans",  # kmeans | kmeans-escalado | gmm
+    variables: str = "completas",  # completas | solo-horas
     k: int = 4,
     semilla: int = SEED,
     min_viajes: int = 0,
@@ -97,7 +98,16 @@ def main(
         columns=X.columns, fill_value=0.0
     )
 
+    # Variables: "solo-horas" descarta la proporción de fin de semana (prop_finde)
+    if variables == "solo-horas":
+        horas_cols = [c for c in X.columns if c.startswith("h")]
+        X, X_test = X[horas_cols], X_test[horas_cols]
+    elif variables != "completas":
+        raise typer.BadParameter(f"Variables desconocidas: {variables}")
+
     modelo, familia, escalado, sufijo = _construir_modelo(algoritmo, k, semilla)
+    if variables == "solo-horas":
+        sufijo = f"{sufijo}-solo-horas"
 
     config_corrida = {
         "modelo": familia,
@@ -105,6 +115,7 @@ def main(
         "n_init": 10,
         "semilla": semilla,
         "algoritmo": algoritmo,
+        "variables": variables,
         "escalado": escalado,
         "min_viajes": min_viajes,
         "archivo_datos": archivo,
