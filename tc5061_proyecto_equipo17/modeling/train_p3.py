@@ -16,6 +16,7 @@ from mlflow.models import infer_signature
 import mlflow.sklearn
 import pandas as pd
 from sklearn.cluster import KMeans
+from sklearn.mixture import GaussianMixture
 from sklearn.metrics import adjusted_rand_score, davies_bouldin_score, silhouette_score
 from sklearn.pipeline import Pipeline, make_pipeline
 from sklearn.preprocessing import StandardScaler
@@ -55,28 +56,33 @@ def _version_datos() -> str:
 
 
 def _construir_modelo(algoritmo: str, k: int, semilla: int):
-    """Devuelve (modelo, tipo de escalado, sufijo para el nombre de la corrida)."""
+    """Devuelve (modelo, familia, tipo de escalado, sufijo para el nombre de la corrida)."""
     kmeans = KMeans(n_clusters=k, n_init=10, random_state=semilla)
     if algoritmo == "kmeans":
-        return kmeans, "ninguno", "sin-escalar"
+        return kmeans, "kmeans", "ninguno", "sin-escalar"
     if algoritmo == "kmeans-escalado":
-        # El escalador va dentro del Pipeline: se ajusta solo con enero (fit) y en
-        # febrero solo se aplica (predict), así no hay fuga de datos.
-        return make_pipeline(StandardScaler(), kmeans), "StandardScaler", "escalado"
+        return make_pipeline(StandardScaler(), kmeans), "kmeans", "StandardScaler", "escalado"
+    if algoritmo == "gmm":
+        gmm = GaussianMixture(
+            n_components=k, covariance_type="diag", n_init=10, random_state=semilla
+        )
+        return gmm, "gmm", "ninguno", "diag"
     raise typer.BadParameter(f"Algoritmo desconocido: {algoritmo}")
 
 
-def _inercia(modelo) -> float:
-    """Inercia del K-means, esté suelto o dentro de un Pipeline."""
+def _metricas_modelo(modelo, X) -> dict:
+    """Métricas propias de cada algoritmo (no comparables entre familias)."""
+    if isinstance(modelo, GaussianMixture):
+        return {"train_bic": modelo.bic(X), "train_aic": modelo.aic(X)}
     kmeans = modelo[-1] if isinstance(modelo, Pipeline) else modelo
-    return kmeans.inertia_
+    return {"train_inertia": kmeans.inertia_}
 
 
 @app.command()
 def main(
     archivo: str = "datos_abiertos_2025_01_procesado.parquet",
     archivo_test: str = "datos_abiertos_2025_02_procesado.parquet",
-    algoritmo: str = "kmeans",  # kmeans | kmeans-escalado
+    algoritmo: str = "kmeans",  # kmeans | kmeans-escalado | gmm
     k: int = 4,
     semilla: int = SEED,
     min_viajes: int = 0,
@@ -91,10 +97,10 @@ def main(
         columns=X.columns, fill_value=0.0
     )
 
-    modelo, escalado, sufijo = _construir_modelo(algoritmo, k, semilla)
+    modelo, familia, escalado, sufijo = _construir_modelo(algoritmo, k, semilla)
 
     config_corrida = {
-        "modelo": "KMeans",
+        "modelo": familia,
         "k": k,
         "n_init": 10,
         "semilla": semilla,
@@ -108,7 +114,7 @@ def main(
     }
 
     mlflow.set_experiment(MLFLOW_EXPERIMENT)
-    with mlflow.start_run(run_name=f"p3-kmeans-k{k}-{sufijo}"):
+    with mlflow.start_run(run_name=f"p3-{familia}-k{k}-{sufijo}"):
         etiquetas = modelo.fit_predict(X)
 
         mlflow.log_params(
@@ -124,7 +130,7 @@ def main(
                 "equipo": "17",
                 "pregunta": "P3-clustering",
                 "question": "p3",
-                "model_family": "kmeans",
+                "model_family": familia,
                 "stage_of_work": etapa,
                 "git_commit": _commit_actual(),
             }
@@ -133,7 +139,7 @@ def main(
             {
                 "train_silhouette": silhouette_score(X, etiquetas),
                 "train_davies_bouldin": davies_bouldin_score(X, etiquetas),
-                "train_inertia": _inercia(modelo),
+                **_metricas_modelo(modelo, X),
                 "train_n_estaciones": len(X),
             }
         )
