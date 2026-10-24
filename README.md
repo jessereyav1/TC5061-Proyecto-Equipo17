@@ -184,6 +184,20 @@ La interfaz estará disponible en http://127.0.0.1:5000.
 
 La base de datos `mlflow.db` se encuentra excluida de Git.
 
+### 11.2.1. Variante para Windows
+
+En Windows, los comandos de las secciones siguientes cambian en tres puntos:
+
+- Escribir cada comando en una sola línea. La barra invertida `\` es de bash; en PowerShell se usa el acento grave `` ` `` y en CMD el signo `^`.
+- Definir la conexión con `$env:MLFLOW_TRACKING_URI = "http://127.0.0.1:5000"` en PowerShell, o con `set MLFLOW_TRACKING_URI=http://127.0.0.1:5000` en CMD, en lugar de `export`.
+- Usar `--env-manager=local` en `mlflow run` si no se tiene `pyenv`. Esta opción usa el entorno virtual activo, que debe tener las dependencias instaladas con `pip install -r requirements-mlproject.txt` y `pip install -e .`.
+
+Ejemplo en PowerShell:
+
+```powershell
+mlflow run . -e train -P question=p3 -P model=kmeans -P k=4 --experiment-name mibici-equipo17 --env-manager=local
+```
+
 ### 11.3. Ejecutar la ingesta general
 
 ```bash
@@ -253,12 +267,46 @@ mlflow run . \
 
 ### 11.6. Entrenamiento P3: clustering de estaciones
 
+En P3, `-P model` elige el algoritmo (`kmeans`, `kmeans-escalado` o `gmm`), `-P variables` las variables (`completas` o `solo-horas`) y `-P etapa` la etapa del trabajo (`baseline` o `candidate`).
+
+`mlflow run` guarda `-P k` en la corrida antes de entrenar y MLflow no permite cambiar un parámetro ya guardado. Por eso P3 exige indicar `-P k` (entero mayor o igual a 2) o usar `-P buscar_k=1`.
+
+Baseline:
+
 ```bash
 mlflow run . \
   -e train \
   -P question=p3 \
   -P model=kmeans \
   -P k=4 \
+  --experiment-name mibici-equipo17 \
+  --env-manager=virtualenv
+```
+
+Candidatas:
+
+```bash
+# K-means con StandardScaler
+mlflow run . -e train -P question=p3 -P model=kmeans-escalado -P etapa=candidate -P k=4 \
+  --experiment-name mibici-equipo17 --env-manager=virtualenv
+
+# Mezcla gaussiana (covarianza diagonal)
+mlflow run . -e train -P question=p3 -P model=gmm -P etapa=candidate -P k=4 \
+  --experiment-name mibici-equipo17 --env-manager=virtualenv
+
+# K-means solo con el perfil horario
+mlflow run . -e train -P question=p3 -P model=kmeans -P variables=solo-horas -P etapa=candidate -P k=4 \
+  --experiment-name mibici-equipo17 --env-manager=virtualenv
+```
+
+Búsqueda de k con corridas anidadas. Crea una corrida padre con una hija por cada k de 2 a 8, elige el mejor k dentro del rango operativo 3-6 según el silhouette de prueba y lo reentrena como candidata:
+
+```bash
+mlflow run . \
+  -e train \
+  -P question=p3 \
+  -P model=kmeans \
+  -P buscar_k=1 \
   --experiment-name mibici-equipo17 \
   --env-manager=virtualenv
 ```
