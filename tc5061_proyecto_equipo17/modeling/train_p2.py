@@ -178,6 +178,9 @@ def _registrar_modelo(modelo, X_train) -> None:
         name="modelo",
         signature=infer_signature(X_train, modelo.predict(X_train)),
         input_example=X_train.head(5),
+        # skops no confía por defecto en los árboles de sklearn; el modelo lo entrenamos
+        # nosotros, así que se autoriza solo ese tipo
+        skops_trusted_types=["sklearn.tree._tree.Tree"],
     )
 
 
