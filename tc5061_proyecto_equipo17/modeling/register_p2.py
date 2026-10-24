@@ -69,8 +69,10 @@ def _registrar_version(client: MlflowClient, experimento_id: str, corrida, alias
         "run_name": corrida.info.run_name,
         "git_commit": corrida.data.tags.get("git_commit", "desconocido"),
         "version_datos": params.get("version_datos", "desconocida"),
-        "n_estimators": params.get("n_estimators", params.get("mejor_n_estimators", "")),
-        "max_depth": params.get("max_depth", params.get("mejor_max_depth", "")),
+        # En la búsqueda, mlflow run guarda n_estimators=0 y max_depth=0 (los del MLproject);
+        # los valores reales del ganador están en mejor_*
+        "n_estimators": params.get("mejor_n_estimators", params.get("n_estimators", "")),
+        "max_depth": params.get("mejor_max_depth", params.get("max_depth", "")),
         "umbral_decision": params.get("umbral_decision", ""),
         **{
             k: f"{metricas.get(k, float('nan')):.4f}"
