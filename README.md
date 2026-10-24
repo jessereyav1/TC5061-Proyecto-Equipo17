@@ -83,10 +83,14 @@ TC5061-Proyecto-Equipo17/
 │   ├── dataset.py                # Ingesta general
 │   ├── ingest_p1.py              # Descarga de los 24 CSV para P1
 │   ├── urls_p1.json              # Catálogo de URL oficiales para P1
-│   ├── dataset_regression.py     # Consolidación horaria de P1
-│   ├── features_regression.py    # Características de regresión
+│   ├── dataset_p1.py             # Consolidación horaria de P1
+│   ├── features_p1.py            # Características de regresión
 │   ├── features.py               # Ingeniería de características
 │   └── modeling/                 # Código de modelos y entrada común
+│       ├── run_training.py       # Punto de entrada común MLflow
+│       ├── train_p1.py           # Entrenamiento P1 (Regresión)
+│       ├── train_p2.py           # Entrenamiento P2 (Clasificación)
+│       └── train_p3.py           # Entrenamiento P3 (Clustering)
 ├── tests/                        # Pruebas automatizadas
 ├── MLproject                     # Entradas de MLflow Projects
 ├── python_env.yaml               # Entorno reproducible
@@ -200,9 +204,9 @@ Esta ingesta descarga los registros de enero y febrero de 2025, genera archivos 
 P1 utiliza **24 meses de datos de MiBici**, desde octubre de 2024 hasta septiembre de 2026. Su preparación se activa automáticamente al ejecutar `train` con `question=p1`:
 
 1. `ingest_p1.py` lee `urls_p1.json`, descarga los 24 CSV requeridos y comprueba que existan y no estén vacíos.
-2. `dataset_regression.py` consolida la demanda por estación y hora en `data/processed/dataset_regresion_horario.parquet`.
-3. `features_regression.py` genera rezagos, estadísticas móviles y otras características en `data/processed/features_regresion.parquet`.
-4. `train_regression.py` entrena el modelo y registra resultados en MLflow.
+2. `dataset_p1.py` consolida la demanda por estación y hora en `data/processed/dataset_regresion_horario.parquet`.
+3. `features_p1.py` genera rezagos, estadísticas móviles y otras características en `data/processed/features_p1.parquet`.
+4. `train_p1.py` entrena el modelo y registra resultados en MLflow.
 
 El punto de entrada evita regenerar archivos Parquet que ya tengan cobertura de los 24 meses. **Esta comprobación de cobertura no garantiza que los archivos sean íntegros o estén actualizados** con respecto a sus fuentes; se requiere una validación adicional para detectar esos casos.
 
