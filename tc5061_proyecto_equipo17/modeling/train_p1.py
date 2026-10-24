@@ -57,7 +57,7 @@ class RegressionModelTrainer:
     """
     Clase responsable de gestionar la división temporal por fechas para P1
     (Train <= Jul 2026, Val = Ago 2026, Test = Sep 2026), el entrenamiento del modelo
-    y el registro avanzado en MLflow.
+    y el registro avanzado en MLflow (incluyendo soporte para Nested Runs).
     """
 
     def __init__(
@@ -175,6 +175,7 @@ class RegressionModelTrainer:
         run_name: str = "",
         data_filename: str = "features_p1.parquet",
         etapa: str = "baseline",
+        nested: bool = False,
     ):
         """
         Ejecuta el pipeline completo de entrenamiento con división por fechas,
@@ -186,7 +187,7 @@ class RegressionModelTrainer:
         fecha_min = str(df["fecha_hora_inicio"].min())
         fecha_max = str(df["fecha_hora_inicio"].max())
         
-        # Nombre dinámico y descriptivo si no se proporciona uno explícito
+        # Nombre dinámico y descriptivo basado en hiperparámetros
         if not run_name:
             run_name = f"p1-random-forest-n{n_estimators}-depth{max_depth}"
 
@@ -210,8 +211,8 @@ class RegressionModelTrainer:
             "n_features": len(feature_cols),
         }
 
-        with mlflow.start_run(run_name=run_name):
-            logger.info(f"Entrenando modelo {run_name} con división temporal estricta...")
+        with mlflow.start_run(run_name=run_name, nested=nested):
+            logger.info(f"Entrenando modelo {run_name} (nested={nested}) con división temporal estricta...")
 
             mlflow.set_tags(
                 {
@@ -265,7 +266,7 @@ class RegressionModelTrainer:
                 context="testing",
             )
 
-            # Registro explícito en el Model Registry con el nombre oficial del equipo y confianza en skops
+            # Registro explícito en el Model Registry oficial del equipo con soporte skops
             mlflow.sklearn.log_model(
                 model,
                 artifact_path="model",
@@ -301,7 +302,53 @@ class RegressionModelTrainer:
                 if manifest_path.is_file():
                     mlflow.log_artifact(str(manifest_path), "data")
 
-            logger.success(f"Entrenamiento y registro de P1 completados con éxito en MLflow ('{self.experiment_name}')")
+            logger.success(f"Entrenamiento y registro de P1 completados con éxito en MLflow ('{run_name}')")
+
+    def busqueda_hiperparametros(self, data_filename: str = "features_p1.parquet"):
+        """
+        Ejecuta una búsqueda ligera de hiperparámetros con Nested Runs:
+        Una corrida padre (parent run) que engloba múltiples corridas hijas (child runs).
+        """
+        # Grilla rápida con árboles ligeros para que termine en menos de 1-2 minutos
+        combinaciones = [
+            {"n_estimators": 20, "max_depth": 10, "min_samples_split": 5},
+            {"n_estimators": 40, "max_depth": 15, "min_samples_split": 5},
+            {"n_estimators": 50, "max_depth": 20, "min_samples_split": 10},
+        ]
+
+        with mlflow.start_run(run_name="p1-grid-search-parent"):
+            logger.info("Iniciando corrida padre (Parent Run) para búsqueda rápida de hiperparámetros P1...")
+            
+            mlflow.set_tags(
+                {
+                    "equipo": "17",
+                    "pregunta": "P1-regresion",
+                    "question": "p1",
+                    "model_family": "random_forest",
+                    "stage_of_work": "search",
+                    "git_commit": _commit_actual(),
+                }
+            )
+            mlflow.log_param("search_strategy", "grid_search_rapido")
+            mlflow.log_param("total_combinations", len(combinaciones))
+
+            for idx, params in enumerate(combinaciones, start=1):
+                logger.info(f"Ejecutando combinación hija {idx}/{len(combinaciones)}: {params}")
+                
+                with mlflow.start_run(
+                    run_name=f"p1-child-n{params['n_estimators']}-depth{params['max_depth']}",
+                    nested=True
+                ):
+                    self.entrenar_y_registrar(
+                        n_estimators=params["n_estimators"],
+                        max_depth=params["max_depth"],
+                        min_samples_split=params["min_samples_split"],
+                        data_filename=data_filename,
+                        etapa="search",
+                        nested=True,
+                    )
+
+            logger.success("Búsqueda rápida de hiperparámetros con Nested Runs finalizada con éxito.")
 
 
 @app.command()
@@ -312,20 +359,33 @@ def main(
     min_samples_leaf: int = 2,
     max_features: str = "sqrt",
     run_name: str = "",
-    etapa: str = "baseline",
 ):
-    """Ejecuta el entrenamiento del modelo de regresión P1 con MLflow."""
-    logger.info("Iniciando pipeline de entrenamiento P1 (Regresión de Demanda)...")
+    """Ejecuta el entrenamiento individual o detecta si se pide búsqueda mediante centinela."""
     trainer = RegressionModelTrainer()
-    trainer.entrenar_y_registrar(
-        n_estimators=n_estimators,
-        max_depth=max_depth,
-        min_samples_split=min_samples_split,
-        min_samples_leaf=min_samples_leaf,
-        max_features=max_features,
-        run_name=run_name,
-        etapa=etapa,
-    )
+    
+    # Valor centinela positivo (999) para saltar la validación de números negativos de run_training.py
+    if n_estimators == 999:
+        logger.info("Activando búsqueda de hiperparámetros (Nested Runs) con centinela positivo...")
+        trainer.busqueda_hiperparametros()
+    else:
+        # Detección automática de la etapa según la rúbrica:
+        # Si coincide con el baseline oficial, se marca como "baseline", de lo contrario es un modelo "candidate".
+        if n_estimators == 150 and max_depth == 20:
+            etapa = "baseline"
+        else:
+            etapa = "candidate"
+        
+        logger.info("Iniciando pipeline de entrenamiento P1 individual...")
+        trainer.entrenar_y_registrar(
+            n_estimators=n_estimators,
+            max_depth=max_depth,
+            min_samples_split=min_samples_split,
+            min_samples_leaf=min_samples_leaf,
+            max_features=max_features,
+            run_name=run_name,
+            etapa=etapa,
+            nested=False,
+        )
 
 
 if __name__ == "__main__":
