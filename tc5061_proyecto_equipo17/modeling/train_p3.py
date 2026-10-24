@@ -1,4 +1,10 @@
-"""P3: clustering de estaciones MiBici con K-means, registrado en MLflow."""
+"""P3: clustering de estaciones MiBici registrado en MLflow.
+
+Dos modos:
+- Corrida completa (baseline o candidata): modelo, firma, gráficas y manifiesto.
+- Búsqueda de k (--buscar-k): una corrida padre con una hija por cada k, y después
+  reentrena el mejor k como corrida completa.
+"""
 
 import hashlib
 import json
@@ -35,6 +41,10 @@ app = typer.Typer()
 
 ARCHIVO_NOMENCLATURA = "nomenclatura_2026_09.csv"
 
+# Rango de k útil para decidir el rebalanceo: con menos de 3 tipos de estación no hay
+# diferenciación operativa y con más de 6 son difíciles de interpretar y de usar.
+K_OPERATIVO = (3, 6)
+
 
 def _commit_actual() -> str:
     """Hash del commit de Git, para rastrear qué código generó la corrida."""
@@ -61,8 +71,12 @@ def _construir_modelo(algoritmo: str, k: int, semilla: int):
     if algoritmo == "kmeans":
         return kmeans, "kmeans", "ninguno", "sin-escalar"
     if algoritmo == "kmeans-escalado":
+        # El escalador va dentro del Pipeline: se ajusta solo con enero (fit) y en
+        # febrero solo se aplica (predict), así no hay fuga de datos.
         return make_pipeline(StandardScaler(), kmeans), "kmeans", "StandardScaler", "escalado"
     if algoritmo == "gmm":
+        # Covarianza diagonal: con 21 variables y ~370 estaciones, la completa tendría
+        # demasiados parámetros por grupo.
         gmm = GaussianMixture(
             n_components=k, covariance_type="diag", n_init=10, random_state=semilla
         )
@@ -78,17 +92,8 @@ def _metricas_modelo(modelo, X) -> dict:
     return {"train_inertia": kmeans.inertia_}
 
 
-@app.command()
-def main(
-    archivo: str = "datos_abiertos_2025_01_procesado.parquet",
-    archivo_test: str = "datos_abiertos_2025_02_procesado.parquet",
-    algoritmo: str = "kmeans",  # kmeans | kmeans-escalado | gmm
-    variables: str = "completas",  # completas | solo-horas
-    k: int = 4,
-    semilla: int = SEED,
-    min_viajes: int = 0,
-    etapa: str = "baseline",  # baseline | search | candidate
-):
+def _cargar_matrices(archivo: str, archivo_test: str, variables: str, min_viajes: int):
+    """Matrices de variables de enero (entrenamiento) y febrero (prueba)."""
     viajes = pd.read_parquet(PROCESSED_DATA_DIR / archivo)
     X = matriz_clustering_estaciones(viajes, min_viajes=min_viajes)
 
@@ -98,18 +103,41 @@ def main(
         columns=X.columns, fill_value=0.0
     )
 
-    # Variables: "solo-horas" descarta la proporción de fin de semana (prop_finde)
+    # "solo-horas" descarta la proporción de fin de semana (prop_finde)
     if variables == "solo-horas":
         horas_cols = [c for c in X.columns if c.startswith("h")]
         X, X_test = X[horas_cols], X_test[horas_cols]
     elif variables != "completas":
         raise typer.BadParameter(f"Variables desconocidas: {variables}")
+    return viajes, X, X_test
 
-    modelo, familia, escalado, sufijo = _construir_modelo(algoritmo, k, semilla)
-    if variables == "solo-horas":
-        sufijo = f"{sufijo}-solo-horas"
 
-    config_corrida = {
+def _ajustar_y_evaluar(modelo, X, X_test):
+    """Ajusta con enero, evalúa en enero y en febrero. Devuelve (etiquetas_train, métricas)."""
+    etiquetas = modelo.fit_predict(X)
+    etiquetas_test = pd.Series(modelo.predict(X_test), index=X_test.index)
+    comunes = X.index.intersection(X_test.index)
+    etiquetas_train = pd.Series(etiquetas, index=X.index)
+    metricas = {
+        "train_silhouette": silhouette_score(X, etiquetas),
+        "train_davies_bouldin": davies_bouldin_score(X, etiquetas),
+        **_metricas_modelo(modelo, X),
+        "train_n_estaciones": len(X),
+        "test_silhouette": silhouette_score(X_test, etiquetas_test),
+        "test_davies_bouldin": davies_bouldin_score(X_test, etiquetas_test),
+        "test_n_estaciones": len(X_test),
+        # Estabilidad: ¿las estaciones de ambos meses caen en los mismos grupos?
+        "test_ari_ene_feb": adjusted_rand_score(
+            etiquetas_train[comunes], etiquetas_test[comunes]
+        ),
+    }
+    return etiquetas, metricas
+
+
+def _config_corrida(
+    familia, k, semilla, algoritmo, variables, escalado, min_viajes, archivo, archivo_test
+) -> dict:
+    return {
         "modelo": familia,
         "k": k,
         "n_init": 10,
@@ -124,9 +152,35 @@ def main(
         "version_datos": _version_datos(),
     }
 
+
+def _etiquetas_mlflow(familia: str, etapa: str) -> dict:
+    return {
+        "equipo": "17",
+        "pregunta": "P3-clustering",
+        "question": "p3",
+        "model_family": familia,
+        "stage_of_work": etapa,
+        "git_commit": _commit_actual(),
+    }
+
+
+def _corrida_completa(
+    archivo, archivo_test, algoritmo, variables, k, semilla, min_viajes, etapa, nombre_extra=""
+):
+    """Una corrida con todos los artefactos: modelo con firma, gráficas, datos y configuración."""
+    viajes, X, X_test = _cargar_matrices(archivo, archivo_test, variables, min_viajes)
+    modelo, familia, escalado, sufijo = _construir_modelo(algoritmo, k, semilla)
+    if variables == "solo-horas":
+        sufijo = f"{sufijo}-solo-horas"
+    if nombre_extra:
+        sufijo = f"{sufijo}-{nombre_extra}"
+    config_corrida = _config_corrida(
+        familia, k, semilla, algoritmo, variables, escalado, min_viajes, archivo, archivo_test
+    )
+
     mlflow.set_experiment(MLFLOW_EXPERIMENT)
     with mlflow.start_run(run_name=f"p3-{familia}-k{k}-{sufijo}"):
-        etiquetas = modelo.fit_predict(X)
+        etiquetas, metricas = _ajustar_y_evaluar(modelo, X, X_test)
 
         mlflow.log_params(
             {
@@ -136,40 +190,8 @@ def main(
                 "n_features": X.shape[1],
             }
         )
-        mlflow.set_tags(
-            {
-                "equipo": "17",
-                "pregunta": "P3-clustering",
-                "question": "p3",
-                "model_family": familia,
-                "stage_of_work": etapa,
-                "git_commit": _commit_actual(),
-            }
-        )
-        mlflow.log_metrics(
-            {
-                "train_silhouette": silhouette_score(X, etiquetas),
-                "train_davies_bouldin": davies_bouldin_score(X, etiquetas),
-                **_metricas_modelo(modelo, X),
-                "train_n_estaciones": len(X),
-            }
-        )
-
-        # Prueba: el modelo ajustado con enero se aplica a febrero (sin reentrenar)
-        etiquetas_test = pd.Series(modelo.predict(X_test), index=X_test.index)
-        comunes = X.index.intersection(X_test.index)
-        etiquetas_train = pd.Series(etiquetas, index=X.index)
-        mlflow.log_metrics(
-            {
-                "test_silhouette": silhouette_score(X_test, etiquetas_test),
-                "test_davies_bouldin": davies_bouldin_score(X_test, etiquetas_test),
-                "test_n_estaciones": len(X_test),
-                # Estabilidad: ¿las estaciones de ambos meses caen en los mismos grupos?
-                "test_ari_ene_feb": adjusted_rand_score(
-                    etiquetas_train[comunes], etiquetas_test[comunes]
-                ),
-            }
-        )
+        mlflow.set_tags(_etiquetas_mlflow(familia, etapa))
+        mlflow.log_metrics(metricas)
 
         # Versión de los datos usados (entrenamiento y prueba)
         mlflow.log_input(
@@ -233,6 +255,128 @@ def main(
             )
             mlflow.log_artifact(str(tmp / "config_corrida.json"), "config")
 
+
+def _busqueda_k(
+    archivo, archivo_test, algoritmo, variables, semilla, min_viajes, k_min, k_max
+) -> int:
+    """Búsqueda de k con nested runs: un padre con el resumen y una hija por cada k.
+
+    Las hijas son ligeras (parámetros y métricas, sin modelo ni gráficas). El padre guarda
+    la curva de métricas contra k y el k elegido. Devuelve el mejor k.
+    """
+    if k_min < 2 or k_max < k_min:
+        raise typer.BadParameter("Se requiere 2 <= k_min <= k_max")
+
+    _, X, X_test = _cargar_matrices(archivo, archivo_test, variables, min_viajes)
+    _, familia, escalado, _ = _construir_modelo(algoritmo, k_min, semilla)
+    filas = []
+
+    mlflow.set_experiment(MLFLOW_EXPERIMENT)
+    with mlflow.start_run(run_name=f"p3-busqueda-k-{algoritmo}-{variables}"):
+        mlflow.log_params(
+            {
+                **_config_corrida(
+                    familia, f"{k_min}-{k_max}", semilla, algoritmo, variables, escalado,
+                    min_viajes, archivo, archivo_test,
+                ),
+                "k_min": k_min,
+                "k_max": k_max,
+                "k_operativo": f"{K_OPERATIVO[0]}-{K_OPERATIVO[1]}",
+            }
+        )
+        mlflow.set_tags(_etiquetas_mlflow(familia, "search"))
+
+        for k in range(k_min, k_max + 1):
+            modelo, _, _, _ = _construir_modelo(algoritmo, k, semilla)
+            with mlflow.start_run(run_name=f"p3-{familia}-k{k}-busqueda", nested=True):
+                _, metricas = _ajustar_y_evaluar(modelo, X, X_test)
+                mlflow.log_params(
+                    {"k": k, "algoritmo": algoritmo, "variables": variables,
+                     "n_features": X.shape[1]}
+                )
+                mlflow.set_tags(_etiquetas_mlflow(familia, "search"))
+                mlflow.log_metrics(metricas)
+            filas.append({"k": k, **metricas})
+            logger.info(
+                f"k={k}: test_silhouette={metricas['test_silhouette']:.3f}, "
+                f"ARI={metricas['test_ari_ene_feb']:.3f}"
+            )
+
+        resumen = pd.DataFrame(filas).set_index("k")
+
+        # Criterio: mayor silhouette en prueba dentro del rango operativo de k
+        operativos = resumen.loc[K_OPERATIVO[0]:K_OPERATIVO[1]]
+        if operativos.empty:
+            operativos = resumen
+        mejor_k = int(operativos["test_silhouette"].idxmax())
+        mlflow.log_param("mejor_k", mejor_k)
+        mlflow.log_param(
+            "criterio_mejor_k",
+            f"max test_silhouette con k en [{K_OPERATIVO[0]}, {K_OPERATIVO[1]}]",
+        )
+        mlflow.log_metrics(
+            {
+                "mejor_k_test_silhouette": float(resumen.loc[mejor_k, "test_silhouette"]),
+                "mejor_k_test_ari_ene_feb": float(resumen.loc[mejor_k, "test_ari_ene_feb"]),
+            }
+        )
+
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp = Path(tmp)
+            fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 4))
+            resumen[["train_silhouette", "test_silhouette"]].plot(ax=ax1, marker="o")
+            ax1.axvline(mejor_k, color="gray", linestyle="--", label=f"mejor k = {mejor_k}")
+            ax1.set_xlabel("k")
+            ax1.set_ylabel("Silhouette")
+            ax1.set_title("Separación de grupos (más alto es mejor)")
+            ax1.legend()
+            resumen["test_ari_ene_feb"].plot(ax=ax2, marker="o", color="tab:green")
+            ax2.axvline(mejor_k, color="gray", linestyle="--")
+            ax2.set_xlabel("k")
+            ax2.set_ylabel("ARI enero-febrero")
+            ax2.set_title("Estabilidad entre meses (más alto es mejor)")
+            fig.tight_layout()
+            fig.savefig(tmp / "curva_k.png")
+            plt.close(fig)
+            mlflow.log_artifact(str(tmp / "curva_k.png"), "plots")
+
+            resumen.to_csv(tmp / "resumen_busqueda.csv")
+            mlflow.log_artifact(str(tmp / "resumen_busqueda.csv"), "data")
+            mlflow.log_artifact(str(PROCESSED_DATA_DIR / "manifest.json"), "data")
+
+    logger.info(f"Mejor k de la búsqueda: {mejor_k}")
+    return mejor_k
+
+
+@app.command()
+def main(
+    archivo: str = "datos_abiertos_2025_01_procesado.parquet",
+    archivo_test: str = "datos_abiertos_2025_02_procesado.parquet",
+    algoritmo: str = "kmeans",  # kmeans | kmeans-escalado | gmm
+    variables: str = "completas",  # completas | solo-horas
+    k: int = 4,
+    semilla: int = SEED,
+    min_viajes: int = 0,
+    etapa: str = "baseline",  # baseline | search | candidate
+    buscar_k: bool = False,
+    k_min: int = 2,
+    k_max: int = 8,
+    reentrenar_mejor: bool = True,
+):
+    if buscar_k:
+        mejor_k = _busqueda_k(
+            archivo, archivo_test, algoritmo, variables, semilla, min_viajes, k_min, k_max
+        )
+        if reentrenar_mejor:
+            # El padre ya se cerró: la corrida completa del mejor k queda fuera del anidado
+            _corrida_completa(
+                archivo, archivo_test, algoritmo, variables, mejor_k, semilla, min_viajes,
+                etapa="candidate", nombre_extra="mejor-k",
+            )
+    else:
+        _corrida_completa(
+            archivo, archivo_test, algoritmo, variables, k, semilla, min_viajes, etapa
+        )
     logger.success("Corrida P3 registrada en MLflow.")
 
 
