@@ -1,0 +1,32 @@
+name: mibici-equipo17
+
+python_env: python_env.yaml
+
+entry_points:
+  ingest:
+    command: "python -m tc5061_proyecto_equipo17.dataset"
+
+  train:
+    parameters:
+      question:
+        type: str
+        default: p2
+      model:
+        type: str
+        default: rf
+      n_estimators:
+        type: int
+        default: 0
+      max_depth:
+        type: int
+        default: 0
+      k:
+        type: int
+        default: 0
+    command: >-
+      python -m tc5061_proyecto_equipo17.modeling.run_training
+      --question {question}
+      --model {model}
+      --n-estimators {n_estimators}
+      --max-depth {max_depth}
+      --k {k}
