@@ -273,12 +273,16 @@ def _busqueda_k(
 
     mlflow.set_experiment(MLFLOW_EXPERIMENT)
     with mlflow.start_run(run_name=f"p3-busqueda-k-{algoritmo}-{variables}"):
+        config_busqueda = _config_corrida(
+            familia, f"{k_min}-{k_max}", semilla, algoritmo, variables, escalado,
+            min_viajes, archivo, archivo_test,
+        )
+        # Con `mlflow run`, MLflow ya guardó el parámetro k del MLproject en esta corrida
+        # y no permite cambiarlo. El rango de la búsqueda queda en k_min y k_max.
+        config_busqueda.pop("k", None)
         mlflow.log_params(
             {
-                **_config_corrida(
-                    familia, f"{k_min}-{k_max}", semilla, algoritmo, variables, escalado,
-                    min_viajes, archivo, archivo_test,
-                ),
+                **config_busqueda,
                 "k_min": k_min,
                 "k_max": k_max,
                 "k_operativo": f"{K_OPERATIVO[0]}-{K_OPERATIVO[1]}",
