@@ -244,16 +244,33 @@ Se completó con éxito una ejecución integral de P1 desde un clon limpio del r
 
 ### 11.5. Entrenamiento P2: clasificación de riesgo
 
+`train_p2.py` decide qué hacer según los hiperparámetros que recibe:
+
+- **Sin hiperparámetros → búsqueda:** una corrida padre con una hija baseline (persistencia) y una hija por combinación (`n_estimators` ∈ {100, 300} × `max_depth` ∈ {8, 12, 16}). Elige con validación (25–31 de enero, `FECHA_CORTE_VAL`) por mayor recall, con PR-AUC como desempate; reentrena al ganador con todo enero y lo evalúa en febrero.
+- **Con hiperparámetros → candidato:** un Random Forest en una sola corrida, con métricas de validación y de prueba.
+
+Búsqueda (reproduce el modelo en producción, RF 100/12):
+
 ```bash
-mlflow run . \
-  -e train \
-  -P question=p2 \
-  -P model=rf \
-  -P n_estimators=100 \
-  -P max_depth=12 \
-  --experiment-name mibici-equipo17 \
-  --env-manager=virtualenv
+mlflow run . -e train -P question=p2 -P model=rf \
+  --experiment-name mibici-equipo17 --env-manager=virtualenv
 ```
+
+Candidatos evaluados:
+
+```bash
+mlflow run . -e train -P question=p2 -P model=rf -P n_estimators=100 -P max_depth=12 --experiment-name mibici-equipo17 --env-manager=virtualenv
+mlflow run . -e train -P question=p2 -P model=rf -P n_estimators=300 -P max_depth=16 --experiment-name mibici-equipo17 --env-manager=virtualenv
+mlflow run . -e train -P question=p2 -P model=rf -P n_estimators=200 -P max_depth=8  --experiment-name mibici-equipo17 --env-manager=virtualenv
+```
+
+Registro en el Model Registry (`mibici-equipo17-p2-riesgo`): toma la última búsqueda como `@champion`, opcionalmente otra corrida como `@challenger`, y verifica la carga por alias:
+
+```bash
+python -m tc5061_proyecto_equipo17.modeling.register_p2 --challenger-run-id <run_id de p2-rf-n200-d8>
+```
+
+**En Windows (PowerShell):** usar `$env:MLFLOW_TRACKING_URI = "http://127.0.0.1:5000"` en lugar de `export`, y `--env-manager=local` con un `.venv` que tenga las versiones de `requirements-lock.txt` (pandas 2.3.3, scikit-learn 1.7.2). Con pandas 3 cambia `version_datos` aunque los datos sean los mismos.
 
 ### 11.6. Entrenamiento P3: clustering de estaciones
 
