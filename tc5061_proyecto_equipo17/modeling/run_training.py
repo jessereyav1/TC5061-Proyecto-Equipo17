@@ -11,7 +11,7 @@ from tc5061_proyecto_equipo17.config import (
 
 
 MODULES = {
-    "p1": "tc5061_proyecto_equipo17.modeling.train_regression",
+    "p1": "tc5061_proyecto_equipo17.modeling.train_p1",
     "p2": "tc5061_proyecto_equipo17.modeling.train_p2",
     "p3": "tc5061_proyecto_equipo17.modeling.train_p3",
 }
@@ -45,7 +45,7 @@ def preparar_p1():
     import pandas as pd
 
     dataset = PROCESSED_DATA_DIR / "dataset_regresion_horario.parquet"
-    features = PROCESSED_DATA_DIR / "features_regresion.parquet"
+    features = PROCESSED_DATA_DIR / "features_p1.parquet"
 
     print("\nPreparando datos de P1...", flush=True)
 
@@ -82,7 +82,7 @@ def preparar_p1():
     if not cobertura_completa(dataset):
         print("Generando dataset completo de P1...", flush=True)
         ejecutar_modulo(
-            "tc5061_proyecto_equipo17.dataset_regression"
+            "tc5061_proyecto_equipo17.dataset_p1"
         )
 
         if not cobertura_completa(dataset):
@@ -99,7 +99,7 @@ def preparar_p1():
     if not cobertura_completa(features):
         print("Generando características de P1...", flush=True)
         ejecutar_modulo(
-            "tc5061_proyecto_equipo17.features_regression"
+            "tc5061_proyecto_equipo17.features_p1"
         )
 
     if not cobertura_completa(features):

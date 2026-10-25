@@ -40,7 +40,7 @@ class FeatureRegressionEngineer:
     def construir_y_guardar_features(
         self,
         df: pd.DataFrame,
-        output_filename: str = "features_regresion.parquet",
+        output_filename: str = "features_p1.parquet",
     ) -> Tuple[pd.DataFrame, Path]:
         """
         Genera variables explicativas de series de tiempo (lags, rolling features, ciclicidad)
@@ -92,7 +92,7 @@ class FeatureRegressionEngineer:
 @app.command()
 def main(
     input_filename: str = "dataset_regresion_horario.parquet",
-    output_filename: str = "features_regresion.parquet",
+    output_filename: str = "features_p1.parquet",
 ):
     """
     Ejecuta el pipeline de ingeniería de características para el modelo de regresión.
