@@ -25,6 +25,8 @@ FIGURES_DIR = REPORTS_DIR / "figures"
 FECHA_INICIO = "2025-01-01"
 FECHA_FIN = "2025-02-28"
 FECHA_CORTE_TEST = "2025-02-01"
+# Validación para elegir hiperparámetros: última semana de enero (25-31)
+FECHA_CORTE_VAL = "2025-01-25"
 
 # Reproducibilidad
 SEED = 42
