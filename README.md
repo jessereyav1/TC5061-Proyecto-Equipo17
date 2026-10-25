@@ -83,10 +83,14 @@ TC5061-Proyecto-Equipo17/
 │   ├── dataset.py                # Ingesta general
 │   ├── ingest_p1.py              # Descarga de los 24 CSV para P1
 │   ├── urls_p1.json              # Catálogo de URL oficiales para P1
-│   ├── dataset_regression.py     # Consolidación horaria de P1
-│   ├── features_regression.py    # Características de regresión
+│   ├── dataset_p1.py             # Consolidación horaria de P1
+│   ├── features_p1.py            # Características de regresión
 │   ├── features.py               # Ingeniería de características
 │   └── modeling/                 # Código de modelos y entrada común
+│       ├── run_training.py       # Punto de entrada común MLflow
+│       ├── train_p1.py           # Entrenamiento P1 (Regresión)
+│       ├── train_p2.py           # Entrenamiento P2 (Clasificación)
+│       └── train_p3.py           # Entrenamiento P3 (Clustering)
 ├── tests/                        # Pruebas automatizadas
 ├── MLproject                     # Entradas de MLflow Projects
 ├── python_env.yaml               # Entorno reproducible
@@ -200,9 +204,9 @@ Esta ingesta descarga los registros de enero y febrero de 2025, genera archivos 
 P1 utiliza **24 meses de datos de MiBici**, desde octubre de 2024 hasta septiembre de 2026. Su preparación se activa automáticamente al ejecutar `train` con `question=p1`:
 
 1. `ingest_p1.py` lee `urls_p1.json`, descarga los 24 CSV requeridos y comprueba que existan y no estén vacíos.
-2. `dataset_regression.py` consolida la demanda por estación y hora en `data/processed/dataset_regresion_horario.parquet`.
-3. `features_regression.py` genera rezagos, estadísticas móviles y otras características en `data/processed/features_regresion.parquet`.
-4. `train_regression.py` entrena el modelo y registra resultados en MLflow.
+2. `dataset_p1.py` consolida la demanda por estación y hora en `data/processed/dataset_regresion_horario.parquet`.
+3. `features_p1.py` genera rezagos, estadísticas móviles y otras características en `data/processed/features_p1.parquet`.
+4. `train_p1.py` entrena el modelo y registra resultados en MLflow.
 
 El punto de entrada evita regenerar archivos Parquet que ya tengan cobertura de los 24 meses. **Esta comprobación de cobertura no garantiza que los archivos sean íntegros o estén actualizados** con respecto a sus fuentes; se requiere una validación adicional para detectar esos casos.
 
@@ -286,3 +290,21 @@ Se comprobó la ejecución de la ingesta general mediante MLflow Projects utiliz
 Para P1 se comprobó desde un clon limpio del repositorio local la descarga de sus 24 CSV, la reconstrucción de sus Parquet y el entrenamiento con registro en MLflow. Las métricas coincidieron con las de la ejecución realizada previamente con los mismos hiperparámetros.
 
 Queda pendiente validar todos los entrenamientos desde un clon limpio y con una instalación del entorno totalmente nueva, así como mejorar la detección de archivos de datos desactualizados. También se requiere coordinar la limpieza de datasets versionados en commits antiguos de Git, sin alterar unilateralmente el historial compartido.
+
+### 12 Gestión del Ciclo de Vida del Modelo (Model Registry)
+
+#### Esquema Seleccionado: Aliases
+Para la gestión del ciclo de vida del modelo correspondiente a **P1 (Predicción de Demanda MiBici)**, se optó por implementar el **esquema moderno de Aliases de MLflow** (utilizando la etiqueta `@champion`) en lugar del esquema tradicional de etapas (`Staging` / `Production`).
+
+#### Justificación Técnica de la Elección:
+1. **Flexibilidad y Desacoplamiento:** El uso de etapas tradicionales (`Production`/`Staging`) se encuentra oficialmente en estado de obsolescencia (*deprecated*) por MLflow. El esquema de aliases permite asignar etiquetas semánticas y dinámicas a versiones específicas del modelo sin imponer transiciones rígidas de estado.
+2. **Consumo Simplificado en Entornos de Producción:** Permite que las aplicaciones consumidoras o APIs de inferencia carguen siempre la última versión validada utilizando un nombre estático y legible (`models:/mibici-equipo17-p1-demanda@champion`), eliminando el riesgo de depender de números de versión hardcodeados o cambios manuales de archivos.
+3. **Soporte para Estrategias A/B y Despliegues Progresivos:** El esquema facilita la convivencia fluida de alias adicionales (como `@challenger` o `@candidate`) para pruebas A/B o despliegues en la sombra (*shadow deployments*).
+
+#### Detalle del Modelo Registrado:
+- **Nombre en Registry:** `mibici-equipo17-p1-demanda`
+- **Versión en Producción:** `Version 2` (Baseline `n_estimators=150`, `max_depth=20`)
+- **Alias Asignado:** `@champion`
+- **Linaje:** Vinculado directamente al experimento `mibici-equipo17`, commit de Git activo y versión del dataset manifiesto SHA-256 (`18d854ce642b`).
+- **Motivo de Selección:** *Se eligió esta versión por registrar el mejor desempeño absoluto y la mayor estabilidad predictiva tanto en el conjunto de validación ($RMSE = 1.9763$, $R^2 = 0.5482$) como en el de prueba ($RMSE = 2.2219$, $R^2 = 0.5785$) en comparación con las variantes candidatas evaluadas.*
+- **Verificación de Carga:** *Se ejecuta satisfactoriamente el script `verificar_p1.py`, cargando con éxito el modelo en producción mediante la URI del alias (`models:/mibici-equipo17-p1-demanda@champion`).*
