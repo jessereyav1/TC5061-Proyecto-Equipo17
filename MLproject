@@ -23,6 +23,15 @@ entry_points:
       k:
         type: int
         default: 0
+      variables:
+        type: str
+        default: completas
+      etapa:
+        type: str
+        default: baseline
+      buscar_k:
+        type: int
+        default: 0
     command: >-
       python -m tc5061_proyecto_equipo17.modeling.run_training
       --question {question}
@@ -30,3 +39,6 @@ entry_points:
       --n-estimators {n_estimators}
       --max-depth {max_depth}
       --k {k}
+      --variables {variables}
+      --etapa {etapa}
+      --buscar-k {buscar_k}

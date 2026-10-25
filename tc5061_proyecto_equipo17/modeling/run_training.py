@@ -19,8 +19,12 @@ MODULES = {
 SUPPORTED_MODELS = {
     "p1": {"rf"},
     "p2": {"rf"},
-    "p3": {"kmeans"},
+    "p3": {"kmeans", "kmeans-escalado", "gmm"},
 }
+
+# Opciones exclusivas de P3
+VARIABLES_P3 = {"completas", "solo-horas"}
+ETAPAS_P3 = {"baseline", "candidate"}
 
 
 def ejecutar_modulo(modulo, argumentos=None):
@@ -125,6 +129,10 @@ def main():
     parser.add_argument("--max-depth", type=int, default=0)
     parser.add_argument("--k", type=int, default=0)
     parser.add_argument("--seed", type=int, default=SEED)
+    # Opciones exclusivas de P3
+    parser.add_argument("--variables", default="completas")
+    parser.add_argument("--etapa", default="baseline")
+    parser.add_argument("--buscar-k", type=int, choices=[0, 1], default=0)
 
     args = parser.parse_args()
 
@@ -139,6 +147,13 @@ def main():
     if args.question in ("p1", "p2"):
         if args.k != 0:
             parser.error("--k solamente aplica a P3")
+
+        if (
+            args.variables != "completas"
+            or args.etapa != "baseline"
+            or args.buscar_k != 0
+        ):
+            parser.error("--variables, --etapa y --buscar-k solo aplican a P3")
 
         if args.n_estimators < 0 or args.max_depth < 0:
             parser.error("Los hiperparámetros no pueden ser negativos")
@@ -161,10 +176,27 @@ def main():
                 "--n-estimators y --max-depth no aplican a P3"
             )
 
-        if args.k < 0:
-            parser.error("--k no puede ser negativo")
+        if args.variables not in VARIABLES_P3:
+            parser.error(f"--variables debe ser una de {sorted(VARIABLES_P3)}")
 
-        if args.k > 0:
+        if args.etapa not in ETAPAS_P3:
+            parser.error(f"--etapa debe ser una de {sorted(ETAPAS_P3)}")
+
+        # Para P3, --model es el algoritmo (kmeans, kmeans-escalado o gmm)
+        parametros.extend([
+            "--algoritmo", args.model,
+            "--variables", args.variables,
+            "--etapa", args.etapa,
+        ])
+
+        if args.buscar_k == 1:
+            # La búsqueda recorre k; no se fija un k único
+            parametros.append("--buscar-k")
+        else:
+            # MLflow guarda -P k en la corrida antes de entrenar y no permite cambiarlo
+            # después, así que en P3 el k se pide siempre de forma explícita.
+            if args.k < 2:
+                parser.error("P3 requiere -P k=<entero mayor o igual a 2> (o -P buscar_k=1)")
             parametros.extend(["--k", str(args.k)])
 
         parametros.extend(["--semilla", str(args.seed)])
