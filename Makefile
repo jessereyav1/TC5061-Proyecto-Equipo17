@@ -84,3 +84,28 @@ export PRINT_HELP_PYSCRIPT
 
 help:
 	@$(PYTHON_INTERPRETER) -c "${PRINT_HELP_PYSCRIPT}" < $(MAKEFILE_LIST)
+
+#################################################################################
+# SECURITY CHECKS - EQUIPO 17
+#################################################################################
+
+.PHONY: security-install security-bandit security-audit security-secrets security
+
+## Install security analysis tools
+security-install:
+	$(PYTHON_INTERPRETER) -m pip install -r requirements-security.txt
+
+## Scan Python source for medium/high security findings
+security-bandit:
+	$(PYTHON_INTERPRETER) -m bandit -r tc5061_proyecto_equipo17 -ll
+
+## Audit installed Python dependencies
+security-audit:
+	$(PYTHON_INTERPRETER) -m pip_audit
+
+## Scan tracked files for potential secrets
+security-secrets:
+	$(PYTHON_INTERPRETER) scripts/check_secrets.py
+
+## Run all security audits
+security: security-bandit security-audit security-secrets

@@ -373,3 +373,50 @@ Para la gestión del ciclo de vida del modelo correspondiente a **P1 (Predicció
 - **Linaje:** Vinculado directamente al experimento `mibici-equipo17`, commit de Git activo y versión del dataset manifiesto SHA-256 (`18d854ce642b`).
 - **Motivo de Selección:** *Se eligió esta versión por registrar el mejor desempeño absoluto y la mayor estabilidad predictiva tanto en el conjunto de validación ($RMSE = 1.9763$, $R^2 = 0.5482$) como en el de prueba ($RMSE = 2.2219$, $R^2 = 0.5785$) en comparación con las variantes candidatas evaluadas.*
 - **Verificación de Carga:** *Se ejecuta satisfactoriamente el script `verificar_p1.py`, cargando con éxito el modelo en producción mediante la URI del alias (`models:/mibici-equipo17-p1-demanda@champion`).*
+
+## Seguridad y pruebas automatizadas
+
+El proyecto incorpora controles de seguridad mediante Bandit,
+pip-audit y detect-secrets.
+
+### Instalación
+
+Instalar las herramientas de auditoría:
+
+    python -m pip install -r requirements-security.txt
+
+### Comandos
+
+Ejecutar todas las pruebas:
+
+    make test
+
+Analizar el código Python:
+
+    make security-bandit
+
+Detectar posibles secretos:
+
+    make security-secrets
+
+Auditar las dependencias instaladas:
+
+    make security-audit
+
+Ejecutar todas las auditorías:
+
+    make security
+
+### Estado de seguridad
+
+- Bandit: 0 hallazgos medios y altos; 12 bajos.
+- pip-audit: 43 vulnerabilidades conocidas pendientes.
+- PyTest: 17 pruebas aprobadas.
+- detect-secrets: 0 hallazgos en archivos incluidos; dos notebooks
+  permanecen excluidos temporalmente.
+
+La ejecución completa de make security puede devolver un error
+debido a las vulnerabilidades pendientes de pip-audit.
+
+Para consultar los resultados, las limitaciones y el plan de
+remediación, revisar docs/seguridad.md.

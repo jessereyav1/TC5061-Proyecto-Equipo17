@@ -7,7 +7,8 @@ import unicodedata
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.error import HTTPError, URLError
-from urllib.request import Request, urlopen
+from urllib.parse import urlsplit
+from urllib.request import HTTPRedirectHandler, Request, build_opener, urlopen
 
 import pandas as pd
 import typer
@@ -202,6 +203,44 @@ def detectar_formato_csv(ruta: Path):
 # DESCARGA DE ARCHIVOS
 # ============================================================
 
+
+def validar_url_mibici(url: str) -> str:
+    """Permite únicamente URL HTTPS del dominio oficial MiBici."""
+    if not isinstance(url, str):
+        raise ValueError("La URL debe ser texto.")
+
+    try:
+        partes = urlsplit(url)
+        host = partes.hostname
+        puerto = partes.port
+    except ValueError as error:
+        raise ValueError("URL mal formada.") from error
+
+    if (
+        partes.scheme != "https"
+        or not host
+        or not (host == "mibici.net" or host.endswith(".mibici.net"))
+        or partes.username is not None
+        or partes.password is not None
+        or puerto not in (None, 443)
+    ):
+        raise ValueError("URL de MiBici no autorizada.")
+
+    return url
+
+
+
+class RedireccionMiBici(HTTPRedirectHandler):
+    """Solo permite redirecciones a URL oficiales HTTPS de MiBici."""
+
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        validar_url_mibici(newurl)
+
+        return super().redirect_request(
+            req, fp, code, msg, headers, newurl
+        )
+
+
 def descargar_archivo(
     destino: Path,
     url: str,
@@ -238,6 +277,8 @@ def descargar_archivo(
         f"Descargando: {url}"
     )
 
+    url = validar_url_mibici(url)
+
     solicitud = Request(
         url,
         headers={
@@ -246,7 +287,7 @@ def descargar_archivo(
     )
 
     try:
-        with urlopen(
+        with build_opener(RedireccionMiBici()).open(
             solicitud,
             timeout=60,
         ) as respuesta:
