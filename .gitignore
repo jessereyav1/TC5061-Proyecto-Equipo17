@@ -227,3 +227,6 @@ env/
 
 # Windows metadata
 *:Zone.Identifier
+
+# Reportes locales de auditoria de seguridad
+/reports/security/
