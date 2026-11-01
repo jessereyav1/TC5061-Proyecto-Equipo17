@@ -1,0 +1,5 @@
+-r requirements.txt
+-r requirements-security.txt
+pytest>=8,<10
+deepchecks==0.19.1
+setuptools==80.9.0
