@@ -92,6 +92,9 @@ TC5061-Proyecto-Equipo17/
 │       ├── train_p2.py           # Entrenamiento P2 (Clasificación)
 │       └── train_p3.py           # Entrenamiento P3 (Clustering)
 ├── tests/                        # Pruebas automatizadas
+│   ├── test_data_p1.py           # Pruebas unitarias para dataset_p1
+│   ├── test_features_p1.py       # Pruebas unitarias para features_p1
+│   └── ...
 ├── MLproject                     # Entradas de MLflow Projects
 ├── python_env.yaml               # Entorno reproducible
 ├── requirements-mlproject.txt    # Dependencias de MLflow Projects
@@ -103,13 +106,36 @@ TC5061-Proyecto-Equipo17/
 
 ## 6. Pruebas automatizadas
 
+El proyecto cuenta con un conjunto de pruebas automatizadas mediante **PyTest** para asegurar la calidad de los datos, la correcta ingeniería de características y la integridad de las canalizaciones (*pipelines*).
+
+### 6.1. Pruebas de datos generales
 Ejecutar desde la raíz del proyecto:
 
 ```bash
 python -m pytest tests/test_data.py -v
 ```
 
-Se verificaron cinco pruebas relacionadas con la normalización de datos, el cálculo de hashes SHA-256 y la transformación de CSV a Parquet.
+Se verifican la normalización de datos, el cálculo de hashes SHA-256 y la transformación de CSV a Parquet.
+
+### 6.2. Pruebas unitarias de P1 (Predicción de Demanda - Regresión)
+Para ejecutar exclusivamente las pruebas unitarias correspondientes a los módulos de datos (`dataset_p1.py`) e ingeniería de características (`features_p1.py`):
+
+```bash
+python -m pytest tests/test_data_p1.py tests/test_features_p1.py -v
+```
+
+Estas pruebas evalúan un total de **24 casos de prueba (normales y límite)**:
+- **Procesamiento de datos P1 (`tests/test_data_p1.py`):** Filtrado condicional del rango de fechas válido (Octubre 2024 a Septiembre 2026), mapeo de nombres de columnas alternativas (`trip_start_time`, `from_station_id`), manejo de registros con valores nulos, cálculo de la bandera de fin de semana y agregación correcta de la demanda por hora y estación.
+- **Ingeniería de características P1 (`tests/test_features_p1.py`):** Generación de variables de rezago (*lags* de 1h, 2h, 24h, 168h), cálculo de estadísticas móviles en ventanas de 3h y 6h, acotamiento [-1, 1] de transformaciones trigonométricas (seno/coseno) para horas y meses, ordenamiento cronológico por estación y prevención de fuga de datos (*data leakage* temporal).
+
+### 6.3. Ejecución de la suite completa
+Para correr todas las pruebas del repositorio:
+
+```bash
+python -m pytest tests/ -v
+# O bien utilizando el automatizador integrado:
+make test
+```
 
 ## 7. Seguimiento de experimentos
 
