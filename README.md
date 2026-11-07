@@ -446,3 +446,180 @@ debido a las vulnerabilidades pendientes de pip-audit.
 
 Para consultar los resultados, las limitaciones y el plan de
 remediación, revisar docs/seguridad.md.
+
+## Actividad 7 — Validación integral de calidad y seguridad
+
+### Objetivo
+
+Validar los componentes del pipeline MLOps de MiBici Guadalajara
+mediante pruebas unitarias, verificaciones de calidad y drift de datos,
+pruebas de reproducibilidad y controles básicos de seguridad.
+
+### Resultados consolidados
+
+La suite completa se ejecutó sobre la rama `main`, con los cambios
+de los cuatro integrantes integrados en el mismo repositorio.
+
+| Indicador | Resultado |
+|---|---:|
+| Pruebas aprobadas | **94** |
+| Pruebas fallidas | **0** |
+| Pruebas omitidas | **0** |
+| Tiempo de ejecución | 19.28 segundos |
+
+Entorno de validación: Ubuntu WSL, Python 3.10.22 y PyTest 9.1.1.
+
+Comando utilizado:
+
+    make test
+
+Los resultados anteriores corresponden a una ejecución consolidada
+y no a la suma de las evidencias individuales.
+
+### Participación y evidencias individuales
+
+| Responsable | Área | Resultado reportado |
+|---|---|---|
+| Esteban | P1 - Regresión | 28 pruebas aprobadas |
+| Diego | P2 - Clasificación | 23 pruebas aprobadas |
+| Marcos | P3, reproducibilidad y DeepChecks | 31 pruebas aprobadas |
+| Rol 1 | Seguridad e infraestructura | 17 pruebas aprobadas |
+
+Las cifras individuales corresponden a distintas ejecuciones y
+pueden contener pruebas comunes.
+
+### P1 — Regresión (Esteban)
+
+Archivos principales:
+
+- `tests/test_data_p1.py`
+- `tests/test_features_p1.py`
+
+Se verificaron la construcción del dataset de regresión, los
+casos límite, el manejo de archivos y fechas, la normalización
+de columnas, los valores nulos, las variables rolling y lag,
+así como la prevención de fuga de información temporal.
+
+Comando de referencia:
+
+    python -m pytest tests/test_data_p1.py tests/test_features_p1.py -v
+
+Resultado individual reportado: 28 pruebas aprobadas.
+
+### P2 — Clasificación (Diego)
+
+Archivo principal:
+
+- `tests/test_features_p2.py`
+
+Se verificaron los flujos de viajes, la construcción de rejillas
+horarias, los umbrales de riesgo, las variables temporales y la
+prevención de fuga de información hacia el objetivo.
+
+Comando de referencia:
+
+    python -m pytest tests/test_features_p2.py -v
+
+Resultado individual reportado: 23 pruebas aprobadas.
+
+### P3 — Agrupamiento y reproducibilidad (Marcos)
+
+Archivos principales:
+
+- `tests/test_features_p3.py`
+- `tests/test_reproducibilidad.py`
+- `tests/test_deepchecks.py`
+
+Se validaron perfiles horarios, proporciones, matrices de
+características, manejo de valores faltantes y consistencia
+de resultados con semillas controladas.
+
+Resultado individual reportado: 31 pruebas aprobadas en la suite
+disponible en su entorno.
+
+### DeepChecks — Calidad de datos y drift
+
+Se verificaron la estructura de variables, valores faltantes,
+duplicados y comportamiento de los datos ante alteraciones.
+
+También se compararon datos reales de enero y febrero de 2025.
+
+Comando:
+
+    python -m pytest tests/test_deepchecks.py -v -rs
+
+Resultado consolidado de este archivo: 9 pruebas aprobadas.
+
+Indicadores de diferencia observados entre periodos:
+
+| Variable | Indicador |
+|---|---:|
+| `prop_findes` | 0.197377 |
+| `h12` | 0.090762 |
+| `h17` | 0.085594 |
+| `h20` | 0.080552 |
+| `h10` | 0.074710 |
+
+La interpretación de estos indicadores como drift significativo
+depende de los criterios de las pruebas.
+
+### Seguridad e infraestructura (Rol 1)
+
+Se incorporaron controles para:
+
+- Validar URL HTTPS y redirecciones en las descargas.
+- Ejecutar pruebas de seguridad con PyTest.
+- Revisar código Python con Bandit.
+- Auditar dependencias mediante pip-audit.
+- Detectar posibles secretos con detect-secrets.
+- Proteger archivos sensibles con .gitignore.
+- Ejecutar las auditorías desde el Makefile.
+
+Resultados de la auditoría documentada:
+
+- Bandit: 0 hallazgos medios o altos; 12 bajos.
+- pip-audit: 43 hallazgos pendientes en el entorno evaluado.
+- detect-secrets: 0 coincidencias en archivos incluidos, con dos
+  notebooks temporalmente excluidos del análisis.
+
+Consultar `docs/seguridad.md` para conocer los riesgos pendientes,
+las limitaciones y las medidas recomendadas.
+
+### Instalación de dependencias para pruebas
+
+Para reproducir las verificaciones de la Actividad 7
+se incorporó el archivo `requirements-test.txt`.
+
+Incluye las dependencias del proyecto, herramientas de seguridad,
+PyTest y las versiones necesarias para ejecutar DeepChecks
+en Python 3.10.
+
+Desde la raíz del repositorio, instalar:
+
+    python -m pip install -r requirements-test.txt
+
+Verificar las dependencias:
+
+    python -m pip check
+
+Ejecutar toda la suite:
+
+    make test
+
+El entorno validado utiliza `deepchecks==0.19.1` y
+`setuptools==80.9.0`. Esta última versión proporciona
+`pkg_resources`, necesario para la compatibilidad con
+DeepChecks.
+
+Se recomienda utilizar un entorno virtual para evitar
+conflictos con otros proyectos.
+
+### Conclusión
+
+La ejecución consolidada confirmó 94 pruebas aprobadas, sin fallos
+ni omisiones, cubriendo P1, P2, P3, reproducibilidad, DeepChecks
+y controles básicos de seguridad.
+
+Los resultados reflejan la funcionalidad validada en el entorno
+evaluado; no implican ausencia de vulnerabilidades ni sustituyen
+la revisión de los riesgos pendientes.
