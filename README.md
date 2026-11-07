@@ -94,7 +94,16 @@ TC5061-Proyecto-Equipo17/
 ├── tests/                        # Pruebas automatizadas
 │   ├── test_data_p1.py           # Pruebas unitarias para dataset_p1
 │   ├── test_features_p1.py       # Pruebas unitarias para features_p1
-│   └── ...
+│   ├── test_features_p2.py       # Pruebas unitarias de las features de P2
+│   ├── test_features_p3.py       # Pruebas unitarias de las features de P3
+│   ├── test_reproducibilidad.py  # Reproducibilidad del entrenamiento con semilla fija
+│   ├── test_deepchecks.py        # Validación de datos con DeepChecks
+│   ├── test_security.py          # Validación de URL y redirecciones
+│   └── conftest.py               # Datos sintéticos compartidos
+├── app.py                        # API REST (FastAPI) del modelo P2
+├── Containerfile                 # Imagen de la API (Docker o Podman)
+├── .dockerignore                 # Archivos excluidos de la imagen
+├── requirements-api.txt          # Dependencias de la API
 ├── MLproject                     # Entradas de MLflow Projects
 ├── python_env.yaml               # Entorno reproducible
 ├── requirements-mlproject.txt    # Dependencias de MLflow Projects
@@ -136,6 +145,16 @@ python -m pytest tests/ -v
 # O bien utilizando el automatizador integrado:
 make test
 ```
+
+### 6.4. Pruebas de P2, P3 y validación de datos con DeepChecks
+Además de las pruebas de P1, la suite incluye:
+
+- **P2 (`tests/test_features_p2.py`):** flujo horario, etiqueta de riesgo (umbrales exactos 0.10 y 0.90) y variables, incluida la prueba de que no hay fuga temporal.
+- **P3 (`tests/test_features_p3.py`, 10 pruebas):** perfil horario entre semana, proporción de fin de semana y matriz de clustering, con datos sintéticos de `tests/conftest.py`.
+- **Reproducibilidad (`tests/test_reproducibilidad.py`, 7 pruebas):** con la misma semilla, K-means, K-means escalado y GMM producen las mismas etiquetas y métricas.
+- **DeepChecks (`tests/test_deepchecks.py`, 9 pruebas):** tipos, nulos, duplicados, columnas constantes y *drift* enero-febrero, y comprobación de que los chequeos detectan problemas inyectados. La prueba con datos reales se omite si no existen los archivos Parquet de `data/processed/`.
+
+DeepChecks 0.19 necesita `setuptools<81` y se instala aparte: `pip install deepchecks "setuptools<81"`. Si no está instalado, sus pruebas se omiten en silencio.
 
 ## 7. Seguimiento de experimentos
 
@@ -446,3 +465,138 @@ debido a las vulnerabilidades pendientes de pip-audit.
 
 Para consultar los resultados, las limitaciones y el plan de
 remediación, revisar docs/seguridad.md.
+
+## 13. API REST y contenedor (Actividad 8)
+
+El modelo P2 de riesgo de estaciones (`mibici-equipo17-p2-riesgo`, alias `champion`) se sirve como una API REST construida con **FastAPI** (`app.py`, en la raíz del repositorio) y empaquetada en un contenedor. El mismo `Containerfile` funciona con **Docker** y con **Podman** (ambos siguen el estándar OCI); los comandos se muestran para los dos.
+
+### 13.1. Estrategia de despliegue: inferencia en tiempo real
+
+Se eligió **inferencia en tiempo real (online)** detrás de un servicio HTTP, por estas razones:
+
+- **La pregunta es operativa y de corto plazo:** "¿esta estación estará sin bicis o sin anclajes la próxima hora?". La respuesta sirve solo si llega antes de esa hora; una predicción nocturna por lotes perdería su valor.
+- **Entradas pequeñas y disponibles al cierre de cada hora:** son 8 variables (hora, día, capacidad, ocupación estimada, riesgo actual y flujo neto), sin necesidad de historial largo.
+- **Modelo ligero y sin estado:** un Random Forest que se carga una vez al arrancar; cada petición es independiente, por lo que el servicio se puede replicar.
+- **Cuándo sería mejor por lotes:** si se necesitara puntuar todas las estaciones de golpe sin urgencia (por ejemplo, un reporte diario), bastaría ejecutar el mismo modelo en un trabajo programado. No es el caso de uso principal de este proyecto.
+
+### 13.2. Cómo se recupera el modelo
+
+La API carga el modelo desde el **Model Registry de MLflow** al arrancar, con la URI `models:/mibici-equipo17-p2-riesgo@champion`. El servidor MLflow se indica con la variable de entorno `MLFLOW_TRACKING_URI`, que el cliente de MLflow lee por sí mismo. No se empaqueta el modelo en la imagen porque:
+
+- el repositorio no versiona modelos serializados (sección 11.8), y
+- al usar el alias `champion`, se puede cambiar la versión en producción sin reconstruir la imagen.
+
+Si el registry no responde al arrancar, el servicio levanta de todos modos, `GET /` muestra `"modelo_cargado": false` y `POST /predict` responde `500`. En ese caso hay que corregir el registry y reiniciar el contenedor, porque el modelo solo se carga al arrancar.
+
+### 13.3. Requisitos
+
+- Docker (probado con Docker 29.8.0) o Podman.
+- Un servidor MLflow con el modelo P2 registrado y con alias `champion` (secciones 11.5 y 11.7).
+- Archivos de esta entrega: `app.py`, `Containerfile`, `.dockerignore` y `requirements-api.txt`.
+
+### 13.4. Servidor MLflow accesible desde el contenedor
+
+El servidor debe escuchar en todas las interfaces y aceptar el nombre con el que el contenedor ve a la máquina anfitriona. Desde la raíz del proyecto, con el entorno virtual activo y en una terminal aparte:
+
+```bash
+mlflow server --backend-store-uri sqlite:///mlflow.db --host 0.0.0.0 --port 5000 --allowed-hosts "localhost:*,127.0.0.1:*,host.containers.internal:*,host.docker.internal:*"
+```
+
+Sin `--allowed-hosts`, MLflow responde `403 Invalid Host header - possible DNS rebinding attack detected` y la API no puede cargar el modelo. En Windows, si el firewall pregunta, se debe permitir el acceso en redes privadas.
+
+### 13.5. Construir la imagen
+
+Desde la raíz del repositorio:
+
+```bash
+# Docker
+docker build -t mibici-p2-api -f Containerfile .
+
+# Podman
+podman build -t mibici-p2-api -f Containerfile .
+```
+
+### 13.6. Levantar el contenedor
+
+```bash
+# Docker Desktop (Windows o macOS)
+docker run --rm -p 8000:8000 -e MLFLOW_TRACKING_URI=http://host.docker.internal:5000 --name mibici-p2-api mibici-p2-api
+
+# Docker en Linux: agregar además --add-host=host.docker.internal:host-gateway
+
+# Podman (el valor por defecto de la imagen ya apunta a host.containers.internal)
+podman run --rm -p 8000:8000 --name mibici-p2-api mibici-p2-api
+```
+
+En el registro del contenedor debe aparecer `¡Modelo cargado exitosamente desde MLflow Registry!`. Para detenerlo: `docker stop mibici-p2-api` (o `podman stop mibici-p2-api`).
+
+### 13.7. Consumir la API
+
+La documentación interactiva (Swagger) queda en <http://localhost:8000/docs>.
+
+| Método y ruta | Descripción |
+|---|---|
+| `GET /` | Estado del servicio; `modelo_cargado` indica si el modelo está disponible. |
+| `POST /predict` | Clase de riesgo (0 o 1) y probabilidad para **una** estación en la hora siguiente. |
+
+**Variables de entrada** (todas obligatorias):
+
+| Campo | Tipo | Restricción | Descripción |
+|---|---|---|---|
+| `hora_dia` | entero | 0 a 23 | Hora del día. |
+| `dia_semana` | entero | 0 a 6 | 0 = lunes, 6 = domingo. |
+| `fin_de_semana` | entero | 0 o 1 | Indicador de fin de semana. |
+| `capacidad` | número | — | Anclajes de la estación. |
+| `pct_ocupacion` | número | — | Ocupación estimada (proxy). |
+| `riesgo_ahora` | entero | 0 o 1 | Riesgo al cierre de la hora actual. |
+| `neto` | entero | — | Llegadas menos salidas de la hora actual. |
+| `neto_ult_3h` | número | — | Flujo neto de la hora actual y las dos anteriores. |
+
+**Ejemplo de petición** (el cuerpo está en `docs/ejemplo_prediccion.json`):
+
+```bash
+curl -X POST http://localhost:8000/predict -H "Content-Type: application/json" -d @docs/ejemplo_prediccion.json
+```
+
+En PowerShell, `curl` es un alias de otro comando; usar `curl.exe -X POST http://localhost:8000/predict -H "Content-Type: application/json" -d "@docs/ejemplo_prediccion.json"`. También se puede probar desde la pestaña "Try it out" de <http://localhost:8000/docs>.
+
+**Ejemplo de respuesta:**
+
+```json
+{
+  "prediccion": 1,
+  "probabilidad": 0.9156408343794322,
+  "status": "success"
+}
+```
+
+`probabilidad` es la probabilidad asociada a la clase predicha. Respuesta obtenida con el modelo `mibici-equipo17-p2-riesgo` v1 (`@champion`) corriendo en el contenedor.
+
+**Errores:** `422` cuando los datos no cumplen el esquema (por ejemplo `hora_dia` = 24 o un campo ausente); `500` si el modelo no está cargado; `400` si falla la inferencia.
+
+### 13.8. Variables de entorno
+
+| Variable | Valor por defecto | Uso |
+|---|---|---|
+| `MLFLOW_TRACKING_URI` | `http://host.containers.internal:5000` | Dónde está el servidor MLflow. |
+| `APP_MODULE` | `app:app` | Aplicación que arranca uvicorn. |
+| `PORT` | `8000` | Puerto dentro del contenedor. |
+
+El nombre del modelo y el alias están definidos en `app.py`.
+
+### 13.9. Problemas frecuentes
+
+| Síntoma | Causa y solución |
+|---|---|
+| `modelo_cargado: false` y en el registro aparece `Invalid Host header` | El servidor MLflow no se arrancó con `--allowed-hosts` (sección 13.4). |
+| `modelo_cargado: false` con `Connection refused` o tiempo de espera | El servidor MLflow no está encendido, se arrancó con `--host 127.0.0.1`, o el firewall lo bloquea. |
+| `modelo_cargado: false` con `RESOURCE_DOES_NOT_EXIST` | El modelo P2 o su alias `champion` no existen en ese registry (secciones 11.5 y 11.7). |
+| `docker build` falla en `COPY app.py` | Falta `app.py` en la raíz de la rama actual. |
+| Podman en Windows no responde | Ejecutar `podman machine start` antes de construir o levantar el contenedor. |
+
+### 13.10. Evidencia y limitaciones
+
+- Evidencia: captura de la API respondiendo una petición de prueba desde el contenedor en `docs/evidencia_api_contenedor.png`.
+- La ocupación (`pct_ocupacion`) es una estimación a partir del flujo, no un inventario real de bicicletas (sección 11.5).
+- La imagen no incluye datos ni modelos; depende de que el registry esté disponible al arrancar.
+- La API no tiene autenticación ni HTTPS; está pensada para uso académico y local.
