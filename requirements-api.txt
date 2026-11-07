@@ -1,0 +1,20 @@
+# Dependencias de ejecución de la API (Actividad 8). Versiones tomadas de requirements-lock.txt
+# para que el contenedor use las mismas que se usaron al entrenar y registrar el modelo.
+fastapi==0.143.0
+starlette==1.7.0
+uvicorn==0.54.0
+pydantic==2.14.1
+# Cliente ligero de MLflow: basta para leer el Model Registry y cargar el modelo por HTTP
+mlflow-skinny==3.17.0
+numpy==2.2.6
+pandas==2.3.3
+scikit-learn==1.7.2
+scipy==1.15.3
+joblib==1.6.0
+threadpoolctl==3.7.0
+# El modelo se guardó con formato skops
+skops==0.16.0
+# tc5061_proyecto_equipo17/config.py los importa al cargar el paquete
+python-dotenv==1.2.4
+loguru==0.7.3
+tqdm==4.70.1
