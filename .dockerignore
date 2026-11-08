@@ -1,0 +1,23 @@
+# Lo que NO debe entrar al contexto de build (lo leen Docker y Podman).
+# Los datos, modelos y bases de MLflow nunca van dentro de la imagen.
+.git
+.github
+venv
+.venv
+**/__pycache__
+**/*.pyc
+.pytest_cache
+data
+models
+mlruns
+mlartifacts
+mlflow.db
+reports
+notebooks
+references
+docs
+tests
+scripts
+*.md
+.env
+.env.*

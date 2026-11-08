@@ -1,0 +1,10 @@
+{
+  "hora_dia": 18,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 20,
+  "pct_ocupacion": 0.05,
+  "riesgo_ahora": 1,
+  "neto": -3,
+  "neto_ult_3h": -7
+}
