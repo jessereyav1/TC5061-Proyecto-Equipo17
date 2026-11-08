@@ -230,3 +230,6 @@ env/
 
 # Reportes locales de auditoria de seguridad
 /reports/security/
+
+# Modelos exportados para inferencia local
+/artifacts/
