@@ -716,18 +716,20 @@ La documentación interactiva (Swagger) queda en <http://localhost:8000/docs>.
 | `GET /` | Estado del servicio; `modelo_cargado` indica si el modelo está disponible. |
 | `POST /predict` | Clase de riesgo (0 o 1) y probabilidad para **una** estación en la hora siguiente. |
 
-**Variables de entrada** (todas obligatorias):
+**Variables de entrada** (todas obligatorias; no se aceptan campos adicionales, y los enteros deben enviarse como números enteros, no como texto ni con decimales):
 
 | Campo | Tipo | Restricción | Descripción |
 |---|---|---|---|
 | `hora_dia` | entero | 0 a 23 | Hora del día. |
 | `dia_semana` | entero | 0 a 6 | 0 = lunes, 6 = domingo. |
-| `fin_de_semana` | entero | 0 o 1 | Indicador de fin de semana. |
-| `capacidad` | número | — | Anclajes de la estación. |
-| `pct_ocupacion` | número | — | Ocupación estimada (proxy). |
+| `fin_de_semana` | entero | 0 o 1 | Debe ser 1 si `dia_semana` es 5 o 6, y 0 en otro caso. |
+| `capacidad` | número | mayor que 0 y hasta 200 | Anclajes de la estación. |
+| `pct_ocupacion` | número | 0.0 a 1.0 | Ocupación estimada (proxy). |
 | `riesgo_ahora` | entero | 0 o 1 | Riesgo al cierre de la hora actual. |
-| `neto` | entero | — | Llegadas menos salidas de la hora actual. |
-| `neto_ult_3h` | número | — | Flujo neto de la hora actual y las dos anteriores. |
+| `neto` | entero | valor absoluto menor o igual que `capacidad` | Llegadas menos salidas de la hora actual. |
+| `neto_ult_3h` | número | valor absoluto menor o igual que 3 × `capacidad` | Flujo neto de la hora actual y las dos anteriores. |
+
+`capacidad`, `pct_ocupacion` y `neto_ult_3h` deben ser números finitos (no `NaN` ni infinito).
 
 **Ejemplo de petición** (el cuerpo está en `docs/ejemplo_prediccion.json`):
 
@@ -749,7 +751,7 @@ En PowerShell, `curl` es un alias de otro comando; usar `curl.exe -X POST http:/
 
 `probabilidad` es la probabilidad asociada a la clase predicha. Respuesta obtenida con el modelo `mibici-equipo17-p2-riesgo` v1 (`@champion`) corriendo en el contenedor.
 
-**Errores:** `422` cuando los datos no cumplen el esquema (por ejemplo `hora_dia` = 24 o un campo ausente); `500` si el modelo no está cargado; `400` si falla la inferencia.
+**Errores:** `422` cuando los datos no cumplen el esquema (por ejemplo `hora_dia` = 24, un campo ausente o un campo extra) o las reglas entre variables; por ejemplo, `dia_semana` = 6 con `fin_de_semana` = 0 devuelve `Value error, fin_de_semana=0 no coincide con dia_semana=6 (se esperaba 1)`; `500` si el modelo no está cargado; `400` si falla la inferencia.
 
 ### 13.8. Variables de entorno
 
