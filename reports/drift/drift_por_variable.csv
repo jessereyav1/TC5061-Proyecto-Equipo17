@@ -1,0 +1,10 @@
+variable,metodo,drift_score,umbral,drift_detectado,es_objetivo,unidad
+dia_semana,Jensen-Shannon distance,0.04159320677112175,0.1,False,False,distancia
+pct_ocupacion,Wasserstein distance (normed),0.033053841530332494,0.1,False,False,distancia
+neto_ult_3h,Wasserstein distance (normed),0.019766238728869838,0.1,False,False,distancia
+neto,Wasserstein distance (normed),0.013171043552859689,0.1,False,False,distancia
+riesgo_siguiente_hora,Jensen-Shannon distance,0.010909688422409792,0.1,False,True,distancia
+riesgo_ahora,Jensen-Shannon distance,0.010891587492849932,0.1,False,False,distancia
+capacidad,Wasserstein distance (normed),0.0019343073743364363,0.1,False,False,distancia
+hora_dia,Jensen-Shannon distance,0.0,0.1,False,False,distancia
+fin_de_semana,Jensen-Shannon distance,0.0,0.1,False,False,distancia

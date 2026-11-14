@@ -779,3 +779,95 @@ El nombre del modelo y el alias están definidos en `app.py`.
 - La ocupación (`pct_ocupacion`) es una estimación a partir del flujo, no un inventario real de bicicletas (sección 11.5).
 - La imagen no incluye datos ni modelos; depende de que el registry esté disponible al arrancar.
 - La API no tiene autenticación ni HTTPS; está pensada para uso académico y local.
+
+## 14. Monitoreo de drift (Actividad 10)
+
+Se comparó el conjunto de **referencia** (enero 2025, entrenamiento) contra el conjunto **actual** (julio 2025) con **Evidently 0.7.21** (Wasserstein para numéricas, Jensen-Shannon para categóricas, umbral 0.1).
+
+Resultado de **magnitud**: 0 de 9 variables con drift significativo (umbral 0.1) y drift de conjunto **no**. La mayor alteración fue `dia_semana` (0.0416), explicable por la composición del calendario, seguida de `pct_ocupacion` (0.0331). Resultado de **significancia** (K-S / chi-cuadrada, p < 0.05): 5 de 9 variables con
+diferencias estadísticamente detectables (4 de 8 features), aunque todas de magnitud
+mínima; drift de conjunto **sí**. Confirma que el drift es leve pero medible.
+
+### 14.1. Interpretación del drift (identificación de variables afectadas e implicaciones para el modelo)
+
+**Qué variables se vieron afectadas.** La respuesta depende del criterio aplicado.
+
+*Por magnitud* (Wasserstein / Jensen-Shannon, umbral 0.1): **ninguna** variable supera el
+umbral. Ordenadas de mayor a menor alteración:
+
+| Variable | Drift score | Umbral | ¿Drift? | Naturaleza del cambio |
+|---|---:|---:|---|---|
+| `dia_semana` | 0.0416 | 0.1 | No | Artefacto de calendario |
+| `pct_ocupacion` | 0.0331 | 0.1 | No | Estacional (temporada de lluvias) |
+| `neto_ult_3h` | 0.0198 | 0.1 | No | Estacional |
+| `neto` | 0.0132 | 0.1 | No | Estacional |
+| `riesgo_siguiente_hora` (objetivo) | 0.0109 | 0.1 | No | Cambio leve de prevalencia |
+| `riesgo_ahora` | 0.0109 | 0.1 | No | Cambio leve de prevalencia |
+| `capacidad` | 0.0019 | 0.1 | No | Estable |
+| `hora_dia` | 0.0000 | 0.1 | No | Determinista del calendario |
+| `fin_de_semana` | 0.0000 | 0.1 | No | Determinista del calendario |
+
+*Por significancia* (K-S / chi-cuadrada, p < 0.05): **5 de 9** variables muestran diferencias
+detectables — `dia_semana` (p = 0.0), `riesgo_siguiente_hora` (9.5e-57), `riesgo_ahora`
+(1.5e-56), `pct_ocupacion` (9.6e-25) y `neto_ult_3h` (2.9e-06) — mientras que `neto` (0.102),
+`capacidad` (0.994), `hora_dia` (1.0) y `fin_de_semana` (1.0) permanecen estables.
+
+**Precisión sobre qué cambió realmente.** Conviene separar tres grupos:
+
+1. **Artefactos de calendario (no son señal de negocio).** `dia_semana` es la variable con
+   mayor "drift" (0.0416) y sale significativa, pero se explica por la composición de los
+   meses: enero de 2025 tiene cinco miércoles, jueves y viernes y cuatro martes; julio tiene
+   cinco martes, miércoles y jueves y cuatro viernes. Al comparar meses completos, la
+   proporción de estación-horas por día de la semana cambia por construcción. `hora_dia` y
+   `fin_de_semana` dan exactamente 0 porque ambos meses tienen las mismas 24 horas por día y
+   8 días de fin de semana.
+2. **Variables continuas sensibles a la temporada (cambio real, aunque mínimo).**
+   `pct_ocupacion` (0.0331) es la continua más alterada; `neto` (0.0132) y `neto_ult_3h`
+   (0.0198) le siguen, de forma coherente con que julio es temporada de lluvias en
+   Guadalajara. Su magnitud está muy por debajo del umbral 0.1.
+3. **Régimen de riesgo y etiqueta.** `riesgo_ahora` y `riesgo_siguiente_hora` (0.0109 ambos)
+   se movieron poco en magnitud, pero su diferencia es estadísticamente muy significativa por
+   el tamaño de muestra: la tasa base pasó de **15.48 %** (enero) a **14.38 %** (julio).
+
+**Implicaciones para el desempeño del modelo P2.**
+
+- **Riesgo de degradación por *covariate shift*: bajo.** P2 es un Random Forest que particiona
+  el espacio de las 8 variables de entrada. Ninguna se movió lo suficiente (máximo 0.0416
+  frente al umbral 0.1) como para desplazar de forma masiva las observaciones hacia hojas poco
+  entrenadas. La estructura de árboles aprendida en enero sigue cubriendo la región donde caen
+  los datos de julio, por lo que **no se espera una caída de ROC-AUC o recall atribuible al
+  data drift**.
+- **Significancia estadística no equivale a relevancia práctica.** Con ~273 000 filas, K-S y
+  chi-cuadrada tienen potencia suficiente para detectar como significativas diferencias
+  ínfimas. Los cinco "drifts significativos" tienen magnitud ≤ 0.042. Confundir significancia
+  con magnitud llevaría a reentrenar sin causa justificada.
+- **La etiqueta se desplazó, pero apenas.** La prevalencia bajó de 15.48 % a 14.38 %
+  (≈1.1 puntos). El cambio es pequeño y no obliga a recalibrar el umbral de decisión; sin
+  embargo, si el umbral se fijó para una prevalencia de ~15.5 %, en julio el modelo tenderá a
+  marcar relativamente más casos como riesgo. Conviene vigilar **precision y recall**, no solo
+  la exactitud.
+- **El mayor riesgo residual es *concept drift*, no data drift.** Que las distribuciones
+  marginales sean estables no garantiza que la relación entre variables y etiqueta siga
+  igual: en temporada de lluvias un mismo `pct_ocupacion` puede anticipar el riesgo de forma
+  distinta. Evidently no cubre esto con drift de datos; lo aborda el A/B testing de la ventana
+  22–31 de julio comparando `@champion` contra la versión reentrenada.
+- **Foco del monitoreo continuo.** `pct_ocupacion`, `neto` y `neto_ult_3h` son las variables a
+  vigilar mes a mes, por ser las continuas que responden a la temporada. `dia_semana` no debe
+  interpretarse como señal de negocio. `capacidad` y las variables deterministas del calendario
+  pueden monitorearse con menor frecuencia.
+
+**Conclusión.** El data drift entre enero y julio de 2025 es **leve y mayormente atribuible a
+estacionalidad y calendario**: sin cambios de magnitud relevante (0/9 con score ≥ 0.1), pero con
+diferencias estadísticamente detectables (5/9, p < 0.05) que no alcanzan magnitud operativa. El
+modelo P2 no requiere reentrenamiento por data drift; la validación decisiva es el A/B testing
+para descartar *concept drift*.
+
+Interpretación completa en `docs/drift_interpretacion.md`. Evidencia:
+`reports/drift/reporte_drift.html`, `reports/drift/reporte_drift_significancia.html`,
+`reports/figures/drift_por_variable.png` y `reports/figures/drift_significancia.png`.
+
+Generación:
+
+    python -m tc5061_proyecto_equipo17.monitoreo_datos ingesta-actual
+    python -m tc5061_proyecto_equipo17.monitoreo_datos construir-features
+    python -m tc5061_proyecto_equipo17.monitoreo_drift reporte --modo ambos
