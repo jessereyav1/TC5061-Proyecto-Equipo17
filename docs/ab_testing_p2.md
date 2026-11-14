@@ -82,3 +82,119 @@ Las evidencias se encuentran en reports/ab_testing/.
 
 La comparación requiere los datos procesados de monitoreo
 y ambas versiones disponibles en un MLflow Model Registry.
+
+## Análisis de incertidumbre estadística
+
+Se aplicó bootstrap pareado por día, con 5,000
+remuestreos y semilla 42, utilizando los diez días
+del conjunto de evaluación.
+
+| Métrica | Delta Challenger - Champion | IC 95% |
+|---|---:|---|
+| Precision | -0.01002 | [-0.01352, -0.00720] |
+| Recall | +0.00682 | [+0.00565, +0.00825] |
+| F1-score | -0.00363 | [-0.00578, -0.00182] |
+
+Los intervalos no incluyen cero. Sin embargo, la
+ventana comprende solo diez días, por lo que la
+generalización a otros meses requiere cautela.
+
+La prueba exacta de McNemar, como análisis
+complementario, produjo:
+
+- Observaciones donde solo Champion acertó: 436.
+- Observaciones donde solo Challenger acertó: 254.
+- p-valor: menor a 0.001.
+
+McNemar no considera explícitamente la dependencia
+entre estación-horas, por lo que no debe interpretarse
+como una prueba definitiva de superioridad operacional.
+
+Los resultados completos están en:
+
+- reports/ab_testing/bootstrap_intervalos.csv
+- reports/ab_testing/mcnemar_resultado.csv
+
+## Criterio de decisión y costo operativo
+
+Challenger mejora el recall y detecta 89 riesgos
+reales adicionales, pero genera 271 falsos positivos
+adicionales.
+
+De las 360 alertas adicionales, aproximadamente
+24.7 % corresponden a riesgos reales y 75.3 %
+a falsas alarmas.
+
+Si el objetivo fuera exclusivamente maximizar
+recall, Challenger sería preferible.
+
+Sin embargo, sin una cuantificación del costo
+de falsos positivos y falsos negativos, no
+se justifica su promoción automática.
+
+Se recomienda conservar Champion provisionalmente,
+definir una función de costo operativo y evaluar
+nuevamente antes de cualquier promoción.
+
+## Aclaración sobre el drift de neto
+
+El análisis de Evidently reportó para neto:
+
+- Magnitud del cambio: 0.0132.
+- p-valor: 0.102.
+- Drift significativo: no.
+
+Por tanto, neto se propone como variable de
+monitoreo preventivo, no como variable con
+drift estadísticamente significativo.
+
+## Línea base histórica de Champion
+
+Resultados históricos reportados para febrero
+de 2025:
+
+| Métrica | Febrero | Julio |
+|---|---:|---:|
+| Precision | 0.728 | 0.7138 |
+| Recall | 0.892 | 0.8976 |
+| F1-score | 0.802 | 0.7952 |
+| PR-AUC | 0.905 | 0.9063 |
+
+Las métricas muestran variaciones moderadas,
+sin evidencia clara de degradación severa
+del desempeño entre ambos periodos.
+
+## Trazabilidad en MLflow
+
+Modelo registrado: mibici-equipo17-p2-riesgo.
+
+### Champion
+
+- Alias: champion.
+- Versión local: 1.
+- Run ID: 1197d147660245ba87f4b56f14a51eac.
+- Estado: READY.
+
+### Challenger
+
+- Alias: challenger.
+- Versión local: 2.
+- Run ID: 10a8083a2c7f4c6294a56b6d074cdca4.
+- Estado: READY.
+
+En el Registry de Diego, Challenger corresponde
+a la versión 3. Los números pueden variar
+entre registros independientes; el alias y
+los identificadores de ejecución permiten
+documentar la procedencia de cada modelo.
+
+## Conclusión de la revisión
+
+El A/B Testing demuestra diferencias medibles entre
+los modelos. Challenger aumenta la detección de riesgo,
+mientras Champion mantiene mejores valores de precision,
+F1-score y menor cantidad de falsas alarmas.
+
+Se recomienda mantener Champion hasta contar con
+criterios de costo operativo, monitoreo continuo
+y evaluación adicional antes de promover Challenger.
