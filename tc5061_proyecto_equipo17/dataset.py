@@ -545,9 +545,15 @@ def descargar_nomenclatura() -> Path:
 
 def procesar_archivo(
     ruta_csv: Path,
+    directorio_salida: Path | None = None,
 ) -> dict:
     """
     Procesa un CSV de viajes y genera un archivo Parquet.
+
+    Por defecto el Parquet se guarda en data/processed. Con
+    ``directorio_salida`` se puede guardar en otra carpeta (por ejemplo,
+    el periodo actual del monitoreo) sin mezclarlo con los datos de
+    entrenamiento.
 
     Realiza:
     - Normalizacion de columnas.
@@ -666,13 +672,19 @@ def procesar_archivo(
     # y variables demograficas.
     df = df[COLUMNAS_SALIDA].copy()
 
-    PROCESSED_DATA_DIR.mkdir(
+    carpeta_salida = (
+        directorio_salida
+        if directorio_salida is not None
+        else PROCESSED_DATA_DIR
+    )
+
+    carpeta_salida.mkdir(
         parents=True,
         exist_ok=True,
     )
 
     ruta_parquet = (
-        PROCESSED_DATA_DIR
+        carpeta_salida
         / f"{ruta_csv.stem}_procesado.parquet"
     )
 

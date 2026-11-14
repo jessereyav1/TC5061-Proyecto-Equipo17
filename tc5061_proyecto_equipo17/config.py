@@ -28,6 +28,21 @@ FECHA_CORTE_TEST = "2025-02-01"
 # Validación para elegir hiperparámetros: última semana de enero (25-31)
 FECHA_CORTE_VAL = "2025-01-25"
 
+# Monitoreo de datos y A/B testing (Actividad 10).
+# Referencia: enero de 2025, el periodo con el que se entrena el modelo.
+# Actual: julio de 2025, un periodo posterior y de otra temporada.
+REF_INICIO = "2025-01-01"
+REF_FIN = "2025-01-31"
+ACTUAL_INICIO = "2025-07-01"
+ACTUAL_FIN = "2025-07-31"
+# Dentro del periodo actual: 1-21 de julio para reentrenar la versión alternativa
+# y 22-31 de julio como conjunto de evaluación común del A/B testing.
+ACTUAL_CORTE_EVAL = "2025-07-22"
+# Los datos del periodo actual y sus tablas de features viven en subcarpetas para que
+# no se mezclen con los datos de entrenamiento (train_p2 lee data/processed/*.parquet).
+ACTUAL_DATA_DIR = PROCESSED_DATA_DIR / "actual"
+MONITOREO_DATA_DIR = PROCESSED_DATA_DIR / "monitoreo"
+
 # Reproducibilidad
 SEED = 42
 
