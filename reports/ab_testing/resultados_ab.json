@@ -1,0 +1,28 @@
+[
+  {
+    "modelo": "champion",
+    "uri": "models:/mibici-equipo17-p2-riesgo@champion",
+    "observaciones": 87713,
+    "precision": 0.7137544201926594,
+    "recall": 0.8976383990185555,
+    "f1": 0.7952044559163157,
+    "pr_auc": 0.9062923878084221,
+    "tp": 11707,
+    "fp": 4695,
+    "fn": 1335,
+    "tn": 69976
+  },
+  {
+    "modelo": "challenger",
+    "uri": "models:/mibici-equipo17-p2-riesgo@challenger",
+    "observaciones": 87713,
+    "precision": 0.7037346378713757,
+    "recall": 0.9044625057506518,
+    "f1": 0.7915716011273655,
+    "pr_auc": 0.9068687396773317,
+    "tp": 11796,
+    "fp": 4966,
+    "fn": 1246,
+    "tn": 69705
+  }
+]
