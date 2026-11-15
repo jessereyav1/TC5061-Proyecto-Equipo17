@@ -2,10 +2,11 @@
 
 Distancias normalizadas (Wasserstein / Jensen-Shannon); drift si el valor >= umbral 0.1.
 
-- Variables comparadas: 9
-- Variables con drift: 0
-- Proporcion de columnas con drift: 0.0%
-- Drift a nivel de conjunto: no
+- Features comparadas: 8
+- Features con drift: 0 (0.0%)
+- Variables comparadas (incluye la etiqueta): 9
+- Variables con drift (incluye la etiqueta): 0
+- Drift de conjunto (share >= 0.5): no
 
 ## Variables con drift (ordenadas por magnitud del score)
 

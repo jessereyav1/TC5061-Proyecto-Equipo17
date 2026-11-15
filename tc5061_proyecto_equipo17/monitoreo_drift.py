@@ -53,9 +53,9 @@ MODO_SIGNIFICANCIA = "significancia"
 # Configuracion por modo: metodo, umbral y nombres de salida.
 MODOS: dict[str, dict] = {
     MODO_MAGNITUD: {
-        "num_method": None,        # default Evidently: Wasserstein distance (normed)
-        "cat_method": None,        # default Evidently: Jensen-Shannon distance
-        "objetivo_method": None,   # default Evidently para la etiqueta
+        "num_method": None,  # default Evidently: Wasserstein distance (normed)
+        "cat_method": None,  # default Evidently: Jensen-Shannon distance
+        "objetivo_method": None,  # default Evidently para la etiqueta
         "threshold": 0.1,
         "archivos": {
             "html": "reporte_drift.html",
@@ -66,7 +66,7 @@ MODOS: dict[str, dict] = {
         },
     },
     MODO_SIGNIFICANCIA: {
-        "num_method": "ks",         # K-S p-value (numericas)
+        "num_method": "ks",  # K-S p-value (numericas)
         "cat_method": "chisquare",  # chi-cuadrada p-value (categoricas)
         "objetivo_method": "chisquare",
         "threshold": 0.05,
@@ -184,9 +184,7 @@ def _extraer_drift(snapshot, modo: str) -> tuple[pd.DataFrame, dict]:
         # Los valores de los argumentos no contienen comas (p. ej.
         # "Wasserstein distance (normed)", "Jensen-Shannon distance", "ks"),
         # por lo que se pueden separar de forma segura.
-        argumentos = dict(
-            parte.split("=", 1) for parte in coincidencia.group("args").split(",")
-        )
+        argumentos = dict(parte.split("=", 1) for parte in coincidencia.group("args").split(","))
         columna = argumentos["column"]
         filas[columna] = {
             "variable": columna,
@@ -267,7 +265,11 @@ def _grafica(tabla: pd.DataFrame, ruta: Path, modo: str) -> None:
 
 
 def _escribir_resumen(tabla: pd.DataFrame, resumen: dict, ruta: Path, modo: str) -> None:
-    """Redacta un resumen en Markdown a partir de los resultados."""
+    """Redacta un resumen en Markdown a partir de los resultados.
+
+    Se separan las cuentas de *features* (8, las que ve el modelo y las que usa
+    el ``share`` de Evidently) de las *variables* (9, incluyendo la etiqueta).
+    """
     con_drift = tabla[tabla["drift_detectado"]].sort_values("drift_score", ascending=False)
     if modo == MODO_SIGNIFICANCIA:
         titulo = "# Resumen de significancia del drift (K-S / chi-cuadrada, p < 0.05)"
@@ -285,15 +287,22 @@ def _escribir_resumen(tabla: pd.DataFrame, resumen: dict, ruta: Path, modo: str)
             "valor >= umbral 0.1."
         )
 
+    proporcion = resumen["proporcion_con_drift"]
+    proporcion_txt = f"{proporcion:.1%}" if proporcion is not None else "n/d"
+    drift_conjunto_txt = "si" if resumen["drift_conjunto"] else "no"
+    n_features = int((~tabla["es_objetivo"]).sum())
+    features_con_drift = int((~con_drift["es_objetivo"]).sum())
+
     lineas = [
         titulo,
         "",
         nota,
         "",
-        f"- Variables comparadas: {len(tabla)}",
-        f"- Variables con drift: {len(con_drift)}",
-        f"- Proporcion de columnas con drift: {resumen['proporcion_con_drift']:.1%}",
-        f"- Drift a nivel de conjunto: {'si' if resumen['drift_conjunto'] else 'no'}",
+        f"- Features comparadas: {n_features}",
+        f"- Features con drift: {features_con_drift} ({proporcion_txt})",
+        f"- Variables comparadas (incluye la etiqueta): {len(tabla)}",
+        f"- Variables con drift (incluye la etiqueta): {len(con_drift)}",
+        f"- Drift de conjunto (share >= 0.5): {drift_conjunto_txt}",
         "",
         "## Variables con drift (ordenadas por magnitud del score)",
         "",
@@ -321,9 +330,7 @@ def _generar(modo: str, carpeta: Path) -> None:
     ds_referencia = Dataset.from_pandas(referencia, data_definition=definicion)
     ds_actual = Dataset.from_pandas(actual, data_definition=definicion)
 
-    snapshot = _construir_informe(modo).run(
-        current_data=ds_actual, reference_data=ds_referencia
-    )
+    snapshot = _construir_informe(modo).run(current_data=ds_actual, reference_data=ds_referencia)
 
     DIRECTORIO_REPORTE.mkdir(parents=True, exist_ok=True)
     snapshot.save_html(str(DIRECTORIO_REPORTE / archivos["html"]))

@@ -2,10 +2,11 @@
 
 Con ~273k filas, un p-valor < 0.05 indica una diferencia detectable estadisticamente, no necesariamente una diferencia de magnitud relevante. Comparar con reports/drift/drift_por_variable.csv (modo magnitud).
 
-- Variables comparadas: 9
-- Variables con drift: 5
-- Proporcion de columnas con drift: 50.0%
-- Drift a nivel de conjunto: si
+- Features comparadas: 8
+- Features con drift: 4 (50.0%)
+- Variables comparadas (incluye la etiqueta): 9
+- Variables con drift (incluye la etiqueta): 5
+- Drift de conjunto (share >= 0.5): si
 
 ## Variables con drift (ordenadas por magnitud del score)
 
