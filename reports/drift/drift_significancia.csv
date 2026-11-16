@@ -1,0 +1,10 @@
+variable,metodo,drift_score,umbral,drift_detectado,es_objetivo,unidad
+hora_dia,chisquare,1.0,0.05,False,False,p-valor
+fin_de_semana,chisquare,1.0,0.05,False,False,p-valor
+capacidad,ks,0.9942173164527633,0.05,False,False,p-valor
+neto,ks,0.1024441933925555,0.05,False,False,p-valor
+neto_ult_3h,ks,2.874958479385655e-06,0.05,True,False,p-valor
+pct_ocupacion,ks,9.637385573446062e-25,0.05,True,False,p-valor
+riesgo_ahora,chisquare,1.4553403917267897e-56,0.05,True,False,p-valor
+riesgo_siguiente_hora,chisquare,9.537130360972887e-57,0.05,True,True,p-valor
+dia_semana,chisquare,0.0,0.05,True,False,p-valor
