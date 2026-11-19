@@ -1,0 +1,27 @@
+# Imagen del servidor MLflow (Model Registry) para Docker Compose - Equipo 17.
+# Misma versión que requirements-lock.txt, para leer sin errores el mlflow.db con el que se registró el modelo.
+#   docker compose build mlflow
+FROM python:3.10-slim
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PIP_NO_CACHE_DIR=1 \
+    PIP_DISABLE_PIP_VERSION_CHECK=1
+
+# Servidor MLflow con instalación ligera: el cliente "skinny" (misma versión que usa la API) más lo mínimo que
+# necesita "mlflow server" (Flask, SQLAlchemy/Alembic, huey, aiohttp, numpy/pandas). El paquete completo "mlflow"
+# además instala scikit-learn, scipy, pyarrow y matplotlib, que un servidor de registro no usa y que hacían
+# la construcción muy lenta y propensa a cortes de red. Probado: el servidor lee el mlflow.db del proyecto.
+# --default-timeout / --retries: toleran descargas lentas.
+RUN pip install --default-timeout=100 --retries 10 \
+    mlflow-skinny==3.17.0 \
+    flask flask-cors gunicorn "sqlalchemy>=2,<3" alembic huey aiohttp \
+    numpy==2.2.6 pandas==2.3.3
+
+# Usuario sin privilegios; /mlflow guarda la base SQLite y los artefactos (se montan desde el host).
+RUN useradd --create-home --uid 10002 mlflowuser \
+    && mkdir -p /mlflow && chown mlflowuser /mlflow
+WORKDIR /mlflow
+USER mlflowuser
+
+EXPOSE 5000
