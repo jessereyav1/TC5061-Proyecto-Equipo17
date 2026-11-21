@@ -50,11 +50,31 @@ jobs:
           path: reports/junit.xml
           if-no-files-found: warn
 
+      - name: Resumen de pruebas
+        if: always()
+        run: |
+          {
+            echo "### Pruebas"
+            echo "- Commit: \`${{ github.sha }}\`"
+            echo "- Estado: ${{ job.status }}"
+            echo "- Artifact: junit-results"
+          } >> "$GITHUB_STEP_SUMMARY"
+
   build:
-    name: Construir imágenes (API + MLflow)
+    name: Construir imagen ${{ matrix.image }}
     needs: tests
     runs-on: ubuntu-latest
     timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: api
+            dockerfile: Containerfile
+            image: mibici-p2-api
+          - name: mlflow
+            dockerfile: Containerfile.mlflow
+            image: mibici-p2-mlflow
 
     steps:
       - name: Descargar repositorio
@@ -74,26 +94,25 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Construir y publicar imagen de la API
+      - name: Construir y publicar ${{ matrix.image }}
         uses: docker/build-push-action@v6
         with:
           context: .
-          file: Containerfile
+          file: ${{ matrix.dockerfile }}
           push: ${{ github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch' }}
           tags: |
-            ghcr.io/${{ github.repository_owner }}/mibici-p2-api:${{ github.sha }}
-            ghcr.io/${{ github.repository_owner }}/mibici-p2-api:latest
-          cache-from: type=gha,scope=api
-          cache-to: type=gha,mode=max,scope=api
+            ghcr.io/${{ github.repository_owner }}/${{ matrix.image }}:${{ github.sha }}
+            ghcr.io/${{ github.repository_owner }}/${{ matrix.image }}:latest
+          cache-from: type=gha,scope=${{ matrix.name }}
+          cache-to: type=gha,mode=max,scope=${{ matrix.name }}
 
-      - name: Construir y publicar imagen del servidor MLflow
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          file: Containerfile.mlflow
-          push: ${{ github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch' }}
-          tags: |
-            ghcr.io/${{ github.repository_owner }}/mibici-p2-mlflow:${{ github.sha }}
-            ghcr.io/${{ github.repository_owner }}/mibici-p2-mlflow:latest
-          cache-from: type=gha,scope=mlflow
-          cache-to: type=gha,mode=max,scope=mlflow
+      - name: Resumen de imágenes
+        if: always()
+        run: |
+          {
+            echo "### Imagen: ${{ matrix.image }}"
+            echo "- Dockerfile: \`${{ matrix.dockerfile }}\`"
+            echo "- Push a GHCR: \`${{ github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch' }}\`"
+            echo "- Tag: \`ghcr.io/${{ github.repository_owner }}/${{ matrix.image }}:${{ github.sha }}\`"
+            echo "- Tag: \`ghcr.io/${{ github.repository_owner }}/${{ matrix.image }}:latest\`"
+          } >> "$GITHUB_STEP_SUMMARY"

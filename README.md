@@ -928,10 +928,10 @@ El workflow `.github/workflows/ci.yml` automatiza la verificación del proyecto 
 
 | Job | Qué hace |
 |---|---|
-| `tests` | Instala `requirements-test.txt` con Python 3.10 y ejecuta `python -m pytest tests -v`. Genera `reports/junit.xml` y lo publica como artifact `junit-results`, incluso si las pruebas fallan. |
-| `build` | Depende de `tests` (`needs: tests`). Valida `docker-compose.yml` con `docker compose config -q` y construye las imágenes `mibici-p2-api` (desde `Containerfile`) y `mibici-p2-mlflow` (desde `Containerfile.mlflow`). En `push` a `main` o en ejecuciones manuales las publica en GitHub Container Registry; en `pull_request` o en `push` a la rama de trabajo solo construye (`push: false`). Usa la caché de GitHub Actions con scopes separados por imagen. |
+| `tests` | Instala `requirements-test.txt` con Python 3.10 y ejecuta `python -m pytest tests -v`. Genera `reports/junit.xml` y lo publica como artifact `junit-results`, incluso si las pruebas fallan. Además escribe un resumen en `$GITHUB_STEP_SUMMARY` con el commit, el estado del job y el artifact. |
+| `build` | Se ejecuta como matriz de dos jobs (`Construir imagen mibici-p2-api` y `Construir imagen mibici-p2-mlflow`), ambos con `needs: tests`. Cada uno valida `docker-compose.yml` con `docker compose config -q`, construye su imagen desde el `Containerfile` correspondiente y escribe su resumen con el Dockerfile y los tags publicados. En `push` a `main` o en ejecuciones manuales publica en GitHub Container Registry; en `pull_request` o en `push` a la rama de trabajo solo construye (`push: false`). Usa caché de GitHub Actions con scopes separados (`api` y `mlflow`) y `fail-fast: false`. |
 
-Si falla cualquier prueba, el job `build` no corre: primero se valida el código y después se construyen las imágenes.
+Si falla cualquier prueba, los jobs `build` no corren: primero se valida el código y después se construyen las imágenes.
 
 #### Publicación en GitHub Container Registry
 
@@ -940,7 +940,13 @@ Si falla cualquier prueba, el job `build` no corre: primero se valida el código
 - Las imágenes publicadas son:
   - `ghcr.io/jessereyav1/mibici-p2-api:latest` y `ghcr.io/jessereyav1/mibici-p2-api:<sha>`
   - `ghcr.io/jessereyav1/mibici-p2-mlflow:latest` y `ghcr.io/jessereyav1/mibici-p2-mlflow:<sha>`
-- Se pueden consultar en la pestaña **Packages** del repositorio.
+- Se pueden consultar en la pestaña **Packages** del repositorio. Un `push` a una rama distinta de `main` solo construye: para ver los paquetes antes del merge hay que usar **Run workflow**.
+
+#### Resumen y optimizaciones
+
+- Los pasos de resumen usan `if: always()`, así que el informe aparece incluso si una etapa falla.
+- La matriz construye ambas imágenes en paralelo; `fail-fast: false` evita que un fallo en una cancele la otra.
+- Cada job de la matriz genera su propio resumen dentro de la pestaña del run.
 
 ### 16.2. Reproducirlo en local
 
@@ -956,7 +962,7 @@ No se ejecuta `docker compose up` en CI: en 15.7 se explica que el registro nece
 
 ### 16.3. Evidencia
 
-El resultado se consulta en la pestaña **Actions** del repositorio. La captura muestra el run con `Pruebas unitarias` y `Construir imágenes (API + MLflow)` en verde y el artifact `junit-results` disponible. Los paquetes publicados se verifican en la pestaña **Packages**.
+El resultado se consulta en la pestaña **Actions** del repositorio. La captura muestra el run con `Pruebas unitarias` y los dos jobs de la matriz en verde, el artifact `junit-results` disponible y los resúmenes de pruebas e imágenes. Los paquetes publicados se verifican en la pestaña **Packages**.
 
 ![Workflow de CI con pruebas y builds en verde](docs/evidencia_ci.png)
 
