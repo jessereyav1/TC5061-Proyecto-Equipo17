@@ -918,6 +918,7 @@ Los límites de CPU y memoria fijan el "tamaño de la instancia" de la API, de m
 - El registro usa SQLite, suficiente para este uso académico; en producción se recomendaría una base de datos servidor (por ejemplo, PostgreSQL).
 - No incluye Redis ni worker de RQ (opcional en la actividad).
 
+
 ## 16. Integración continua y publicación de imágenes (Actividad 12)
 
 [![CI - pruebas y construcción de imagen](https://github.com/jessereyav1/TC5061-Proyecto-Equipo17/actions/workflows/ci.yml/badge.svg)](https://github.com/jessereyav1/TC5061-Proyecto-Equipo17/actions/workflows/ci.yml)
@@ -968,3 +969,27 @@ El resultado se consulta en la pestaña **Actions** del repositorio. La captura 
 ![Workflow de CI con pruebas y builds en verde](docs/evidencia_ci.png)
 
 > El badge comenzará a mostrar el estado real únicamente cuando este workflow ya esté presente en `main`.
+
+## 17. Prueba de carga con Locust y consumo de recursos (Actividad 11)
+
+Escenario en `carga/locustfile.py`: operadores que consultan el riesgo de estaciones con
+1,000 entradas reales de julio de 2025 (90 % `POST /predict` válido, 5 % entradas inválidas
+que deben dar 422 y 5 % `GET /`), en escalones de 10 a 200 usuarios durante 6 minutos.
+Mientras corre se toma `docker stats` cada 2 s.
+
+Con el sistema levantado (sección 15):
+
+```bash
+pip install -r requirements-carga.txt
+python -m tc5061_proyecto_equipo17.carga ejecutar
+```
+
+Genera en `reports/carga/` el reporte HTML de Locust, los CSV, `resumen_carga.md` y
+`resumen_carga.json` (mismos campos que `reports/finops/parametros.json`), y las gráficas
+`reports/figures/carga_linea_tiempo.png`, `carga_saturacion.png` y `carga_recursos.png`.
+
+Resultado con la API limitada a 1 vCPU y 1 GB: la API se satura en ~16 predicciones/s,
+cumple el objetivo de p95 ≤ 200 ms hasta ~8 predicciones/s (10 usuarios) y no tuvo errores
+ni con 200 usuarios. La CPU de la API llega al 97 % y su memoria se queda en ~250 MiB;
+MLflow casi no usa CPU pero ocupa ~1.8 GB. Análisis, diagnóstico y optimizaciones en
+`docs/pruebas_carga.md`.
