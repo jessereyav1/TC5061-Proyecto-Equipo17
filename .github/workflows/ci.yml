@@ -8,9 +8,11 @@ on:
   pull_request:
     branches:
       - main
+  workflow_dispatch:
 
 permissions:
   contents: read
+  packages: write
 
 jobs:
   tests:
@@ -64,22 +66,34 @@ jobs:
       - name: Validar docker-compose.yml del PR #28
         run: docker compose config -q
 
-      - name: Construir imagen de la API
+      - name: Iniciar sesión en GHCR
+        if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Construir y publicar imagen de la API
         uses: docker/build-push-action@v6
         with:
           context: .
           file: Containerfile
-          push: false
-          tags: mibici-p2-api:ci-${{ github.sha }}
+          push: ${{ github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch' }}
+          tags: |
+            ghcr.io/${{ github.repository_owner }}/mibici-p2-api:${{ github.sha }}
+            ghcr.io/${{ github.repository_owner }}/mibici-p2-api:latest
           cache-from: type=gha,scope=api
           cache-to: type=gha,mode=max,scope=api
 
-      - name: Construir imagen del servidor MLflow
+      - name: Construir y publicar imagen del servidor MLflow
         uses: docker/build-push-action@v6
         with:
           context: .
           file: Containerfile.mlflow
-          push: false
-          tags: mibici-p2-mlflow:ci-${{ github.sha }}
+          push: ${{ github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch' }}
+          tags: |
+            ghcr.io/${{ github.repository_owner }}/mibici-p2-mlflow:${{ github.sha }}
+            ghcr.io/${{ github.repository_owner }}/mibici-p2-mlflow:latest
           cache-from: type=gha,scope=mlflow
           cache-to: type=gha,mode=max,scope=mlflow
