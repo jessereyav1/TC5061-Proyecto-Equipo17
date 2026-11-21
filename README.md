@@ -917,3 +917,54 @@ Los límites de CPU y memoria fijan el "tamaño de la instancia" de la API, de m
 - El sistema depende de que existan localmente `mlflow.db` y `mlartifacts/`; en una máquina o en el CI sin ellos, Compose no puede levantar el registro.
 - El registro usa SQLite, suficiente para este uso académico; en producción se recomendaría una base de datos servidor (por ejemplo, PostgreSQL).
 - No incluye Redis ni worker de RQ (opcional en la actividad).
+
+## 16. Integración continua y publicación de imágenes (Actividad 12)
+
+[![CI - pruebas y construcción de imagen](https://github.com/jessereyav1/TC5061-Proyecto-Equipo17/actions/workflows/ci.yml/badge.svg)](https://github.com/jessereyav1/TC5061-Proyecto-Equipo17/actions/workflows/ci.yml)
+
+El workflow `.github/workflows/ci.yml` automatiza la verificación del proyecto en GitHub Actions. Se dispara con un `push` a `main` o a `feat/ci-tests-build`, con cada `pull_request` hacia `main` y de forma manual mediante `workflow_dispatch`.
+
+### 16.1. Jobs
+
+| Job | Qué hace |
+|---|---|
+| `tests` | Instala `requirements-test.txt` con Python 3.10 y ejecuta `python -m pytest tests -v`. Genera `reports/junit.xml` y lo publica como artifact `junit-results`, incluso si las pruebas fallan. Además escribe un resumen en `$GITHUB_STEP_SUMMARY` con el commit, el estado del job y el artifact. |
+| `build` | Se ejecuta como matriz de dos jobs (`Construir imagen mibici-p2-api` y `Construir imagen mibici-p2-mlflow`), ambos con `needs: tests`. Cada uno valida `docker-compose.yml` con `docker compose config -q`, construye su imagen desde el `Containerfile` correspondiente y escribe su resumen con el Dockerfile y los tags publicados. En cualquier `push` a las ramas configuradas (`main` y `feat/ci-tests-build`) o en ejecuciones manuales publica en GitHub Container Registry; en `pull_request` solo construye (`push: false`). Usa caché de GitHub Actions con scopes separados (`api` y `mlflow`) y `fail-fast: false`. |
+
+Si falla cualquier prueba, los jobs `build` no corren: primero se valida el código y después se construyen las imágenes.
+
+#### Publicación en GitHub Container Registry
+
+- El workflow usa `permissions: packages: write` y el `GITHUB_TOKEN` del repositorio, así que no se necesitan secrets adicionales.
+- `docker/login-action@v3` se ejecuta en cualquier `push` y en ejecuciones manuales; se omite únicamente en `pull_request` (`if: github.event_name != 'pull_request'`).
+- Las imágenes publicadas son:
+  - `ghcr.io/jessereyav1/mibici-p2-api:latest` y `ghcr.io/jessereyav1/mibici-p2-api:<sha>`
+  - `ghcr.io/jessereyav1/mibici-p2-mlflow:latest` y `ghcr.io/jessereyav1/mibici-p2-mlflow:<sha>`
+- Se pueden consultar en la pestaña **Packages** del repositorio. El botón **Run workflow** aparece cuando este archivo ya existe en `main` (requisito de GitHub para `workflow_dispatch`); antes del merge basta con hacer `push` a `feat/ci-tests-build` para publicar.
+
+#### Resumen y optimizaciones
+
+- Los pasos de resumen usan `if: always()`, así que el informe aparece incluso si una etapa falla.
+- La matriz construye ambas imágenes en paralelo; `fail-fast: false` evita que un fallo en una cancele la otra.
+- Cada job de la matriz genera su propio resumen dentro de la pestaña del run.
+- La publicación se controla con `github.event_name != 'pull_request'`: los PR solo validan y construyen, sin usar credenciales de escritura en el registro.
+
+### 16.2. Reproducirlo en local
+
+Desde la raíz del repositorio:
+
+    python -m pip install -r requirements-test.txt
+    python -m pytest tests -v
+    docker compose config -q
+    docker build -f Containerfile -t mibici-p2-api:ci-local .
+    docker build -f Containerfile.mlflow -t mibici-p2-mlflow:ci-local .
+
+No se ejecuta `docker compose up` en CI: en 15.7 se explica que el registro necesita `mlflow.db` y `mlartifacts/` locales, que no se versionan. El workflow solo valida la sintaxis del compose y construye las imágenes. La publicación en GHCR tampoco ocurre en local: solo la hace GitHub en un `push` a las ramas configuradas o en un run manual.
+
+### 16.3. Evidencia
+
+El resultado se consulta en la pestaña **Actions** del repositorio. La captura muestra el run con `Pruebas unitarias` y los dos jobs de la matriz en verde, el paso `Iniciar sesión en GHCR` exitoso, el artifact `junit-results` disponible y los resúmenes de pruebas e imágenes. Los paquetes publicados se verifican en la pestaña **Packages**.
+
+![Workflow de CI con pruebas y builds en verde](docs/evidencia_ci.png)
+
+> El badge comenzará a mostrar el estado real únicamente cuando este workflow ya esté presente en `main`.
