@@ -917,3 +917,38 @@ Los límites de CPU y memoria fijan el "tamaño de la instancia" de la API, de m
 - El sistema depende de que existan localmente `mlflow.db` y `mlartifacts/`; en una máquina o en el CI sin ellos, Compose no puede levantar el registro.
 - El registro usa SQLite, suficiente para este uso académico; en producción se recomendaría una base de datos servidor (por ejemplo, PostgreSQL).
 - No incluye Redis ni worker de RQ (opcional en la actividad).
+
+## 16. Integración continua: pruebas y construcción de imágenes (Actividad 12)
+
+[![CI - pruebas y construcción de imagen](https://github.com/jessereyav1/TC5061-Proyecto-Equipo17/actions/workflows/ci.yml/badge.svg)](https://github.com/jessereyav1/TC5061-Proyecto-Equipo17/actions/workflows/ci.yml)
+
+El workflow `.github/workflows/ci.yml` automatiza la verificación del proyecto en GitHub Actions. Se dispara con un `push` a `main` o a `feat/ci-tests-build`, y con cada `pull_request` hacia `main`.
+
+### 16.1. Jobs
+
+| Job | Qué hace |
+|---|---|
+| `tests` | Instala `requirements-test.txt` con Python 3.10 y ejecuta `python -m pytest tests -v`. Genera `reports/junit.xml` y lo publica como artifact `junit-results`, incluso si las pruebas fallan. |
+| `build` | Depende de `tests` (`needs: tests`). Valida `docker-compose.yml` con `docker compose config -q` y construye, sin subirlas a un registro, las imágenes `mibici-p2-api` (desde `Containerfile`) y `mibici-p2-mlflow` (desde `Containerfile.mlflow`). Usa la caché de GitHub Actions con scopes separados por imagen. |
+
+Si falla cualquier prueba, el job `build` no corre: primero se valida el código y después se construyen las imágenes.
+
+### 16.2. Reproducirlo en local
+
+Desde la raíz del repositorio:
+
+    python -m pip install -r requirements-test.txt
+    python -m pytest tests -v
+    docker compose config -q
+    docker build -f Containerfile -t mibici-p2-api:ci-local .
+    docker build -f Containerfile.mlflow -t mibici-p2-mlflow:ci-local .
+
+No se ejecuta `docker compose up` en CI: en 15.7 se explica que el registro necesita `mlflow.db` y `mlartifacts/` locales, que no se versionan. El workflow solo valida la sintaxis del compose y construye las imágenes.
+
+### 16.3. Evidencia
+
+El resultado se consulta en la pestaña **Actions** del repositorio. La captura muestra el run con `Pruebas unitarias` y `Construir imágenes (API + MLflow)` en verde y el artifact `junit-results` disponible.
+
+![Workflow de CI con pruebas y builds en verde](docs/evidencia_ci.png)
+
+> El badge comenzará a mostrar el estado real únicamente cuando este workflow ya esté presente en `main`.

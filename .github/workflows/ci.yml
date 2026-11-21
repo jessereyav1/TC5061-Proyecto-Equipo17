@@ -1,0 +1,85 @@
+name: CI - pruebas y construcción de imagen
+
+on:
+  push:
+    branches:
+      - main
+      - "feat/ci-tests-build"
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  tests:
+    name: Pruebas unitarias
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          cache: "pip"
+          cache-dependency-path: |
+            requirements*.txt
+
+      - name: Instalar dependencias de prueba
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-test.txt
+
+      - name: Ejecutar pytest
+        run: |
+          mkdir -p reports
+          python -m pytest tests -v --junitxml=reports/junit.xml
+
+      - name: Publicar resultado de las pruebas
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: junit-results
+          path: reports/junit.xml
+          if-no-files-found: warn
+
+  build:
+    name: Construir imágenes (API + MLflow)
+    needs: tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Validar docker-compose.yml del PR #28
+        run: docker compose config -q
+
+      - name: Construir imagen de la API
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: Containerfile
+          push: false
+          tags: mibici-p2-api:ci-${{ github.sha }}
+          cache-from: type=gha,scope=api
+          cache-to: type=gha,mode=max,scope=api
+
+      - name: Construir imagen del servidor MLflow
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: Containerfile.mlflow
+          push: false
+          tags: mibici-p2-mlflow:ci-${{ github.sha }}
+          cache-from: type=gha,scope=mlflow
+          cache-to: type=gha,mode=max,scope=mlflow
