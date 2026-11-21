@@ -1,0 +1,15 @@
+{
+  "proveedor": "DigitalOcean",
+  "plan": "Basic Droplet - Regular",
+  "tipo_cpu": "compartida",
+  "vcpu": 2,
+  "ram_gib": 4,
+  "ssd_incluido_gib": 80,
+  "transferencia_incluida_gib": 4000,
+  "precio_publicado_usd_mes": 24.0,
+  "precio_publicado_usd_hora": 0.03571,
+  "fecha_consulta": "2026-11-21",
+  "fuente": "https://www.digitalocean.com/pricing/droplets",
+  "tipo_dato": "referencia publica, no gasto real",
+  "capacidad_validada_con_locust": false
+}
