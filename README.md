@@ -835,3 +835,85 @@ Generación:
     python -m tc5061_proyecto_equipo17.monitoreo_datos ingesta-actual
     python -m tc5061_proyecto_equipo17.monitoreo_datos construir-features
     python -m tc5061_proyecto_equipo17.monitoreo_drift reporte --modo ambos
+
+## 15. Orquestación con Docker Compose (Actividad 11)
+
+Con un solo comando se levantan juntos el servidor MLflow (Model Registry) y la API del modelo P2. Sustituye los pasos manuales de la sección 13 (arrancar `mlflow server` a mano con `--allowed-hosts` y luego `docker run` con `host.docker.internal`).
+
+### 15.1. Qué levanta
+
+| Servicio | Imagen | Puerto | Función |
+|---|---|---|---|
+| `mlflow` | `mibici-p2-mlflow` (`Containerfile.mlflow`) | 5000 | Servidor MLflow: lee el registro (`mlflow.db`) y sirve los archivos del modelo (`mlartifacts/`). |
+| `api` | `mibici-p2-api` (`Containerfile`) | 8000 | API FastAPI que carga `models:/mibici-equipo17-p2-riesgo@champion` al arrancar. |
+
+Archivos de esta entrega: `docker-compose.yml`, `Containerfile.mlflow` y `.env.example`. La imagen de la API es la misma de la sección 13 (`Containerfile`, sin cambios).
+
+### 15.2. Requisitos
+
+- Docker con Docker Compose v2 (`docker compose`) o `podman-compose` (mismos comandos, cambiando `docker compose` por `podman-compose`).
+- El modelo P2 ya registrado con alias `champion`: deben existir `mlflow.db` y la carpeta `mlartifacts/` en la raíz del repositorio. Se generan al entrenar y registrar el modelo (secciones 11.5 y 11.7). No se versionan en Git.
+
+### 15.3. Levantar y probar
+
+Desde la raíz del repositorio:
+
+```bash
+docker compose up --build -d
+docker compose ps
+```
+
+La primera vez construye las dos imágenes (varios minutos); después reutiliza la caché. Cuando ambos servicios aparecen como `healthy`:
+
+```bash
+curl http://localhost:8000/
+curl -X POST http://localhost:8000/predict -H "Content-Type: application/json" -d @docs/ejemplo_prediccion.json
+```
+
+En Windows se usa `curl.exe` (en PowerShell, `curl` es un alias de otro comando). La primera petición debe mostrar `"modelo_cargado": true` y la segunda `{"prediccion":1,"probabilidad":0.9156...,"status":"success"}`. La documentación interactiva está en http://localhost:8000/docs y la interfaz de MLflow en http://localhost:5000.
+
+Para ver registros y detener el sistema:
+
+```bash
+docker compose logs -f api      # o: mlflow
+docker compose down             # elimina contenedores y red; mlflow.db y mlartifacts/ no se tocan
+```
+
+![docker compose ps con ambos servicios healthy y respuesta de /predict](docs/evidencia_compose.png)
+
+### 15.4. Configuración (variables de entorno)
+
+Se pueden cambiar sin editar `docker-compose.yml`: se copia `.env.example` como `.env` y se modifican los valores. Si no existe `.env`, se usan estos valores por defecto.
+
+| Variable | Valor por defecto | Efecto |
+|---|---|---|
+| `API_PORT` | `8000` | Puerto de la API en la máquina anfitriona. |
+| `MLFLOW_PORT` | `5000` | Puerto del servidor MLflow en la máquina anfitriona. |
+| `API_CPUS` | `1.0` | Límite de CPU del contenedor de la API. |
+| `API_MEM_LIMIT` | `1g` | Límite de memoria del contenedor de la API. |
+
+Los límites de CPU y memoria fijan el "tamaño de la instancia" de la API, de modo que las pruebas de carga y el análisis de costo (FinOps) se hagan sobre una configuración conocida.
+
+### 15.5. Decisiones de diseño
+
+- **Red propia (`mibici-net`).** Los servicios se encuentran por nombre: la API usa `MLFLOW_TRACKING_URI=http://mlflow:5000`, sin depender de `host.docker.internal`. Por eso el servidor MLflow acepta el nombre de host `mlflow:*` en `--allowed-hosts`.
+- **Orden de arranque.** La API carga el modelo solo al arrancar (sección 13.2), así que `depends_on` con `condition: service_healthy` la hace esperar a que MLflow responda en `/health`.
+- **Comprobaciones de salud.** MLflow se marca sano si responde `/health`; la API, solo si `GET /` devuelve `modelo_cargado: true`.
+- **Datos fuera de la imagen.** `mlflow.db` y `mlartifacts/` se montan desde la máquina anfitriona (con `create_host_path: false`: si faltan, Compose falla con un error claro en lugar de crear una carpeta vacía llamada `mlflow.db`). Ningún dato ni modelo se incluye en las imágenes, igual que en la sección 13.2.
+- **Servidor MLflow ligero.** `Containerfile.mlflow` instala el cliente `mlflow-skinny==3.17.0` (misma versión que usa la API y que se usó al registrar el modelo) con las dependencias mínimas del servidor, en lugar del paquete completo `mlflow`, que añade scikit-learn, scipy, pyarrow y matplotlib que un servidor de registro no usa.
+- **Usuarios sin privilegios** en ambos contenedores, y `restart: unless-stopped` en la API.
+
+### 15.6. Problemas frecuentes
+
+| Síntoma | Causa y solución |
+|---|---|
+| Error `bind source path does not exist: .../mlflow.db` | Aún no se ha entrenado y registrado el modelo P2. Ejecutar antes el entrenamiento y `register_p2` (secciones 11.5 y 11.7). |
+| `port is already allocated` (5000 u 8000) | Hay otro proceso en ese puerto: un `mlflow server` iniciado a mano o el contenedor de la sección 13 (`docker stop mibici-p2-api`). O cambiar `MLFLOW_PORT` / `API_PORT` en `.env`. |
+| La API queda `unhealthy` o con `modelo_cargado: false` | Revisar `docker compose logs api` y `docker compose logs mlflow`. Comprobar que el alias `champion` existe en el registro. Tras corregirlo: `docker compose restart api`. |
+| La construcción de `mlflow` se corta por red | Repetir `docker compose up --build -d`; `pip` ya reintenta con tiempos de espera largos. |
+
+### 15.7. Limitaciones
+
+- El sistema depende de que existan localmente `mlflow.db` y `mlartifacts/`; en una máquina o en el CI sin ellos, Compose no puede levantar el registro.
+- El registro usa SQLite, suficiente para este uso académico; en producción se recomendaría una base de datos servidor (por ejemplo, PostgreSQL).
+- No incluye Redis ni worker de RQ (opcional en la actividad).

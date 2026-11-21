@@ -1,0 +1,89 @@
+# Orquestación del sistema de P2 (Actividad 11): API del modelo + servidor MLflow.
+#
+#   docker compose up --build        # construye y levanta todo con un solo comando
+#   docker compose down              # detiene y elimina los contenedores
+#
+# Requisito: haber registrado el modelo P2 en MLflow (se genera mlflow.db y mlartifacts/); ver README 11.5 y 11.7.
+# Compatible con podman-compose (mismas instrucciones, cambiando "docker compose" por "podman-compose").
+
+name: mibici-p2
+
+services:
+  # --- Servidor MLflow: Model Registry de donde la API carga el modelo ---
+  mlflow:
+    build:
+      context: .
+      dockerfile: Containerfile.mlflow
+    image: mibici-p2-mlflow
+    container_name: mibici-p2-mlflow
+    # --allowed-hosts: sin "mlflow:*" el servidor rechaza las peticiones de la API (403 Invalid Host header).
+    # --serve-artifacts: la API descarga el modelo por HTTP, sin montar la carpeta de artefactos.
+    command: >
+      mlflow server
+      --host 0.0.0.0
+      --port 5000
+      --backend-store-uri sqlite:////mlflow/mlflow.db
+      --artifacts-destination /mlflow/mlartifacts
+      --serve-artifacts
+      --allowed-hosts "mlflow:*,localhost:*,127.0.0.1:*"
+    ports:
+      - "${MLFLOW_PORT:-5000}:5000"
+    volumes:
+      # Registro y artefactos creados al entrenar (no se versionan en Git).
+      # create_host_path: false -> si el archivo no existe, Compose falla en lugar de crear una carpeta vacía llamada mlflow.db.
+      - type: bind
+        source: ./mlflow.db
+        target: /mlflow/mlflow.db
+        bind:
+          create_host_path: false
+      - type: bind
+        source: ./mlartifacts
+        target: /mlflow/mlartifacts
+        bind:
+          create_host_path: false
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:5000/health')"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 15s
+    networks:
+      - mibici-net
+
+  # --- API REST del modelo (FastAPI + Uvicorn), construida con el Containerfile de la Actividad 8 ---
+  api:
+    build:
+      context: .
+      dockerfile: Containerfile
+    image: mibici-p2-api
+    container_name: mibici-p2-api
+    environment:
+      # Dentro de la red de Compose, el servidor MLflow se llama "mlflow" (no hace falta host.docker.internal).
+      MLFLOW_TRACKING_URI: http://mlflow:5000
+      PORT: "8000"
+    ports:
+      - "${API_PORT:-8000}:8000"
+    # La API carga el modelo solo al arrancar: espera a que MLflow responda antes de iniciar.
+    depends_on:
+      mlflow:
+        condition: service_healthy
+    healthcheck:
+      # GET / devuelve JSON con "modelo_cargado": true cuando el modelo se recuperó del registro.
+      test: ["CMD", "python", "-c", "import json,urllib.request; r=json.load(urllib.request.urlopen('http://localhost:8000/')); raise SystemExit(0 if r.get('modelo_cargado') else 1)"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 20s
+    # Tamaño fijo de la instancia: permite comparar pruebas de carga y estimar el costo por inferencia (FinOps).
+    deploy:
+      resources:
+        limits:
+          cpus: "${API_CPUS:-1.0}"
+          memory: ${API_MEM_LIMIT:-1g}
+    restart: unless-stopped
+    networks:
+      - mibici-net
+
+networks:
+  mibici-net:
+    driver: bridge
