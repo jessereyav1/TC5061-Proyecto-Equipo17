@@ -1,0 +1,3 @@
+# Prueba de carga (Actividad 11): python -m tc5061_proyecto_equipo17.carga ejecutar
+-r requirements.txt
+locust==2.47.0

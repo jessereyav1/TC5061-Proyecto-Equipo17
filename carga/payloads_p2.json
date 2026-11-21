@@ -1,0 +1,10002 @@
+[
+ {
+  "hora_dia": 19,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.318182,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.552632,
+  "riesgo_ahora": 0,
+  "neto": 4,
+  "neto_ult_3h": 12.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.233333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.76087,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -4.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.447368,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.868421,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": -6.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 30.0,
+  "pct_ocupacion": 0.333333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.456522,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.456522,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.710526,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.394737,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.543478,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.394737,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 4.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.413043,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 8.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.633333,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.289474,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 15,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.447368,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 15,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.326087,
+  "riesgo_ahora": 0,
+  "neto": 9,
+  "neto_ult_3h": 9.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.184211,
+  "riesgo_ahora": 0,
+  "neto": -3,
+  "neto_ult_3h": -6.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.633333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.681818,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 31.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.921053,
+  "riesgo_ahora": 1,
+  "neto": 0,
+  "neto_ult_3h": 8.0
+ },
+ {
+  "hora_dia": 15,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.921053,
+  "riesgo_ahora": 1,
+  "neto": 2,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 15,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.590909,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 4.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.766667,
+  "riesgo_ahora": 0,
+  "neto": 4,
+  "neto_ult_3h": 5.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 23,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.921053,
+  "riesgo_ahora": 1,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 15,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.033333,
+  "riesgo_ahora": 1,
+  "neto": 1,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.815789,
+  "riesgo_ahora": 0,
+  "neto": 3,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.3,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.233333,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.394737,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.409091,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.552632,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.815789,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 8.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.833333,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 19,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.7,
+  "riesgo_ahora": 0,
+  "neto": 4,
+  "neto_ult_3h": 6.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.657895,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 19,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 23,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.1,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.1,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.710526,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -6.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.289474,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.342105,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 14,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.233333,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 14,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 3,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.447368,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.456522,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.7,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.233333,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -4.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.342105,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.1,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 31.0,
+  "pct_ocupacion": 0.66129,
+  "riesgo_ahora": 0,
+  "neto": 5,
+  "neto_ult_3h": 6.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.289474,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.973684,
+  "riesgo_ahora": 1,
+  "neto": 3,
+  "neto_ult_3h": 5.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.954545,
+  "riesgo_ahora": 1,
+  "neto": -3,
+  "neto_ult_3h": -5.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.815789,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 4.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.447368,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.921053,
+  "riesgo_ahora": 1,
+  "neto": 2,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.342105,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.342105,
+  "riesgo_ahora": 0,
+  "neto": -3,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.233333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 23,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.1,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.447368,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.766667,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 4.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.394737,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.456522,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.3,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 14,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.342105,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.590909,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.552632,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.3,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 4.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.045455,
+  "riesgo_ahora": 1,
+  "neto": 1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.1,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.552632,
+  "riesgo_ahora": 0,
+  "neto": 3,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.590909,
+  "riesgo_ahora": 0,
+  "neto": -3,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.318182,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.1,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.7,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.3,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.3,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.409091,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.369565,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.033333,
+  "riesgo_ahora": 1,
+  "neto": -2,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.590909,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.394737,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.7,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.833333,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.456522,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.3,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.833333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.633333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.681818,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.394737,
+  "riesgo_ahora": 0,
+  "neto": -3,
+  "neto_ult_3h": -7.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.772727,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.552632,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.921053,
+  "riesgo_ahora": 1,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.447368,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.456522,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.447368,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.282609,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.131579,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 15,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.7,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 15,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.633333,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 19,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.657895,
+  "riesgo_ahora": 0,
+  "neto": 3,
+  "neto_ult_3h": -5.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 31.0,
+  "pct_ocupacion": 0.435484,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.605263,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.342105,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 14,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.289474,
+  "riesgo_ahora": 0,
+  "neto": -4,
+  "neto_ult_3h": -5.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.233333,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.552632,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.166667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.136364,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.710526,
+  "riesgo_ahora": 0,
+  "neto": 3,
+  "neto_ult_3h": 4.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.681818,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.026316,
+  "riesgo_ahora": 1,
+  "neto": -2,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.1,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -5.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.766667,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.7,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.590909,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 31.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.23913,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 31.0,
+  "pct_ocupacion": 0.435484,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.413043,
+  "riesgo_ahora": 0,
+  "neto": 4,
+  "neto_ult_3h": 4.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.804348,
+  "riesgo_ahora": 0,
+  "neto": 3,
+  "neto_ult_3h": 8.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.543478,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.804348,
+  "riesgo_ahora": 0,
+  "neto": 3,
+  "neto_ult_3h": 7.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.342105,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.166667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.543478,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.590909,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.131579,
+  "riesgo_ahora": 0,
+  "neto": -3,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.166667,
+  "riesgo_ahora": 0,
+  "neto": -3,
+  "neto_ult_3h": -5.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.605263,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.633333,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.763158,
+  "riesgo_ahora": 0,
+  "neto": -3,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.710526,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.045455,
+  "riesgo_ahora": 1,
+  "neto": 0,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -4.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 31.0,
+  "pct_ocupacion": 0.467742,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": -3,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.3,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 19,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.342105,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 14,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.456522,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.3,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.045455,
+  "riesgo_ahora": 1,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.394737,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -4.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.833333,
+  "riesgo_ahora": 0,
+  "neto": 4,
+  "neto_ult_3h": 5.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.318182,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.681818,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 5.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.847826,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 19,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.590909,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.394737,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.3,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.630435,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.108696,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 15,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": -5,
+  "neto_ult_3h": -11.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 23,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.447368,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 6.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.447368,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.3,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -6.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.045455,
+  "riesgo_ahora": 1,
+  "neto": -4,
+  "neto_ult_3h": -7.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.552632,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.166667,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.233333,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.3,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.710526,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.289474,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -9.0
+ },
+ {
+  "hora_dia": 23,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.710526,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 19,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.342105,
+  "riesgo_ahora": 0,
+  "neto": -4,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.815789,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 4.0
+ },
+ {
+  "hora_dia": 23,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 14,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.833333,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.833333,
+  "riesgo_ahora": 0,
+  "neto": 7,
+  "neto_ult_3h": 9.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.456522,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.369565,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": 5.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.166667,
+  "riesgo_ahora": 0,
+  "neto": -8,
+  "neto_ult_3h": -4.0
+ },
+ {
+  "hora_dia": 19,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.973684,
+  "riesgo_ahora": 1,
+  "neto": 3,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.136364,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 3,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 14,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.966667,
+  "riesgo_ahora": 1,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.605263,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.552632,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.394737,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.394737,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.233333,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 23,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.766667,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 23,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.552632,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -5.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.233333,
+  "riesgo_ahora": 0,
+  "neto": -4,
+  "neto_ult_3h": -4.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.966667,
+  "riesgo_ahora": 1,
+  "neto": 0,
+  "neto_ult_3h": 5.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.710526,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.342105,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.413043,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.447368,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.543478,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 19,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.131579,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 31.0,
+  "pct_ocupacion": 0.435484,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.815789,
+  "riesgo_ahora": 0,
+  "neto": 9,
+  "neto_ult_3h": 16.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.447368,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.633333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.136364,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.456522,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.921053,
+  "riesgo_ahora": 1,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.833333,
+  "riesgo_ahora": 0,
+  "neto": 4,
+  "neto_ult_3h": 7.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.342105,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.033333,
+  "riesgo_ahora": 1,
+  "neto": -1,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.590909,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.289474,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 19,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.394737,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 14,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.033333,
+  "riesgo_ahora": 1,
+  "neto": 2,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.605263,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 23,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.973684,
+  "riesgo_ahora": 1,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.590909,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.318182,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.863636,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.3,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.681818,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.447368,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 3,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.3,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 19,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.630435,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.236842,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -6.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.369565,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -6.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.409091,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.394737,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.342105,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -6.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.342105,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 14,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.868421,
+  "riesgo_ahora": 0,
+  "neto": 8,
+  "neto_ult_3h": 11.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.633333,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.033333,
+  "riesgo_ahora": 1,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.633333,
+  "riesgo_ahora": 0,
+  "neto": 3,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.447368,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.1,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.3,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.543478,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.447368,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 19,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.318182,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.166667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.184211,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.590909,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 14,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.318182,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.921053,
+  "riesgo_ahora": 1,
+  "neto": 1,
+  "neto_ult_3h": 8.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.342105,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.590909,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 14,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.7,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.413043,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.195652,
+  "riesgo_ahora": 0,
+  "neto": -3,
+  "neto_ult_3h": -7.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 5,
+  "neto_ult_3h": 7.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.633333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.166667,
+  "riesgo_ahora": 0,
+  "neto": -3,
+  "neto_ult_3h": -6.0
+ },
+ {
+  "hora_dia": 19,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 23,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 31.0,
+  "pct_ocupacion": 0.629032,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 19,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.233333,
+  "riesgo_ahora": 0,
+  "neto": -5,
+  "neto_ult_3h": -5.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.413043,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 14,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 4.0
+ },
+ {
+  "hora_dia": 23,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.289474,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.590909,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.1,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.23913,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -4.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.815789,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.447368,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.605263,
+  "riesgo_ahora": 0,
+  "neto": 5,
+  "neto_ult_3h": 6.0
+ },
+ {
+  "hora_dia": 15,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.552632,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.447368,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.413043,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.772727,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.586957,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.7,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 19,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.673913,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 7.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.318182,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.710526,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 4.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 5.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.657895,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.7,
+  "riesgo_ahora": 0,
+  "neto": -3,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.021739,
+  "riesgo_ahora": 1,
+  "neto": -1,
+  "neto_ult_3h": -5.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.236842,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 19,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 31.0,
+  "pct_ocupacion": 0.467742,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.833333,
+  "riesgo_ahora": 0,
+  "neto": -5,
+  "neto_ult_3h": -7.0
+ },
+ {
+  "hora_dia": 14,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.590909,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 31.0,
+  "pct_ocupacion": 0.177419,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.7,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 14,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.7,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.152174,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 23,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.966667,
+  "riesgo_ahora": 1,
+  "neto": 0,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.447368,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 19,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 23,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.447368,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.7,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 5.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.868421,
+  "riesgo_ahora": 0,
+  "neto": 3,
+  "neto_ult_3h": 4.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.131579,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.413043,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.633333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.7,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.863636,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -4.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.552632,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.552632,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.236842,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.184211,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.633333,
+  "riesgo_ahora": 0,
+  "neto": 3,
+  "neto_ult_3h": 5.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.868421,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 31.0,
+  "pct_ocupacion": 0.145161,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -6.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.966667,
+  "riesgo_ahora": 1,
+  "neto": 1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.921053,
+  "riesgo_ahora": 1,
+  "neto": 1,
+  "neto_ult_3h": 5.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.633333,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.868421,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.772727,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 4.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 15,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.394737,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.766667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 23,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.3,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -4.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.1,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -6.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.973684,
+  "riesgo_ahora": 1,
+  "neto": 0,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.236842,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.3,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 15,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.131579,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.966667,
+  "riesgo_ahora": 1,
+  "neto": -1,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 14,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.409091,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -7.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 31.0,
+  "pct_ocupacion": 0.532258,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.033333,
+  "riesgo_ahora": 1,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.233333,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -4.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": -6,
+  "neto_ult_3h": -8.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.326087,
+  "riesgo_ahora": 0,
+  "neto": 3,
+  "neto_ult_3h": 5.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": 4.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.7,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.456522,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.630435,
+  "riesgo_ahora": 0,
+  "neto": -6,
+  "neto_ult_3h": -9.0
+ },
+ {
+  "hora_dia": 14,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.369565,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 14,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.195652,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": -6.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.166667,
+  "riesgo_ahora": 0,
+  "neto": -3,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.447368,
+  "riesgo_ahora": 0,
+  "neto": -3,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.409091,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.342105,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.921053,
+  "riesgo_ahora": 1,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.289474,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.605263,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.033333,
+  "riesgo_ahora": 1,
+  "neto": 3,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.552632,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.605263,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 6.0
+ },
+ {
+  "hora_dia": 19,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 4.0
+ },
+ {
+  "hora_dia": 23,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.7,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.766667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.236842,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -4.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.657895,
+  "riesgo_ahora": 0,
+  "neto": -3,
+  "neto_ult_3h": 4.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.236842,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.456522,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 19,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.590909,
+  "riesgo_ahora": 0,
+  "neto": -4,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 23,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.236842,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -8.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": -4,
+  "neto_ult_3h": -4.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.3,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 19,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.921053,
+  "riesgo_ahora": 1,
+  "neto": 5,
+  "neto_ult_3h": 11.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.3,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.394737,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.681818,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.710526,
+  "riesgo_ahora": 0,
+  "neto": 3,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.863636,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 4.0
+ },
+ {
+  "hora_dia": 15,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.136364,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.318182,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.131579,
+  "riesgo_ahora": 0,
+  "neto": -6,
+  "neto_ult_3h": -16.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.673913,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 14,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.766667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 19,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.630435,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 23,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.763158,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 19,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.413043,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 5.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.108696,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.409091,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.681818,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.673913,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 4.0
+ },
+ {
+  "hora_dia": 23,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.447368,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 15,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.326087,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.891304,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 5.0
+ },
+ {
+  "hora_dia": 23,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.233333,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.9,
+  "riesgo_ahora": 0,
+  "neto": 3,
+  "neto_ult_3h": 4.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.3,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.166667,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 14,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.409091,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.342105,
+  "riesgo_ahora": 0,
+  "neto": -3,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.552632,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.766667,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -4.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.921053,
+  "riesgo_ahora": 1,
+  "neto": 4,
+  "neto_ult_3h": 5.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.184211,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 23,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.3,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.394737,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.543478,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.630435,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.605263,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.3,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.552632,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 14,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.657895,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.633333,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.456522,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.033333,
+  "riesgo_ahora": 1,
+  "neto": 0,
+  "neto_ult_3h": -4.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.543478,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.3,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.152174,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 19,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.394737,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 23,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.166667,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 4.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 3,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.447368,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.289474,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.447368,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 15,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.045455,
+  "riesgo_ahora": 1,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 14,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.973684,
+  "riesgo_ahora": 1,
+  "neto": 2,
+  "neto_ult_3h": 5.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.978261,
+  "riesgo_ahora": 1,
+  "neto": 0,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.447368,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.710526,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.3,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 19,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.166667,
+  "riesgo_ahora": 0,
+  "neto": 3,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": -6,
+  "neto_ult_3h": -6.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.447368,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.7,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.227273,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 15,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.966667,
+  "riesgo_ahora": 1,
+  "neto": 0,
+  "neto_ult_3h": -6.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 31.0,
+  "pct_ocupacion": 0.919355,
+  "riesgo_ahora": 1,
+  "neto": 4,
+  "neto_ult_3h": 6.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 19,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.413043,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 4.0
+ },
+ {
+  "hora_dia": 15,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -4.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 31.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.815789,
+  "riesgo_ahora": 0,
+  "neto": 7,
+  "neto_ult_3h": 10.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.409091,
+  "riesgo_ahora": 0,
+  "neto": 3,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.447368,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 15,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.413043,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.409091,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.552632,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.763158,
+  "riesgo_ahora": 0,
+  "neto": 4,
+  "neto_ult_3h": 5.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.394737,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -5.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.184211,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -5.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.7,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 15,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.543478,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 4.0
+ },
+ {
+  "hora_dia": 23,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.108696,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.9,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.369565,
+  "riesgo_ahora": 0,
+  "neto": 3,
+  "neto_ult_3h": 5.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.3,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.552632,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.3,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 15,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.233333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 31.0,
+  "pct_ocupacion": 0.080645,
+  "riesgo_ahora": 1,
+  "neto": -1,
+  "neto_ult_3h": -7.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.184211,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -4.0
+ },
+ {
+  "hora_dia": 14,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.026316,
+  "riesgo_ahora": 1,
+  "neto": -2,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -4.0
+ },
+ {
+  "hora_dia": 23,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 31.0,
+  "pct_ocupacion": 0.66129,
+  "riesgo_ahora": 0,
+  "neto": -5,
+  "neto_ult_3h": -8.0
+ },
+ {
+  "hora_dia": 14,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.227273,
+  "riesgo_ahora": 0,
+  "neto": -4,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.394737,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.763158,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 7.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 31.0,
+  "pct_ocupacion": 0.209677,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 23,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.630435,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 23,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.033333,
+  "riesgo_ahora": 1,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.833333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.456522,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 19,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.136364,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": -4.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.233333,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.590909,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.633333,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 5.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.136364,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.289474,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -4.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.3,
+  "riesgo_ahora": 0,
+  "neto": 4,
+  "neto_ult_3h": 4.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.954545,
+  "riesgo_ahora": 1,
+  "neto": -1,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.7,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.681818,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.045455,
+  "riesgo_ahora": 1,
+  "neto": -4,
+  "neto_ult_3h": -9.0
+ },
+ {
+  "hora_dia": 15,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 23,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.717391,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.657895,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -5.0
+ },
+ {
+  "hora_dia": 15,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.766667,
+  "riesgo_ahora": 0,
+  "neto": 7,
+  "neto_ult_3h": 6.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.409091,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 23,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.833333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 27.0,
+  "pct_ocupacion": 0.87037,
+  "riesgo_ahora": 0,
+  "neto": 3,
+  "neto_ult_3h": 11.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.342105,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 19,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.447368,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.833333,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 4.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.766667,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 5.0
+ },
+ {
+  "hora_dia": 15,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 27.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.236842,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -6.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 4.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.236842,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 23,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.552632,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 19,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.605263,
+  "riesgo_ahora": 0,
+  "neto": -3,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.833333,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.447368,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 14,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.1,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.552632,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.026316,
+  "riesgo_ahora": 1,
+  "neto": -5,
+  "neto_ult_3h": -9.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": -9,
+  "neto_ult_3h": -8.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.590909,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 15,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.833333,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.815789,
+  "riesgo_ahora": 0,
+  "neto": 3,
+  "neto_ult_3h": 6.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.633333,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.552632,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.233333,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.326087,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.289474,
+  "riesgo_ahora": 0,
+  "neto": -3,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.7,
+  "riesgo_ahora": 0,
+  "neto": 3,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.633333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.772727,
+  "riesgo_ahora": 0,
+  "neto": 3,
+  "neto_ult_3h": 5.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.3,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 23,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.318182,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 30.0,
+  "pct_ocupacion": 0.933333,
+  "riesgo_ahora": 1,
+  "neto": -1,
+  "neto_ult_3h": 4.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 15,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.289474,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.318182,
+  "riesgo_ahora": 0,
+  "neto": -7,
+  "neto_ult_3h": -4.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.166667,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -5.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.863636,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.409091,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.447368,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": 3,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.166667,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -4.0
+ },
+ {
+  "hora_dia": 14,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.552632,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.633333,
+  "riesgo_ahora": 0,
+  "neto": -4,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.815789,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 5.0
+ },
+ {
+  "hora_dia": 23,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.7,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.447368,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.394737,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.326087,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -4.0
+ },
+ {
+  "hora_dia": 19,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.552632,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.289474,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.7,
+  "riesgo_ahora": 0,
+  "neto": 3,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 23,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.673913,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 15,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.772727,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 5.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 15,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.394737,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.318182,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.447368,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.447368,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.7,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.233333,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.590909,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.233333,
+  "riesgo_ahora": 0,
+  "neto": 4,
+  "neto_ult_3h": 4.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.033333,
+  "riesgo_ahora": 1,
+  "neto": 0,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 23,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.590909,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 14,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.630435,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.342105,
+  "riesgo_ahora": 0,
+  "neto": -3,
+  "neto_ult_3h": -4.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.633333,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 4.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 14,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 14,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.033333,
+  "riesgo_ahora": 1,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 6,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.552632,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 3,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.318182,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.166667,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.973684,
+  "riesgo_ahora": 1,
+  "neto": 0,
+  "neto_ult_3h": 6.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.633333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 19,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.863636,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": 4.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.717391,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 7.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 23,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.3,
+  "riesgo_ahora": 0,
+  "neto": -5,
+  "neto_ult_3h": -4.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 6.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.289474,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -4.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.3,
+  "riesgo_ahora": 0,
+  "neto": -4,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.590909,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.394737,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": -4.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.590909,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.233333,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.136364,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -5.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.289474,
+  "riesgo_ahora": 0,
+  "neto": -4,
+  "neto_ult_3h": -4.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.772727,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 19,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.978261,
+  "riesgo_ahora": 1,
+  "neto": 2,
+  "neto_ult_3h": 3.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.590909,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.326087,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 19,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.657895,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 4.0
+ },
+ {
+  "hora_dia": 14,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.9,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 5.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.633333,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 19,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.166667,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 15,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.342105,
+  "riesgo_ahora": 0,
+  "neto": -9,
+  "neto_ult_3h": -13.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.552632,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.342105,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 22,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.233333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 15,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.772727,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 15,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.681818,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.552632,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.366667,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.236842,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 19,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.033333,
+  "riesgo_ahora": 1,
+  "neto": 1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 3,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 5.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.394737,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 11,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.078947,
+  "riesgo_ahora": 1,
+  "neto": 0,
+  "neto_ult_3h": -4.0
+ },
+ {
+  "hora_dia": 23,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.166667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 15,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 18,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 31.0,
+  "pct_ocupacion": 0.209677,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 9,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.136364,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 5,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 16,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.543478,
+  "riesgo_ahora": 0,
+  "neto": 13,
+  "neto_ult_3h": 23.0
+ },
+ {
+  "hora_dia": 2,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 8,
+  "dia_semana": 5,
+  "fin_de_semana": 1,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.433333,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.409091,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 14,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.763158,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 15,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 11.0,
+  "pct_ocupacion": 0.227273,
+  "riesgo_ahora": 0,
+  "neto": 2,
+  "neto_ult_3h": -1.0
+ },
+ {
+  "hora_dia": 10,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": -1,
+  "neto_ult_3h": -3.0
+ },
+ {
+  "hora_dia": 14,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.9,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 13,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.1,
+  "riesgo_ahora": 0,
+  "neto": -2,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 17,
+  "dia_semana": 0,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.633333,
+  "riesgo_ahora": 0,
+  "neto": 4,
+  "neto_ult_3h": 4.0
+ },
+ {
+  "hora_dia": 12,
+  "dia_semana": 3,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.566667,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 21,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.233333,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": -2.0
+ },
+ {
+  "hora_dia": 1,
+  "dia_semana": 6,
+  "fin_de_semana": 1,
+  "capacidad": 19.0,
+  "pct_ocupacion": 0.605263,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 2.0
+ },
+ {
+  "hora_dia": 20,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.673913,
+  "riesgo_ahora": 0,
+  "neto": 9,
+  "neto_ult_3h": 14.0
+ },
+ {
+  "hora_dia": 0,
+  "dia_semana": 2,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 1.0
+ },
+ {
+  "hora_dia": 4,
+  "dia_semana": 1,
+  "fin_de_semana": 0,
+  "capacidad": 15.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 0,
+  "neto_ult_3h": 0.0
+ },
+ {
+  "hora_dia": 7,
+  "dia_semana": 4,
+  "fin_de_semana": 0,
+  "capacidad": 23.0,
+  "pct_ocupacion": 0.5,
+  "riesgo_ahora": 0,
+  "neto": 1,
+  "neto_ult_3h": 1.0
+ }
+]
