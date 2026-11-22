@@ -138,17 +138,170 @@ Archivos principales:
 
 ## 9. Estado y limitaciones
 
-Se validaron 15 pruebas unitarias FinOps.
+El módulo FinOps cuenta con 15 pruebas unitarias aprobadas.
 
-La última ejecución de la suite del proyecto
-registró 131 pruebas aprobadas.
+La última ejecución de la suite completa del equipo
+registró 146 pruebas aprobadas y 12 advertencias.
 
-No se dispone todavía de mediciones finales
-de Locust ni de consumo de recursos.
+Se integraron las mediciones experimentales de Locust
+y Docker proporcionadas por el equipo.
 
-Por tanto, no se declara un costo por inferencia
-real medido ni una capacidad máxima validada.
+Los resultados económicos utilizan tarifas públicas
+de infraestructura y no representan gastos facturados.
 
-Los resultados económicos definitivos se
-incorporarán cuando estén disponibles las
-evidencias de las pruebas de carga.
+El costo equivalente por inferencia se calculó con
+las 5,312 predicciones exitosas registradas durante
+la prueba de carga.
+
+Para las proyecciones mensuales se utilizó la
+capacidad observada de 8.42 RPS que cumplió el SLO.
+
+La capacidad debe validarse mediante pruebas
+prolongadas antes de considerarla garantizada
+para una operación de producción.
+
+Las proyecciones suponen demanda continua,
+infraestructura fija y ausencia de costos adicionales.
+
+## 10. Resultados experimentales de Locust
+
+Las pruebas realizadas por el equipo sobre la API P2
+registraron los siguientes resultados:
+
+- Duración total: 359.1 segundos.
+- Predicciones exitosas: 5,312.
+- Predicciones fallidas: 0.
+- Rendimiento promedio global: 14.79 RPS.
+- Concurrencia máxima evaluada: 200 usuarios.
+- Latencia p95 global: 11,534.9 ms.
+
+El objetivo de servicio establecido fue una latencia
+p95 inferior a 200 ms y una tasa de errores menor al 1 %.
+
+Solo la etapa de 10 usuarios cumplió el objetivo,
+con 8.42 predicciones exitosas por segundo y una
+latencia p95 de aproximadamente 156 ms.
+
+Por tanto, los escenarios económicos se construyeron
+utilizando 8.42 RPS como capacidad observada que
+cumple el SLO, no el rendimiento promedio global.
+
+## 11. Consumo de recursos
+
+Durante la prueba completa se registraron:
+
+| Servicio | CPU promedio | RAM promedio |
+|---|---:|---:|
+| API FastAPI | 81.81 % | 246.8 MiB |
+| MLflow | 5.02 % | 1,833.1 MiB |
+
+La memoria combinada promedio fue de aproximadamente
+2.03 GiB, sin incluir necesariamente la totalidad
+del consumo del sistema operativo y otros procesos.
+
+En la etapa de 10 usuarios, la API registró un
+consumo de CPU cercano al 26.1 %.
+
+Estos resultados sugieren que la CPU de la API
+representa un factor importante bajo alta concurrencia.
+
+## 12. Costo equivalente de la prueba
+
+Se utilizó una tarifa de referencia de
+USD 0.03571 por hora.
+
+Con 359.1 segundos de duración y 5,312
+predicciones exitosas:
+
+- Costo equivalente de infraestructura: USD 0.00356207.
+- Costo equivalente por inferencia: USD 0.0000006706.
+- Costo equivalente por millón: USD 0.6706.
+
+Este importe es un equivalente económico prorrateado,
+no una factura ni un gasto real observado.
+
+La prueba incluyó etapas que no cumplieron el SLO;
+por tanto, este costo no representa una operación
+continuamente conforme al objetivo de servicio.
+
+## 13. Proyección mensual
+
+Se utilizó un costo base de infraestructura
+de USD 24 mensuales y 720 horas de operación.
+
+| Escenario | RPS | Inferencias/mes | USD/millón |
+|---|---:|---:|---:|
+| Baja | 2.105 | 5,456,160 | 4.40 |
+| Normal | 4.210 | 10,912,320 | 2.20 |
+| Alta | 8.420 | 21,824,640 | 1.10 |
+
+Los tres escenarios suponen tráfico continuo a
+la tasa indicada durante todo el mes, sin
+escalamiento de infraestructura.
+
+No se consideran impuestos, excedentes de
+transferencia ni servicios adicionales.
+
+## 14. Interpretación FinOps
+
+Los resultados evidencian que aumentar la utilización
+de una infraestructura de costo fijo reduce el costo
+unitario por inferencia.
+
+Sin embargo, maximizar las solicitudes por segundo
+no equivale a optimizar el servicio.
+
+Durante las pruebas, la API aumentó su latencia
+considerablemente a medida que creció la concurrencia,
+aunque no se registraron errores de solicitudes.
+
+Por ello, la evaluación FinOps debe considerar
+simultáneamente costo, rendimiento y calidad
+del servicio.
+
+La etapa de 10 usuarios constituye el punto de
+referencia observado que cumplió el SLO.
+
+## 15. Recomendaciones finales
+
+1. Mantener el SLO como restricción de capacidad.
+2. Dimensionar la infraestructura con base en
+   CPU, memoria y latencia p95.
+3. Evitar usar 14.79 RPS como capacidad sostenible.
+4. Monitorear periódicamente el costo por millón
+   de inferencias exitosas.
+5. Evaluar el consumo de memoria de MLflow y
+   alternativas de despliegue.
+6. Considerar mecanismos de escalamiento cuando
+   crezca la demanda.
+7. Repetir las pruebas durante periodos prolongados
+   antes de considerar una capacidad permanente.
+
+## 16. Evidencias generadas
+
+- reports/finops/escenarios_finops.csv
+- reports/finops/resultado_prueba.json
+- reports/finops/costo_por_millon.png
+- reports/finops/rendimiento_locust.png
+
+Las gráficas económicas son proyecciones FinOps.
+La gráfica de rendimiento proviene de Locust.
+
+No se presentan como resultados de Evidently.
+
+## 17. Conclusión
+
+El análisis FinOps permitió estimar el costo por
+inferencia del sistema MiBici P2 utilizando las
+mediciones de carga del equipo y una referencia
+económica documentada.
+
+El principal hallazgo es que la optimización no
+debe limitarse a reducir costos o aumentar RPS,
+sino a mantener un equilibrio entre utilización
+de infraestructura, latencia y confiabilidad.
+
+Se recomienda utilizar la capacidad observada
+de 8.42 RPS como referencia inicial para nuevas
+evaluaciones, y validar su estabilidad antes de
+adoptarla como capacidad de producción.

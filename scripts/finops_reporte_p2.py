@@ -64,7 +64,7 @@ def main():
 
     tabla = generar_escenarios(
         precio,
-        float(carga["rps_promedio"]),
+        float(parametros["capacidad_sostenible"]["rps_exitosas"]),
         horas_mes,
     )
 
