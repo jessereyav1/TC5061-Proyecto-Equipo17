@@ -835,3 +835,161 @@ Generación:
     python -m tc5061_proyecto_equipo17.monitoreo_datos ingesta-actual
     python -m tc5061_proyecto_equipo17.monitoreo_datos construir-features
     python -m tc5061_proyecto_equipo17.monitoreo_drift reporte --modo ambos
+
+## 15. Orquestación con Docker Compose (Actividad 11)
+
+Con un solo comando se levantan juntos el servidor MLflow (Model Registry) y la API del modelo P2. Sustituye los pasos manuales de la sección 13 (arrancar `mlflow server` a mano con `--allowed-hosts` y luego `docker run` con `host.docker.internal`).
+
+### 15.1. Qué levanta
+
+| Servicio | Imagen | Puerto | Función |
+|---|---|---|---|
+| `mlflow` | `mibici-p2-mlflow` (`Containerfile.mlflow`) | 5000 | Servidor MLflow: lee el registro (`mlflow.db`) y sirve los archivos del modelo (`mlartifacts/`). |
+| `api` | `mibici-p2-api` (`Containerfile`) | 8000 | API FastAPI que carga `models:/mibici-equipo17-p2-riesgo@champion` al arrancar. |
+
+Archivos de esta entrega: `docker-compose.yml`, `Containerfile.mlflow` y `.env.example`. La imagen de la API es la misma de la sección 13 (`Containerfile`, sin cambios).
+
+### 15.2. Requisitos
+
+- Docker con Docker Compose v2 (`docker compose`) o `podman-compose` (mismos comandos, cambiando `docker compose` por `podman-compose`).
+- El modelo P2 ya registrado con alias `champion`: deben existir `mlflow.db` y la carpeta `mlartifacts/` en la raíz del repositorio. Se generan al entrenar y registrar el modelo (secciones 11.5 y 11.7). No se versionan en Git.
+
+### 15.3. Levantar y probar
+
+Desde la raíz del repositorio:
+
+```bash
+docker compose up --build -d
+docker compose ps
+```
+
+La primera vez construye las dos imágenes (varios minutos); después reutiliza la caché. Cuando ambos servicios aparecen como `healthy`:
+
+```bash
+curl http://localhost:8000/
+curl -X POST http://localhost:8000/predict -H "Content-Type: application/json" -d @docs/ejemplo_prediccion.json
+```
+
+En Windows se usa `curl.exe` (en PowerShell, `curl` es un alias de otro comando). La primera petición debe mostrar `"modelo_cargado": true` y la segunda `{"prediccion":1,"probabilidad":0.9156...,"status":"success"}`. La documentación interactiva está en http://localhost:8000/docs y la interfaz de MLflow en http://localhost:5000.
+
+Para ver registros y detener el sistema:
+
+```bash
+docker compose logs -f api      # o: mlflow
+docker compose down             # elimina contenedores y red; mlflow.db y mlartifacts/ no se tocan
+```
+
+![docker compose ps con ambos servicios healthy y respuesta de /predict](docs/evidencia_compose.png)
+
+### 15.4. Configuración (variables de entorno)
+
+Se pueden cambiar sin editar `docker-compose.yml`: se copia `.env.example` como `.env` y se modifican los valores. Si no existe `.env`, se usan estos valores por defecto.
+
+| Variable | Valor por defecto | Efecto |
+|---|---|---|
+| `API_PORT` | `8000` | Puerto de la API en la máquina anfitriona. |
+| `MLFLOW_PORT` | `5000` | Puerto del servidor MLflow en la máquina anfitriona. |
+| `API_CPUS` | `1.0` | Límite de CPU del contenedor de la API. |
+| `API_MEM_LIMIT` | `1g` | Límite de memoria del contenedor de la API. |
+
+Los límites de CPU y memoria fijan el "tamaño de la instancia" de la API, de modo que las pruebas de carga y el análisis de costo (FinOps) se hagan sobre una configuración conocida.
+
+### 15.5. Decisiones de diseño
+
+- **Red propia (`mibici-net`).** Los servicios se encuentran por nombre: la API usa `MLFLOW_TRACKING_URI=http://mlflow:5000`, sin depender de `host.docker.internal`. Por eso el servidor MLflow acepta el nombre de host `mlflow:*` en `--allowed-hosts`.
+- **Orden de arranque.** La API carga el modelo solo al arrancar (sección 13.2), así que `depends_on` con `condition: service_healthy` la hace esperar a que MLflow responda en `/health`.
+- **Comprobaciones de salud.** MLflow se marca sano si responde `/health`; la API, solo si `GET /` devuelve `modelo_cargado: true`.
+- **Datos fuera de la imagen.** `mlflow.db` y `mlartifacts/` se montan desde la máquina anfitriona (con `create_host_path: false`: si faltan, Compose falla con un error claro en lugar de crear una carpeta vacía llamada `mlflow.db`). Ningún dato ni modelo se incluye en las imágenes, igual que en la sección 13.2.
+- **Servidor MLflow ligero.** `Containerfile.mlflow` instala el cliente `mlflow-skinny==3.17.0` (misma versión que usa la API y que se usó al registrar el modelo) con las dependencias mínimas del servidor, en lugar del paquete completo `mlflow`, que añade scikit-learn, scipy, pyarrow y matplotlib que un servidor de registro no usa.
+- **Usuarios sin privilegios** en ambos contenedores, y `restart: unless-stopped` en la API.
+
+### 15.6. Problemas frecuentes
+
+| Síntoma | Causa y solución |
+|---|---|
+| Error `bind source path does not exist: .../mlflow.db` | Aún no se ha entrenado y registrado el modelo P2. Ejecutar antes el entrenamiento y `register_p2` (secciones 11.5 y 11.7). |
+| `port is already allocated` (5000 u 8000) | Hay otro proceso en ese puerto: un `mlflow server` iniciado a mano o el contenedor de la sección 13 (`docker stop mibici-p2-api`). O cambiar `MLFLOW_PORT` / `API_PORT` en `.env`. |
+| La API queda `unhealthy` o con `modelo_cargado: false` | Revisar `docker compose logs api` y `docker compose logs mlflow`. Comprobar que el alias `champion` existe en el registro. Tras corregirlo: `docker compose restart api`. |
+| La construcción de `mlflow` se corta por red | Repetir `docker compose up --build -d`; `pip` ya reintenta con tiempos de espera largos. |
+
+### 15.7. Limitaciones
+
+- El sistema depende de que existan localmente `mlflow.db` y `mlartifacts/`; en una máquina o en el CI sin ellos, Compose no puede levantar el registro.
+- El registro usa SQLite, suficiente para este uso académico; en producción se recomendaría una base de datos servidor (por ejemplo, PostgreSQL).
+- No incluye Redis ni worker de RQ (opcional en la actividad).
+
+
+## 16. Integración continua y publicación de imágenes (Actividad 12)
+
+[![CI - pruebas y construcción de imagen](https://github.com/jessereyav1/TC5061-Proyecto-Equipo17/actions/workflows/ci.yml/badge.svg)](https://github.com/jessereyav1/TC5061-Proyecto-Equipo17/actions/workflows/ci.yml)
+
+El workflow `.github/workflows/ci.yml` automatiza la verificación del proyecto en GitHub Actions. Se dispara con un `push` a `main` o a `feat/ci-tests-build`, con cada `pull_request` hacia `main` y de forma manual mediante `workflow_dispatch`.
+
+### 16.1. Jobs
+
+| Job | Qué hace |
+|---|---|
+| `tests` | Instala `requirements-test.txt` con Python 3.10 y ejecuta `python -m pytest tests -v`. Genera `reports/junit.xml` y lo publica como artifact `junit-results`, incluso si las pruebas fallan. Además escribe un resumen en `$GITHUB_STEP_SUMMARY` con el commit, el estado del job y el artifact. |
+| `build` | Se ejecuta como matriz de dos jobs (`Construir imagen mibici-p2-api` y `Construir imagen mibici-p2-mlflow`), ambos con `needs: tests`. Cada uno valida `docker-compose.yml` con `docker compose config -q`, construye su imagen desde el `Containerfile` correspondiente y escribe su resumen con el Dockerfile y los tags publicados. En cualquier `push` a las ramas configuradas (`main` y `feat/ci-tests-build`) o en ejecuciones manuales publica en GitHub Container Registry; en `pull_request` solo construye (`push: false`). Usa caché de GitHub Actions con scopes separados (`api` y `mlflow`) y `fail-fast: false`. |
+
+Si falla cualquier prueba, los jobs `build` no corren: primero se valida el código y después se construyen las imágenes.
+
+#### Publicación en GitHub Container Registry
+
+- El workflow usa `permissions: packages: write` y el `GITHUB_TOKEN` del repositorio, así que no se necesitan secrets adicionales.
+- `docker/login-action@v3` se ejecuta en cualquier `push` y en ejecuciones manuales; se omite únicamente en `pull_request` (`if: github.event_name != 'pull_request'`).
+- Las imágenes publicadas son:
+  - `ghcr.io/jessereyav1/mibici-p2-api:latest` y `ghcr.io/jessereyav1/mibici-p2-api:<sha>`
+  - `ghcr.io/jessereyav1/mibici-p2-mlflow:latest` y `ghcr.io/jessereyav1/mibici-p2-mlflow:<sha>`
+- Se pueden consultar en la pestaña **Packages** del repositorio. El botón **Run workflow** aparece cuando este archivo ya existe en `main` (requisito de GitHub para `workflow_dispatch`); antes del merge basta con hacer `push` a `feat/ci-tests-build` para publicar.
+
+#### Resumen y optimizaciones
+
+- Los pasos de resumen usan `if: always()`, así que el informe aparece incluso si una etapa falla.
+- La matriz construye ambas imágenes en paralelo; `fail-fast: false` evita que un fallo en una cancele la otra.
+- Cada job de la matriz genera su propio resumen dentro de la pestaña del run.
+- La publicación se controla con `github.event_name != 'pull_request'`: los PR solo validan y construyen, sin usar credenciales de escritura en el registro.
+
+### 16.2. Reproducirlo en local
+
+Desde la raíz del repositorio:
+
+    python -m pip install -r requirements-test.txt
+    python -m pytest tests -v
+    docker compose config -q
+    docker build -f Containerfile -t mibici-p2-api:ci-local .
+    docker build -f Containerfile.mlflow -t mibici-p2-mlflow:ci-local .
+
+No se ejecuta `docker compose up` en CI: en 15.7 se explica que el registro necesita `mlflow.db` y `mlartifacts/` locales, que no se versionan. El workflow solo valida la sintaxis del compose y construye las imágenes. La publicación en GHCR tampoco ocurre en local: solo la hace GitHub en un `push` a las ramas configuradas o en un run manual.
+
+### 16.3. Evidencia
+
+El resultado se consulta en la pestaña **Actions** del repositorio. La captura muestra el run con `Pruebas unitarias` y los dos jobs de la matriz en verde, el paso `Iniciar sesión en GHCR` exitoso, el artifact `junit-results` disponible y los resúmenes de pruebas e imágenes. Los paquetes publicados se verifican en la pestaña **Packages**.
+
+![Workflow de CI con pruebas y builds en verde](docs/evidencia_ci.png)
+
+> El badge comenzará a mostrar el estado real únicamente cuando este workflow ya esté presente en `main`.
+
+## 17. Prueba de carga con Locust y consumo de recursos (Actividad 11)
+
+Escenario en `carga/locustfile.py`: operadores que consultan el riesgo de estaciones con
+1,000 entradas reales de julio de 2025 (90 % `POST /predict` válido, 5 % entradas inválidas
+que deben dar 422 y 5 % `GET /`), en escalones de 10 a 200 usuarios durante 6 minutos.
+Mientras corre se toma `docker stats` cada 2 s.
+
+Con el sistema levantado (sección 15):
+
+```bash
+pip install -r requirements-carga.txt
+python -m tc5061_proyecto_equipo17.carga ejecutar
+```
+
+Genera en `reports/carga/` el reporte HTML de Locust, los CSV, `resumen_carga.md` y
+`resumen_carga.json` (mismos campos que `reports/finops/parametros.json`), y las gráficas
+`reports/figures/carga_linea_tiempo.png`, `carga_saturacion.png` y `carga_recursos.png`.
+
+Resultado con la API limitada a 1 vCPU y 1 GB: la API se satura en ~16 predicciones/s,
+cumple el objetivo de p95 ≤ 200 ms hasta ~8 predicciones/s (10 usuarios) y no tuvo errores
+ni con 200 usuarios. La CPU de la API llega al 97 % y su memoria se queda en ~250 MiB;
+MLflow casi no usa CPU pero ocupa ~1.8 GB. Análisis, diagnóstico y optimizaciones en
+`docs/pruebas_carga.md`.
