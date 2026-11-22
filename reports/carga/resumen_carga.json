@@ -1,0 +1,28 @@
+{
+  "prueba_carga": {
+    "duracion_segundos": 359.1,
+    "peticiones_exitosas": 5312,
+    "peticiones_fallidas": 0,
+    "rps_promedio": 14.79,
+    "latencia_p95_ms": 11534.9,
+    "latencia_p50_ms": 4273.5,
+    "concurrencia_maxima": 200,
+    "peticiones_totales_todas_las_rutas": 5910
+  },
+  "recursos": {
+    "api_cpu_promedio_pct": 81.81,
+    "api_ram_promedio_mb": 246.8,
+    "mlflow_cpu_promedio_pct": 5.02,
+    "mlflow_ram_promedio_mb": 1833.1
+  },
+  "capacidad_sostenible": {
+    "usuarios": 10,
+    "rps_exitosas": 8.42,
+    "latencia_p95_ms": 156.0,
+    "api_cpu_pct": 26.1
+  },
+  "slo": {
+    "latencia_p95_ms": 200.0,
+    "tasa_error_maxima": 0.01
+  }
+}
