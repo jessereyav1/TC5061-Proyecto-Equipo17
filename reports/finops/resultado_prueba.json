@@ -1,0 +1,10 @@
+{
+  "costo_periodo_usd": 0.0035620725,
+  "inferencias_exitosas": 5312,
+  "costo_por_inferencia_usd": 6.705708772590361e-07,
+  "inferencias_por_dolar": 1491266.6712988014,
+  "duracion_segundos": 359.1,
+  "tarifa_referencia_usd_hora": 0.03571,
+  "costo_por_millon_usd": 0.6705708772590361,
+  "tipo_resultado": "Estimacion prorrateada, no costo facturado"
+}
